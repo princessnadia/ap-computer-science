@@ -23,7 +23,7 @@ public class Paint
         DecimalFormat thdc = new DecimalFormat ("0.###");
         final int cov = 350;  //paint covers 350 sq ft/gal
 
-        int ln, wd, hi;
+        int ln, wd, hi, dr, wn;
 
         double tlSqFt;
 
@@ -36,11 +36,15 @@ public class Paint
         System.out.print("How wide is the room? "); wd = scan.nextInt();
 
         System.out.print("How high is the room? "); hi = scan.nextInt();
+        
+        System.out.print("How many doors are in the room? "); dr = scan.nextInt();
+        
+        System.out.print("How many windows are in the room? "); wn = scan.nextInt();
 
         double lw = (ln * wd);
         double lh = 2 * (ln * hi);
         double wh = 2 * (wd * hi);
-        tlSqFt = lw + lh + wh;
+        tlSqFt = (lw + lh + wh) - (20 * dr) - (15 * wn);
 
         pnRq = tlSqFt / cov;
 

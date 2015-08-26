@@ -30,17 +30,17 @@ public class LabGrade
 
         // Declare variables
 
-        double preLabPts;    //number of points earned on the pre-lab assignment
+        int preLabPts;    //number of points earned on the pre-lab assignment
 
-        double preLabMax;    //maximum number of points possible for pre-lab
+        int preLabMax;    //maximum number of points possible for pre-lab
 
-        double labPts;       //number of poitns earned on the lab
+        int labPts;       //number of poitns earned on the lab
 
-        double labMax;       //maximum number of points possible for lab
+        int labMax;       //maximum number of points possible for lab
 
-        double postLabPts;   //number of points earned on the post-lab assignment
+        int postLabPts;   //number of points earned on the post-lab assignment
 
-        double postLabMax;   //maximum number of points possible for the post-lab
+        int postLabMax;   //maximum number of points possible for the post-lab
 
         double outClassAvg;  //average on the out of class (pre and post) work
 
@@ -101,11 +101,11 @@ public class LabGrade
 
         // Calculate the average for the out of class work
 
-        outClassAvg = ((preLabPts + postLabPts) / (preLabMax + postLabMax)) * 100;
+        outClassAvg = (((double)preLabPts + (double)postLabPts) / ((double)preLabMax + (double)postLabMax)) * 100.0;
 
         // Calculate the average for the in-class work
 
-        inClassAvg = labPts / labMax * 100;
+        inClassAvg = (double)labPts / labMax * 100;
 
         // Calculate the weighted average taking 40% of the out-of-class average
 
@@ -115,13 +115,13 @@ public class LabGrade
 
         // Print the results
 
-        System.out.println("Your average on out-of-class work is " + outClassAvg + "%");
+        System.out.println("Your average on out-of-class work is " + df.format(outClassAvg) + "%");
 
-        System.out.println("Your average on in-class work is " + inClassAvg + "%");
+        System.out.println("Your average on in-class work is " + df.format(inClassAvg) + "%");
 
-        System.out.println(IN_WEIGHT + "% of the grade was based on in-class work");
+        System.out.println((100 * IN_WEIGHT) + "% of the grade was based on in-class work");
 
-        System.out.println(OUT_WEIGHT + "% of the grade was based on out-of-class work");
+        System.out.println((100 * OUT_WEIGHT) + "% of the grade was based on out-of-class work");
 
         System.out.println("Your lab grade is " + df.format(labGrade) + "%");
 
