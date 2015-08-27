@@ -105,7 +105,7 @@ public class LabGrade
 
         // Calculate the average for the in-class work
 
-        inClassAvg = (double)labPts / labMax * 100;
+        inClassAvg = (double)labPts / (double)labMax * 100.0;
 
         // Calculate the weighted average taking 40% of the out-of-class average
 
