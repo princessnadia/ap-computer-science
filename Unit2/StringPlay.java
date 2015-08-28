@@ -9,7 +9,7 @@ public class StringPlay
    {
       String college = new String ("PoDunk College");
 
-      String town = new String ("Anytown, USA"); // part (a)
+      String town = new String (" Anytown, USA"); // part (a)
 
       int stringLength;
       String change1, change2, change3; 
@@ -22,7 +22,7 @@ public class StringPlay
 
       change2 = college.replace("O", "*"); // part (d)
 
-      change3 = "whatever"; // part (e)
+      change3 = college.concat(town); // part (e)
 
       System.out.println ("The final string is " + change3);
     }
