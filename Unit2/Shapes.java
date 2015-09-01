@@ -6,8 +6,6 @@
 
 import javax.swing.JApplet;
 
-import java.util.*;
-
 import java.awt.*;
 
 public class Shapes extends JApplet {
@@ -15,7 +13,7 @@ public class Shapes extends JApplet {
     public void paint (Graphics page){
 
     {
-     Random gen = new Random(); 
+
      // Declare variables
 
      int x, y;    // x and y coordinates of upper left-corner of each shape
@@ -36,7 +34,7 @@ public class Shapes extends JApplet {
 
      // Set the color for the next shape to be drawn
 
-     page.setColor(new Color(gen.nextInt(255),gen.nextInt(255),gen.nextInt(255)));
+     page.setColor(Color.blue);
 
      // Draw the rectangle
 
@@ -48,7 +46,7 @@ public class Shapes extends JApplet {
 
      
 
-     page.setColor(new Color(gen.nextInt(255),gen.nextInt(255),gen.nextInt(255)));
+     page.setColor(Color.red);
 
      page.drawOval(100, 120, 50, 60);
 
@@ -60,7 +58,7 @@ public class Shapes extends JApplet {
 
      
 
-     page.setColor(new Color(gen.nextInt(255),gen.nextInt(255),gen.nextInt(255)));
+     page.setColor(new Color(100, 150, 210));
 
      //RGB of red 100, green 150, blue 210, max number is 255
 
@@ -76,13 +74,13 @@ public class Shapes extends JApplet {
 
      
 
-     page.setColor(new Color(gen.nextInt(255),gen.nextInt(255),gen.nextInt(255)));
+     page.setColor(Color.black);
 
      page.drawString("Hello", 30, 30);
 
      //print Hello at the point (30, 30)
 
-     page.setColor(new Color(gen.nextInt(255),gen.nextInt(255),gen.nextInt(255)));
+     page.setColor(Color.green);
 
      page.drawLine(20, 50, 40, 110);
 
@@ -91,4 +89,5 @@ public class Shapes extends JApplet {
     }
 
 }
+
 }
