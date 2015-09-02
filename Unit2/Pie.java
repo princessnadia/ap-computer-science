@@ -13,9 +13,11 @@ public class Pie extends JApplet {
     {
      
      
-     int x,y;
-     Font f = new Font("Segoe UI", Font.PLAIN, 26);
+     Font f = new Font("Segoe UI", Font.BOLD, 20);
+     Font g = new Font("Segoe UI", Font.BOLD, 16);
+     page.setFont(g);
      int wd,ht;
+     int x,y;
      
      x = 50;
      y = 150;
@@ -24,15 +26,19 @@ public class Pie extends JApplet {
      
      page.setColor(new Color(216, 0, 0));
      page.fillArc(x, y, wd, ht, 90, -126);
-     page.drawString("
+     page.drawString("RENT AND UTILITIES - 35%", 290, 200);
      page.setColor(new Color(0, 216, 0));
      page.fillArc(x, y, wd, ht, 270, 54);
+     page.drawString("TRANSPORTATION - 15%", 250, 400);
      page.setColor(new Color(0, 0, 216));
      page.fillArc(x, y, wd, ht, 216, 54);
+     page.drawString("FOOD - 15%", 10, 400);
      page.setColor(new Color(216, 216, 0));
      page.fillArc(x, y, wd, ht, 126, 90);
+     page.drawString("EDU. - 25%", 5, 180);
      page.setColor(new Color(0, 216, 216));
      page.fillArc(x, y, wd, ht, 90, 36);
+     page.drawString("MISC. - 10%", 50, 150);
 
      //(250, 200) is the top left of a box around the oval
 
@@ -44,7 +50,7 @@ public class Pie extends JApplet {
      
      page.setColor(Color.black);
      page.setFont(f);
-     page.drawString("Household Spending on Various Expenses", 10, 30);
+     page.drawString("HOUSEHOLD SPENDING ON VARIOUS EXPENSES", 20, 30);
     }
 }
 }
