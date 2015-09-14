@@ -24,7 +24,7 @@ public class Dates
 
       int mm = 0, dd = 0, yy = 0, ddimm = 0;
 
-      boolean mmv, yyv, ddv, lyy;
+      boolean mmv = false, yyv = false, ddv = false, lyy = false;
 
       Scanner inp = new Scanner(System.in);
 
@@ -66,6 +66,7 @@ public class Dates
 
       if (dd <= ddimm) ddv = true;
 
+      System.out.println("Input date is " + yy + "/" + mm + "/" + dd);
       if (ddv && mmv && yyv) System.out.print("Date is valid!");
       else System.out.print("Date is invalid!");
  
