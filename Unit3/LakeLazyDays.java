@@ -8,19 +8,19 @@ public class LakeLazyDays
        Random gen = new Random();
        int a;
        String b;
-       System.out.println("----- Welcome to Lake Lazy Days Resort! -----");
-       System.out.println("We'll decide on the activity depending on the weather.");
-       System.out.print("How warm is it today?: ");
+       System.out.println("----- Lake Lazy Days Resortへようこそ! -----");
+       System.out.println("活性は, 天候に基づいています.");
+       System.out.print("温度は何ですか?: ");
        a = inp.nextInt();
-       if (a > 70) b = "hot";
-       else if (a >= 40 && a <= 70) b = "nice";
-       else b = "cold";
+       if (a > 70) b = "熱い";
+       else if (a >= 40 && a <= 70) b = "暖かい";
+       else b = "寒い";
        // System.out.println("temp desc var is " + b + "\ntemp int var is " + a);
-       if (a > 95 || a < 20) System.out.println("Oops, it's too " + b + " to do anything. Visit our shops!");
-       else System.out.print("It's pretty " + b + " today! ");
-       if (a >= 80 && a <= 95) System.out.print("Our pool is open, go swimming!");
-       else if (a < 80 && a >= 60) System.out.print("Grab a racket and play tennis!");
-       else if (a < 60 && a >= 40) System.out.print("Fore! Play some golf!");
-       else if (a < 40 && a >= 20) System.out.print("Is it snowing? Our ski slope is open!");
+       if (a > 95 || a < 20) System.out.println("何もできない、それはあまりにも" + b + "です. ショップをご覧ください!");
+       else System.out.print("やや" + b + "です! ");
+       if (a >= 80 && a <= 95) System.out.print("水泳プールに行くぜ!");
+       else if (a < 80 && a >= 60) System.out.print("テニスを遊ぶ！");
+       else if (a < 60 && a >= 40) System.out.print("ゴルフを遊ぶ!");
+       else if (a < 40 && a >= 20) System.out.print("スキーに行くぜ!");
     }
 }

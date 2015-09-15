@@ -51,7 +51,7 @@ public class Dates
       //Determine number of days in month
           switch (mm) {
               case 1: ddimm = 31; break;
-              case 2: ddimm = 28; break;
+              case 2: if (lyy) ddimm = 29; else ddimm = 28; break;
               case 3: ddimm = 31; break;
               case 4: ddimm = 30; break;
               case 5: ddimm = 31; break;
@@ -66,7 +66,7 @@ public class Dates
 
       if (dd <= ddimm) ddv = true;
 
-      System.out.println("Input date is " + yy + "/" + mm + "/" + dd);
+      System.out.println("input date is " + yy + "/" + mm + "/" + dd);
       if (ddv && mmv && yyv) System.out.print("Date is valid!");
       else System.out.print("Date is invalid!");
  
