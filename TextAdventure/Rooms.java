@@ -1,4 +1,3 @@
-package TextAdventure;
 public class Rooms
 {
     public String roomdesc(String desc)

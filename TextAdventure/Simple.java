@@ -3,9 +3,7 @@
  * a simple, one-room text "adventure". excuse the coding
  */
 
-package TextAdventure;
 import java.util.*;
-import TextAdventure.Rooms;
 
 public class Simple
 {
@@ -18,7 +16,7 @@ public class Simple
       String[] ipcm;
       String ip;
       boolean ipcp = false;
- 
+      Rooms rm = new Rooms();
       Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
 
       Random gen = new Random(0x73a56f);
