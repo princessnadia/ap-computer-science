@@ -23,7 +23,6 @@ public class Simple
       em = gen.nextInt(5001);
       ps = gen.nextInt(9999);
       
-      System.out.println("You are in a plain room, flooded by light above. There is a DOOR behind you, and a NOTE to your left.");
       
         do {
             System.out.print("> ");
@@ -34,20 +33,50 @@ public class Simple
       
             switch(ipcm[0]) {
                 case "help":
-                    System.out.println("success");
+                    System.out.println("commands are:\nlook <north, east, south, west, up, down, around>\nuse <item>\nexamine <item>");
                     break;
                 case "fi":
                     fi = true;
+                    System.out.println("bye");
                     break;
-                case "cplx":
+                case "look":
                     if(ipcm.length > 1) {
                         switch(ipcm[1]) {
-                            case "usagi":
-                                System.out.println("usagi tsukino");
+                            case "north":
+                                System.out.println("it's just a brick wall, nothing interesting");
+                                break;
+                            case "east":
+                                System.out.println("a (mirror) hangs on the wall.");
+                                break;
+                            case "north":
+                                System.out.println("");
+                                break;
+                            case "north":
+                                System.out.println("it's just a brick wall, nothing interesting");
+                                break;
+                            case "north":
+                                System.out.println("it's just a brick wall, nothing interesting");
+                                break;
+                            case "north":
+                                System.out.println("it's just a brick wall, nothing interesting");
+                                break;
+                            case "around":
+                                System.out.println(rooms.roomDesc(desc));
                                 break;
                         }
                     } else {
-                        System.out.println("kazuto kirigaya");
+                        System.out.println("look where?");
+                    }
+                    break;
+                case "examine":
+                    if(ipcm.length > 1) {
+                        switch(ipcm[1]) {
+                            case "mirror":
+                                System.out.println("you see a girl with long, blue hair, and a diamond-like face. you see her smile.");
+                                break;
+                        }
+                    } else {
+                        System.out.println("examine what?");
                     }
                     break;
                 default:
