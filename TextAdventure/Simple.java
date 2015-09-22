@@ -3,7 +3,9 @@
  * a simple, one-room text "adventure". excuse the coding
  */
 
+package TextAdventure;
 import java.util.*;
+import TextAdventure.Rooms;
 
 public class Simple
 {
@@ -48,16 +50,16 @@ public class Simple
                             case "east":
                                 System.out.println("a (mirror) hangs on the wall.");
                                 break;
-                            case "north":
+                            case "south":
                                 System.out.println("");
                                 break;
-                            case "north":
+                            case "west":
                                 System.out.println("it's just a brick wall, nothing interesting");
                                 break;
-                            case "north":
+                            case "up":
                                 System.out.println("it's just a brick wall, nothing interesting");
                                 break;
-                            case "north":
+                            case "down":
                                 System.out.println("it's just a brick wall, nothing interesting");
                                 break;
                             case "around":
