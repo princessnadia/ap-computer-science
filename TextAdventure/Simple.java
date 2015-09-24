@@ -16,7 +16,6 @@ public class Simple
       String[] ipcm;
       String ip;
       boolean ipcp = false;
-      Rooms rm = new Rooms();
       Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
 
       Random gen = new Random(0x73a56f);
@@ -25,6 +24,7 @@ public class Simple
       
       
         do {
+            Rooms rm = new Rooms(rmX,rmY);
             System.out.print("> ");
 
             ip = inp.next();
@@ -61,7 +61,7 @@ public class Simple
                                 System.out.println("it's just a brick wall, nothing interesting");
                                 break;
                             case "around":
-                                System.out.println(rooms.roomDesc(desc));
+                                System.out.println("you are in a plain room, flooded by light above. there is a (door) behind you, and a (note) to your left.");
                                 break;
                         }
                     } else {
