@@ -1,4 +1,6 @@
 #BlueJ class context
 comment0.params=rmX\ rmY
 comment0.target=Rooms(int,\ int)
-numComments=1
+comment1.params=
+comment1.target=java.lang.String\ desc()
+numComments=2

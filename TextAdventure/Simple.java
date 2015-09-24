@@ -43,25 +43,25 @@ public class Simple
                     if(ipcm.length > 1) {
                         switch(ipcm[1]) {
                             case "north":
-                                System.out.println("it's just a brick wall, nothing interesting");
+                                System.out.println("it's just a wall, nothing interesting.");
                                 break;
                             case "east":
                                 System.out.println("a (mirror) hangs on the wall.");
                                 break;
                             case "south":
-                                System.out.println("");
+                                System.out.println("there's a huge (door) with a (keypad) to its left.");
                                 break;
                             case "west":
-                                System.out.println("it's just a brick wall, nothing interesting");
+                                System.out.println("the (note) is stuck on the wall with clumsy adhesive.");
                                 break;
                             case "up":
-                                System.out.println("it's just a brick wall, nothing interesting");
+                                System.out.println("the light is enough to blind you, but you don't look right at it.");
                                 break;
                             case "down":
-                                System.out.println("it's just a brick wall, nothing interesting");
+                                System.out.println("a plain floor. your body creates a shadow on it.");
                                 break;
                             case "around":
-                                System.out.println("you are in a plain room, flooded by light above. there is a (door) behind you, and a (note) to your left.");
+                                System.out.println(rm.desc());
                                 break;
                         }
                     } else {
