@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.params=rmX\ rmY
 comment0.target=Rooms(int,\ int)
-numComments=1
+comment1.params=look
+comment1.target=java.lang.String\ getDetail(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getDesc()
+numComments=3
