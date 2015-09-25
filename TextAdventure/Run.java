@@ -17,12 +17,12 @@ public class Run
         boolean ipcp = false;
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
 
-        Random gen = new Random(0x73a56f);
+        Random gen = new Random();
         em = gen.nextInt(5001);
         ps = gen.nextInt(9999);
 
         do {
-            Rooms rm = new Rooms(rmX,rmY);
+            Rooms rm = new Rooms(rmX,rmY,em,ps);
             System.out.print("> ");
 
             ip = inp.next();
@@ -46,13 +46,16 @@ public class Run
                 break;
                 case "examine":
                 if(ipcm.length > 1) {
-                    switch(ipcm[1]) {
-                        case "mirror":
-                        System.out.println("you see a girl with long, blue hair, and a diamond-like face. you see her smile.");
-                        break;
-                    }
+                        System.out.println(rm.getItemDetail(ipcm[1]));
                 } else {
                     System.out.println("examine what?");
+                }
+                break;
+                case "use":
+                if(ipcm.length > 1) {
+                    System.out.println(rm.getDetail(ipcm[1]));
+                } else {
+                    System.out.println("use what?");
                 }
                 break;
                 default:
