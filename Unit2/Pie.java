@@ -13,8 +13,8 @@ public class Pie extends JApplet {
     {
      
      
-     Font f = new Font("Segoe UI", Font.BOLD, 20);
-     Font g = new Font("Segoe UI", Font.BOLD, 16);
+     Font f = new Font("SAO UI", Font.BOLD, 36);
+     Font g = new Font("SAO UI", Font.BOLD, 24);
      page.setFont(g);
      int wd,ht;
      int x,y;
