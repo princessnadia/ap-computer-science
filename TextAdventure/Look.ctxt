@@ -1,10 +1,8 @@
 #BlueJ class context
 comment0.params=rmX\ rmY\ em\ ps
-comment0.target=Rooms(int,\ int,\ int,\ int)
+comment0.target=Look(int,\ int,\ int,\ int)
 comment1.params=look
 comment1.target=java.lang.String\ getDetail(java.lang.String)
 comment2.params=it
 comment2.target=java.lang.String\ getItemDetail(java.lang.String)
-comment3.params=
-comment3.target=java.lang.String\ getDesc()
-numComments=4
+numComments=3

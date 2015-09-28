@@ -22,7 +22,7 @@ public class Run
         ps = gen.nextInt(9999);
 
         do {
-            Rooms rm = new Rooms(rmX,rmY,em,ps);
+            Look exm = new Look(rmX,rmY,em,ps);
             System.out.print("> ");
 
             ip = inp.next();
@@ -39,21 +39,21 @@ public class Run
                 break;
                 case "look":
                 if(ipcm.length > 1) {
-                        System.out.println(rm.getDetail(ipcm[1]));
+                        System.out.println(exm.getDetail(ipcm[1]));
                 } else {
                     System.out.println("look where?");
                 }
                 break;
                 case "examine":
                 if(ipcm.length > 1) {
-                        System.out.println(rm.getItemDetail(ipcm[1]));
+                        System.out.println(exm.getItemDetail(ipcm[1]));
                 } else {
                     System.out.println("examine what?");
                 }
                 break;
                 case "use":
                 if(ipcm.length > 1) {
-                    System.out.println(rm.getDetail(ipcm[1]));
+                    System.out.println(exm.getDetail(ipcm[1]));
                 } else {
                     System.out.println("use what?");
                 }
