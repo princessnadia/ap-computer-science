@@ -9,7 +9,7 @@ public class Run
 {
     public static void main(String[] args)
     {
-        int rmX = 0, rmY=0;    // unused
+        int rmX = 0, rmY=0, emi=0;    // 
         int em, ps; // employee id, password
         boolean fi = false;
         String[] ipcm;
@@ -52,8 +52,11 @@ public class Run
                 }
                 break;
                 case "use":
-                if(ipcm.length > 1) {
-                    System.out.println(exm.getDetail(ipcm[1]));
+                if(ipcm.length > 1) 
+                {
+                    emi = exm.getItemId(ipcm[1]);
+                    System.out.println(emi);
+                    Use use = new Use(rmX,rmY,emi);
                 } else {
                     System.out.println("use what?");
                 }

@@ -1,33 +1,42 @@
-
-/**
- * Write a description of class Use here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Use
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
-    /**
-     * Constructor for objects of class Use
-     */
-    public Use()
+    private int rmuX, rmuY, emiu;
+    public boolean[] items = new boolean[255];
+    public Use(int rmX, int rmY, int emi)
     {
-        // initialise instance variables
-        x = 0;
+        rmuX = rmX;
+        rmuY = rmY;
+        emiu = emi;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public String runItem(int emi)
     {
-        // put your code here
-        return x + y;
+        String statement = "";
+        if (rmuX == 0 && rmuY == 0) {
+            
+            switch(emi) {
+            case 0:
+                if (items[3])
+                {
+                    items[1] = true;
+                    System.out.println("the door opens when you put the code in.");
+                } else {
+                    System.out.println("what's the code?");
+                }
+                break;
+            case 1:
+                if (items[3])
+                {
+                    items[1] = true;
+                    System.out.println("the door opens when you put the code in.");
+                } else {
+                    System.out.println("what's the code?");
+                }
+                break;
+            default:
+                System.out.println("use what?");
+                break;
+           }
+        }
+        return statement;
     }
 }

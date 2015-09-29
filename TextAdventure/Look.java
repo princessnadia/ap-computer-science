@@ -1,12 +1,13 @@
 public class Look
 {
+    private int rmX, rmY, itemu;
     private String desc, nord, sud, est, ouest, up, dn;
     private String[] item = new String[255];
     private String[] itemd = new String[255];
     public Look(int rmX, int rmY, int em, int ps)
     {
         if (rmX == 0 && rmY == 0) {
-            desc = "you are in a plain room, flooded by light from a bulb. there is a (door) behind you, and a (note) to your left.";
+            desc = "you are in a plain room, flooded by light from a bulb. there is a (door) behind you, and a (note) to your left.\nyou are facing north.";
             nord = "a wall here. boring.";
             est = "a (mirror) hangs on the wall.";
             sud = "the (door) is huge. the (keypad) installer must've been compensating for something.";
@@ -46,5 +47,16 @@ public class Look
                 }
             } 
         return itemr;
+    }
+    public int getItemId(String it)
+    {
+        String itemr = "";
+        for (int emi = 0; emi < 255; emi++) {
+              if (it.equals(item[emi])) {
+                  itemu = emi;
+                  break;
+                }
+            } 
+        return itemu;
     }
 }

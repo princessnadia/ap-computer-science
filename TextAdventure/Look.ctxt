@@ -5,4 +5,6 @@ comment1.params=look
 comment1.target=java.lang.String\ getDetail(java.lang.String)
 comment2.params=it
 comment2.target=java.lang.String\ getItemDetail(java.lang.String)
-numComments=3
+comment3.params=it
+comment3.target=int\ getItemId(java.lang.String)
+numComments=4

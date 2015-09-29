@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=rmX\ rmY\ emi
+comment0.target=Use(int,\ int,\ int)
+comment1.params=emi
+comment1.target=java.lang.String\ runItem(int)
+numComments=2
