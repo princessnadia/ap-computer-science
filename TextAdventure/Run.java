@@ -57,6 +57,7 @@ public class Run
                     emi = exm.getItemId(ipcm[1]);
                     System.out.println(emi);
                     Use use = new Use(rmX,rmY,emi);
+                    use.runItem(emi,em,ps);
                 } else {
                     System.out.println("use what?");
                 }
