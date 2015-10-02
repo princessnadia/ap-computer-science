@@ -7,10 +7,10 @@ import java.util.*;
 
 public class Run
 {
+    public static int em, ps; // employee id, password
     public static void main(String[] args)
     {
         int rmX = 0, rmY=0, emi=0;    // 
-        int em, ps; // employee id, password
         boolean fi = false;
         String[] ipcm;
         String ip;
@@ -20,7 +20,7 @@ public class Run
         Random gen = new Random();
         em = gen.nextInt(5001);
         ps = gen.nextInt(9999);
-
+        
         do {
             Look exm = new Look(rmX,rmY,em,ps);
             System.out.print("> ");
@@ -39,14 +39,14 @@ public class Run
                 break;
                 case "look":
                 if(ipcm.length > 1) {
-                        System.out.println(exm.getDetail(ipcm[1]));
+                    System.out.println(exm.getDetail(ipcm[1]));
                 } else {
                     System.out.println("look where?");
                 }
                 break;
                 case "examine":
                 if(ipcm.length > 1) {
-                        System.out.println(exm.getItemDetail(ipcm[1]));
+                    System.out.println(exm.getItemDetail(ipcm[1]));
                 } else {
                     System.out.println("examine what?");
                 }
@@ -55,7 +55,6 @@ public class Run
                 if(ipcm.length > 1) 
                 {
                     emi = exm.getItemId(ipcm[1]);
-                    System.out.println(emi);
                     Use use = new Use(rmX,rmY,emi);
                     use.runItem(emi,em,ps);
                 } else {
