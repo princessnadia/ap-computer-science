@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=tlX\ tlY
+comment0.target=Encounter(int,\ int)
+comment1.params=tlX\ tlY
+comment1.target=void\ tile(int,\ int)
+numComments=2

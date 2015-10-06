@@ -10,8 +10,8 @@ public class Run
     public static void main(String[] args)
     {
         Items itm = new Items();
-        //Encounter mon = new Encounter();
-        int tlX, tlY, emi; 
+
+        int tlX = 0, tlY = 0, emi; 
         tlX = 0;
         tlY = 0;
         emi = 0;
@@ -21,17 +21,14 @@ public class Run
         boolean ipcp = false;
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         do {
-
+            Encounter mon = new Encounter(tlX,tlY);
             System.out.print("> ");
             ip = inp.next();
+            ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("commands are:\ngo <north, east, west, south>\nuse <item>\ndesc <item>\n");
-                break;
-                case "fi":
-                fi = true;
-                System.out.println("bye");
+                System.out.println("Commands are:\ngo <north, east, west, south>\nuse <item>\ndesc <item>\nlookup <item>\n");
                 break;
                 case "go":
                 if(ipcm.length > 1) {
@@ -40,20 +37,26 @@ public class Run
                         case "south": tlY--; break;
                         case "east": tlX++; break;
                         case "west": tlX--; break;
-                        default: System.out.println("go where?"); break;
+                        default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
-                    System.out.println("at (" + tlX + ", " + tlY + ")");
-                    //mon.tile(tlX,tlY);
+                    mon.tile(tlX,tlY);
+                    System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
                 } else {
-                    System.out.println("go where?");
+                    System.out.println("Go which way? <north, south, east, west>");
                 }
                 break;
                 case "desc":
                 if(ipcm.length > 1) {
-                    itm.getDetail(ipcm[1]);
-
+                    System.out.println(itm.getDesc(ipcm[1]));
                 } else {
-                    System.out.println("get description of which item?");
+                    System.out.println("Describe which item?");
+                }
+                break;
+                case "lookup":
+                if(ipcm.length > 1) {
+                    System.out.println(itm.getDetail(ipcm[1]));
+                } else {
+                    System.out.println("Look which item up?");
                 }
                 break;
                 /*
@@ -66,10 +69,11 @@ public class Run
                 System.out.println("use what?");
                 }
                 break;
-                default:
-                System.out.println("command not found");
-                break;
                  */
+                default:
+                System.out.println("Command not found!");
+                break;
+
             }
 
         } while(!fi);
