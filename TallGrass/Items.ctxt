@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=Items()
-comment1.params=it
-comment1.target=java.lang.String\ getItemDesc(java.lang.String)
-comment2.params=it
-comment2.target=int\ getItemId(java.lang.String)
-numComments=3
