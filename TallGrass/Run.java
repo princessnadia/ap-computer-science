@@ -42,7 +42,7 @@ public class Run
                         case "west": tlX--; break;
                         default: System.out.println("go where?"); break;
                     }
-                    System.out.println(tlX + "," + tlY);
+                    System.out.println("at (" + tlX + ", " + tlY + ")");
                     //mon.tile(tlX,tlY);
                 } else {
                     System.out.println("go where?");
