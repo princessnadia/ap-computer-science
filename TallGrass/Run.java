@@ -9,15 +9,18 @@ public class Run
 {
     public static void main(String[] args)
     {
-	Items itm = new Items();
-	Encounter mon = new Encounter();
-        int tlX = 0, tlY=0, emi=0; 
+        Items itm = new Items();
+        //Encounter mon = new Encounter();
+        int tlX, tlY, emi; 
+        tlX = 0;
+        tlY = 0;
+        emi = 0;
         boolean fi = false;
         String[] ipcm;
         String ip;
         boolean ipcp = false;
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
-         do {
+        do {
 
             System.out.print("> ");
             ip = inp.next();
@@ -32,34 +35,40 @@ public class Run
                 break;
                 case "go":
                 if(ipcm.length > 1) {
-                    if (ipcm[1] == "north") tlY++;
-                    if (ipcm[1] == "south") tlY--;
-                    if (ipcm[1] == "east") tlX++;
-                    if (ipcm[1] == "west") tlX--;
-		    mon.tile(tlX,tlY);
+                    switch (ipcm[1]) {
+                        case "north": tlY++;
+                        case "south": tlY--;
+                        case "east": tlX++;
+                        case "west": tlX--;
+                    }
+                    System.out.println(tlX + "," + tlY);
+                    //mon.tile(tlX,tlY);
                 } else {
                     System.out.println("go where?");
                 }
                 break;
                 case "desc":
                 if(ipcm.length > 1) {
-                    System.out.println(itm.getItemDetail(ipcm[1]));
+                    itm.getDetail(ipcm[1]);
+
                 } else {
-		    System.out.println("get description of which item?");
+                    System.out.println("get description of which item?");
                 }
                 break;
+                /*
                 case "use":
                 if(ipcm.length > 1) 
                 {
-                    emi = exm.getItemId(ipcm[1]);
-                    use.runItem(emi,em,ps);
+                emi = exm.getItemId(ipcm[1]);
+                use.runItem(emi,em,ps);
                 } else {
-                    System.out.println("use what?");
+                System.out.println("use what?");
                 }
                 break;
                 default:
                 System.out.println("command not found");
                 break;
+                 */
             }
 
         } while(!fi);
