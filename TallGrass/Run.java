@@ -36,10 +36,11 @@ public class Run
                 case "go":
                 if(ipcm.length > 1) {
                     switch (ipcm[1]) {
-                        case "north": tlY++;
-                        case "south": tlY--;
-                        case "east": tlX++;
-                        case "west": tlX--;
+                        case "north": tlY++; break;
+                        case "south": tlY--; break;
+                        case "east": tlX++; break;
+                        case "west": tlX--; break;
+                        default: System.out.println("go where?"); break;
                     }
                     System.out.println(tlX + "," + tlY);
                     //mon.tile(tlX,tlY);
