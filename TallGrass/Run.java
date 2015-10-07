@@ -7,6 +7,7 @@ import java.util.*;
 
 public class Run
 {
+    public static int money = 0;
     public static void main(String[] args)
     {
         Items itm = new Items();
@@ -28,7 +29,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ngo <north, east, west, south>\nuse <item>\ndesc <item>\nlookup <item>\n");
+                System.out.println("Commands are:\ngo <north, east, west, south>\nuse <item>\ndesc <item>\nlookup <item>\nRemember: the catalogue shows you every item!");
                 break;
                 case "go":
                 if(ipcm.length > 1) {
@@ -59,17 +60,14 @@ public class Run
                     System.out.println("Look which item up?");
                 }
                 break;
-                /*
                 case "use":
                 if(ipcm.length > 1) 
                 {
-                emi = exm.getItemId(ipcm[1]);
-                use.runItem(emi,em,ps);
+                itm.useItem(ipcm[1]);
                 } else {
-                System.out.println("use what?");
+                System.out.println("Use what item?");
                 }
                 break;
-                 */
                 default:
                 System.out.println("Command not found!");
                 break;
