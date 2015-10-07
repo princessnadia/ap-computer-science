@@ -2,8 +2,6 @@ import java.util.*;
 public class Items
 {
     private static Scanner inp = new Scanner(System.in); 
-    private int rmX, rmY, itemu;
-    private String north, south, east, west;
     public static Hashtable tm1 = new Hashtable(); // item name
     public static Hashtable tm2 = new Hashtable(); // item description
     public static Hashtable tm3 = new Hashtable(); // item price
@@ -14,7 +12,7 @@ public class Items
         tm1.put(1,"catalogue"); tm2.put(1,"It's a simple catalogue. Its title is \"Things in the Tall Grass.\""); tm3.put(1,150); tm4.put(1,"It's readable."); tm5.put(1,1);
         tm1.put(2,"bandage"); tm2.put(2,"A pack of bandages that closes your wounds."); tm3.put(2,100); tm4.put(2,"Restores 100 HP."); tm5.put(2,3);
         tm1.put(3,"energydrink"); tm2.put(3,"It's a small bottle of some drink that gives you pep."); tm3.put(3,250); tm4.put(3,"Restores 100 AP."); tm5.put(3,2);
-        tm1.put(4,"dontusethis"); tm2.put(4,"Don't use this. Seriously."); tm3.put(4,30); tm4.put(4,"Yeah, don't use it."); tm5.put(4,1);
+        tm1.put(4,"dontusethis"); tm2.put(4,"Don't use this. Seriously."); tm3.put(4,30); tm4.put(4,"Yeah, don't use it."); tm5.put(4,0);
         tm1.put(5,"teleporter"); tm2.put(5,"A small crystal that you can easily crush."); tm3.put(5,1000); tm4.put(5,"Teleports you back to (0, 0)."); tm5.put(5,10);
         tm1.put(6,"wallet"); tm2.put(6,"It's just a plain leather wallet."); tm3.put(6,0); tm4.put(6,"Holds the pennies you get from monsters."); tm5.put(6,1);
         tm1.put(514,"money"); tm2.put(514,"THIS SHOULD BE HIDDEN!"); tm3.put(514,1); tm4.put(514,"Shows how rich you are."); tm5.put(514,100);
@@ -67,6 +65,8 @@ public class Items
             System.out.println("\f");
             break;
             case 2:
+            if ((Run.hp + 100) > Run.maxhp) Run.hp = Run.maxhp;
+            else Run.hp += 100;
             System.out.println("Healed!");
             break;
             case 6:
@@ -77,16 +77,30 @@ public class Items
             break;
         }
     }
+
     public int getMoney()
     {
         int money;
         money = (int)tm5.get(514);
         return money;
     }
+
     public void setMoney(int offset)
     {
         int money;
         money = (int)tm5.get(514);
         tm5.put(514,money + offset);
+    }
+
+    public void getInv()
+    {
+        boolean done = false;
+        System.out.print("\fITEM / DESCRIPTION / VALUE / EFFECT\n");
+        for (int emi = 1; emi < 513; emi++) {
+            if (tm1.get(emi) != null && (int)tm5.get(emi) != 0) System.out.println((String) tm1.get(emi) + " / " + (String) tm2.get(emi) + " / " + tm3.get(emi) + " / " + tm4.get(emi));
+        }
+        System.out.println("-- Press Enter/Return to return --");
+
+        
     }
 }
