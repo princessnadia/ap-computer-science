@@ -7,15 +7,19 @@ import java.util.*;
 
 public class Run
 {
-    public static int hp = 100, maxhp = 100, ap = 25, maxap = 25, tlX = 0, tlY = 0, emi = 0;
+    public static int hp = 100, maxhp = 150, ap = 25, maxap = 40, enc = 150, tlX = 0, tlY = 0, emi = 0;
     public static void main(String[] args)
     {
         Items itm = new Items();
         boolean fi = false;
         String[] ipcm;
-        String ip;
+        String ip, name;
         boolean ipcp = false;
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
+        // System.out.print("Enter character name: ");
+        // name = inp.next();
+        System.out.println("DEBUG: skipping character naming!");
+        name = "Marlene";
         do {
             Encounter mon = new Encounter();
             System.out.print("> ");
@@ -24,7 +28,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <north, east, west, south>\nuse <item>\ndesc <item>\nlookup <item>\nRemember: the catalogue shows you every item!");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nRemember: the catalog shows you every item!");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -32,14 +36,14 @@ public class Run
                 case "go":
                 if(ipcm.length > 1) {
                     switch (ipcm[1]) {
-                        case "north": tlY++; break;
-                        case "south": tlY--; break;
-                        case "east": tlX++; break;
-                        case "west": tlX--; break;
+                        case "n": tlY++; break;
+                        case "s": tlY--; break;
+                        case "e": tlX++; break;
+                        case "w": tlX--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
                     mon.tile();
-                    System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
+                    System.out.println("(" + tlX + ", " + tlY + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
                 }
@@ -69,16 +73,12 @@ public class Run
                 case "inv":
                 itm.getInv();
                 break;
-                /*
-                case "rich":
-                if(ipcm.length > 1) 
-                {
-                itm.setMoney(Integer.parseInt(ipcm[1]));
-                } else {
-                System.out.println("Give yourself how much money?");
-                }
+                case "money":
+                itm.useItem("wallet");
+                break;         
+                case "stats":
+                System.out.println("Name: " + name + "\nHP: " + hp + "/" + maxhp + "\nAP: " + ap + "/" + maxap);
                 break;
-                 */                
                 default:
                 System.out.println("Command not found!");
                 break;
