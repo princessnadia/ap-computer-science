@@ -4,12 +4,15 @@
  */
 
 import java.util.*;
+import java.io.*;
 
 public class Run
 {
     public static int hp = 100, maxhp = 150, ap = 25, maxap = 40, enc = 150, tlX = 0, tlY = 0, emi = 0;
-    public static void main(String[] args)
+    public static void main(String[] args) throws FileNotFoundException, IOException
     {
+        File fle = new File("save.txt");
+        FileWriter save = new FileWriter("save.txt");
         Items itm = new Items();
         boolean fi = false;
         String[] ipcm;
@@ -21,14 +24,14 @@ public class Run
         System.out.println("DEBUG: skipping character naming!");
         name = "Marlene";
         do {
-            Encounter mon = new Encounter();
+            Tile til = new Tile();
             System.out.print("> ");
             ip = inp.next();
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nRemember: the catalog shows you every item!");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -42,7 +45,7 @@ public class Run
                         case "w": tlX--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
-                    mon.tile();
+                    til.tile();
                     System.out.println("(" + tlX + ", " + tlY + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
@@ -74,17 +77,28 @@ public class Run
                 itm.getInv();
                 break;
                 case "money":
-                itm.useItem("wallet");
+                itm.getMoney();
                 break;         
                 case "stats":
-                System.out.println("Name: " + name + "\nHP: " + hp + "/" + maxhp + "\nAP: " + ap + "/" + maxap);
+                System.out.println("Name: " + name + "\nHP: " + hp + "/" + maxhp + "\nAP: " + ap + "/" + maxap + "\nWG: " + itm.getEnc() + "/" + enc);
+                break;
+                case "quit":
+                fi = true;
+                save.write("");
+                for(int i = 1; i < 515; i++) {
+                    int owned, id;
+                    if(Items.iownd.get(i) == null) owned = 0;
+                    else owned = (int)Items.iownd.get(i);
+                    save.append(i + "," + owned + "\n");
+                }
+                save.append(name + "\n");
+                save.close();
+                System.out.println("Saved and quit!");
                 break;
                 default:
                 System.out.println("Command not found!");
                 break;
-
             }
-
         } while(!fi);
     }
 }

@@ -8,6 +8,7 @@ public class Items
     public static Hashtable iwght = new Hashtable(); // item price
     public static Hashtable ieffc = new Hashtable(); // item effect description
     public static Hashtable iownd = new Hashtable(); // amount owned
+    public static int twght;
     public Items()
     {
         iname.put(1,"catalog"); idesc.put(1,"It's a simple catalog. Its title is \"Things in the Tall Grass.\""); ivalu.put(1,150); iwght.put(1,3); ieffc.put(1,"It's readable."); iownd.put(1,1);
@@ -15,7 +16,6 @@ public class Items
         iname.put(3,"energydrink"); idesc.put(3,"It's a small bottle of some drink that gives you pep."); ivalu.put(3,250); iwght.put(3,1); ieffc.put(3,"Restores 100 AP."); iownd.put(3,2);
         iname.put(4,"dontusethis"); idesc.put(4,"Don't use this. Seriously."); ivalu.put(4,30); iwght.put(4,10); ieffc.put(4,"Yeah, don't use it."); iownd.put(4,0);
         iname.put(5,"teleporter"); idesc.put(5,"A small crystal that you can easily crush."); ivalu.put(5,1000); iwght.put(5,5); ieffc.put(5,"Teleports you back to (0, 0)."); iownd.put(5,10);
-        iname.put(6,"wallet"); idesc.put(6,"It's just a plain leather wallet."); ivalu.put(6,0); iwght.put(6,0); ieffc.put(6,"Holds the pennies you get from monsters."); iownd.put(6,1);
         iname.put(514,"money"); idesc.put(514,"THIS SHOULD BE HIDDEN!"); ivalu.put(514,1); iwght.put(514,0); ieffc.put(514,"STILL HIDDEN!"); iownd.put(514,100);
     }
 
@@ -49,16 +49,14 @@ public class Items
             case 1:
             boolean done = false;
             int idc = 1;
-            System.out.print("\fITEM / DESCRIPTION / PRICE / EFFECT\n");
+            System.out.print("\fITEM / DESCRIPTION / VALUE / WEIGHT / EFFECT\n");
             do {
                 if (!iname.containsKey(idc + 5)) done = true;
-                System.out.print("\fITEM / DESCRIPTION / PRICE / EFFECT\n");
-                System.out.println((String) iname.get(idc) + " / " + (String) idesc.get(idc) + " / " + ivalu.get(idc) + " / " + ieffc.get(idc));
-                System.out.println((String) iname.get(idc + 1) + " / " + (String) idesc.get(idc + 1) + " / " + ivalu.get(idc + 1) + " / " + ieffc.get(idc + 1));
-                System.out.println((String) iname.get(idc + 2) + " / " + (String) idesc.get(idc + 2) + " / " + ivalu.get(idc + 2) + " / " + ieffc.get(idc + 2));
-                System.out.println((String) iname.get(idc + 3) + " / " + (String) idesc.get(idc + 3) + " / " + ivalu.get(idc + 3) + " / " + ieffc.get(idc + 3));
-                System.out.println((String) iname.get(idc + 4) + " / " + (String) idesc.get(idc + 4) + " / " + ivalu.get(idc + 4) + " / " + ieffc.get(idc + 4));
-                if(!done) System.out.println("-- Press Enter/Return to scroll --");
+                System.out.print("\fITEM / DESCRIPTION / VALUE / WEIGHT / EFFECT\n");
+                for(int i = 0; i < 5; i++) {
+                    System.out.println((String) iname.get(idc + i) + " / " + (String) idesc.get(idc + i) + " / " + ivalu.get(idc + i) + " / " + iwght.get(idc + i) + " / " + ieffc.get(idc + i));
+                }
+                if(!done) System.out.println("-- Press Enter/Return = Scroll --");
                 else System.out.println("-- Press Enter/Return to return --");
                 inp.nextLine();
                 idc++;
@@ -70,20 +68,17 @@ public class Items
             else Run.hp += 100;
             System.out.println("Healed!");
             break;
-            case 6:
-            System.out.println("You have " + getMoney() + " pennies");
-            break;
             default:
             System.out.println("Use what item?");
             break;
         }
     }
 
-    public int getMoney()
+    public void getMoney()
     {
         int money;
         money = (int)iownd.get(514);
-        return money;
+        System.out.println("You have " + money + " pennies!");
     }
 
     public void setMoney(int offset)
@@ -101,15 +96,16 @@ public class Items
             if (iname.get(emi) != null && (int)iownd.get(emi) != 0) System.out.println((String) iname.get(emi) + " / " + (String) idesc.get(emi) + " / " + ivalu.get(emi) + " / " + ieffc.get(emi) + " / " + iownd.get(emi));
         }
     }
-    
+
     public int getEnc() {
         int[] itwgt = new int[513];
         for (int emi = 1; emi < 513; emi++) {
             if (iname.get(emi) != null) itwgt[emi] = (int)iwght.get(emi) * (int)iownd.get(emi);
-            
+
         }
-        for (int i = 1; emi < 513; emi+= 2) {
-            
+        for (int i = 1; i < 513; i++) {
+            if (iname.get(i) != null) twght += itwgt[i];
         }
+        return twght;
     }
 }
