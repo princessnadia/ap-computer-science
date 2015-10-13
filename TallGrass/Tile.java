@@ -21,9 +21,9 @@ public class Tile
         if (rng <= 5) {
             do {
                 rni = gen.nextInt(513);
-            } while (Items.iname.get(rni) == null);
-            Items.iownd.put(rni,((int)Items.iownd.get(rni)+1));
-            System.out.println("You found a " + Items.iname.get(rni) + "!");
+            } while (Data.pname.get(rni) == null);
+            Data.pownd.put(rni,((int)Data.pownd.get(rni)+1));
+            System.out.println("You found a " + Data.pname.get(rni) + "!");
         }
     }
 }
