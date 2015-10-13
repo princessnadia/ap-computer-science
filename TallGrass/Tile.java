@@ -8,7 +8,7 @@ public class Tile
     int rni;
     public Tile()
     {
-        Random gen = new Random(Run.tlX + Run.tlY);
+        Random gen = new Random((int)Data.pownd.get(521) + (int)Data.pownd.get(521));
     }
 
     public void tile()

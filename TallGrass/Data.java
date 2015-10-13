@@ -17,7 +17,14 @@ public class Data
         pname.put(4,"dontusethis"); pdesc.put(4,"Don't use this. Seriously."); pvalu.put(4,30); pwght.put(4,10); peffc.put(4,"Yeah, don't use it."); pownd.put(4,0);
         pname.put(5,"teleporter"); pdesc.put(5,"A small crystal that you can easily crush."); pvalu.put(5,1000); pwght.put(5,5); peffc.put(5,"Teleports you back to (0, 0)."); pownd.put(5,10);
         pname.put(514,"money"); pdesc.put(514,"THIS SHOULD BE HIDDEN!"); pvalu.put(514,1); pwght.put(514,0); peffc.put(514,"STILL HIDDEN!"); pownd.put(514,100);
-        pname.put(515,"name"); pdesc.put(515,Run.name);
+        pname.put(515,"name"); pownd.put(515,"Marlene");
+        pname.put(516,"hp"); pownd.put(516,100);
+        pname.put(517,"maxhp"); pownd.put(517,150);
+        pname.put(518,"ap"); pownd.put(518,25);
+        pname.put(519,"maxap"); pownd.put(519,40);
+        pname.put(520,"enc"); pownd.put(520,150);
+        pname.put(521,"tlX"); pownd.put(521,0);
+        pname.put(522,"tlY"); pownd.put(522,0);
     }
 
     public String getDesc(String it)
@@ -65,8 +72,8 @@ public class Data
             System.out.println("\f");
             break;
             case 2:
-            if ((Run.hp + 100) > Run.maxhp) Run.hp = Run.maxhp;
-            else Run.hp += 100;
+            if (((int)pownd.get(516) + 100) > (int)pownd.get(517)) pownd.put(516,(int)pownd.get(517));
+            else pownd.put(516, (int)pownd.get(516) + 100);
             System.out.println("Healed!");
             break;
             default:
@@ -99,6 +106,7 @@ public class Data
     }
 
     public int getEnc() {
+        twght = 0;
         int[] itwgt = new int[513];
         for (int emi = 1; emi < 513; emi++) {
             if (pname.get(emi) != null) itwgt[emi] = (int)pwght.get(emi) * (int)pownd.get(emi);
