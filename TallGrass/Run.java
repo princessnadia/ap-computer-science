@@ -9,7 +9,7 @@ import java.io.*;
 public class Run
 {
     public static String name;
-    public static int emi = 0;
+    public static int tlX = 0, tlY = 0, emi = 0;
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
         boolean fi = false;
@@ -25,24 +25,28 @@ public class Run
         do {
             switch (saveon) {
                 case "y": 
-                    savefi = true;
-                    try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
-                        String line;
-                        while ((line = br.readLine()) != null) {
-                            String[] linecm = line.split(",");
-                            System.out.println(linecm[1]);
-                            dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
-                        }
+                savefi = true;
+                try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        String[] linecm = line.split(",");
+                        System.out.println(linecm[0] + "," + linecm[1]);
+                        dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
                     }
-                    name = (String)Data.pownd.get(515);
-                    break;
+                    if(dat.pownd.get(522) == null) {
+                        System.out.print("Name not found!\nEnter character name: ");
+                        name = inp.next();
+                    }
+                }
+                name = (String)Data.pownd.get(522);
+                break;
                 case "n":
-                    savefi = true;
-                    System.out.print("Enter character name: ");
-                    name = inp.next();
-                    break;
+                savefi = true;
+                System.out.print("Enter character name: ");
+                name = inp.next();
+                break;
                 default:
-                    System.out.print("\n(y/n): ");
+                System.out.print("\n(y/n): ");
             }
         } while (!savefi);
         FileWriter save = new FileWriter("save.txt");
@@ -57,19 +61,19 @@ public class Run
                 System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
                 break;
                 case "tile":
-                System.out.println("You are standing in (" + (int)Data.pownd.get(521) + ", " + (int)Data.pownd.get(522) + ")");
+                System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
                 break;
                 case "go":
                 if(ipcm.length > 1) {
                     switch (ipcm[1]) {
-                        case "n": Data.pownd.put(521,(int)Data.pownd.get(521) + 1); break;
-                        case "s": Data.pownd.put(521,(int)Data.pownd.get(521) - 1); break;
-                        case "e": Data.pownd.put(522,(int)Data.pownd.get(522) + 1); break;
-                        case "w": Data.pownd.put(522,(int)Data.pownd.get(522) - 1); break;
+                        case "n": tlX++; break;
+                        case "s": tlX--; break;
+                        case "e": tlY++; break;
+                        case "w": tlY--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
                     til.tile();
-                    System.out.println("(" + (int)Data.pownd.get(521) + ", " + (int)Data.pownd.get(522) + ")");
+                    System.out.println("(" + tlX + ", " + tlY + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
                 }
@@ -103,25 +107,24 @@ public class Run
                 dat.getMoney();
                 break;         
                 case "stats":
-                System.out.println("Name: " + name + "\nPennies: " + Data.pownd.get(514) + "\nHP: " + Data.pownd.get(516) + "/" + Data.pownd.get(517) + "\nAP: " + Data.pownd.get(518) + "/" + Data.pownd.get(519) + "\nWeight: " + dat.getEnc() + "/" + Data.pownd.get(520));
+                System.out.println("Name: " + name + "\nPennies: " + Data.pownd.get(514) + "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + "\nWeight: " + dat.getEnc() + "/" + Data.pownd.get(521));
                 break;
                 case "quit":
                 fi = true;
                 save.write("");
                 for(int i = 1; i < 515; i++) {
-                    int owned, id;
-                    if(Data.pownd.get(i) == null) owned = 0;
-                    else owned = (int)Data.pownd.get(i);
+                    Object owned;
+                    if(Data.pownd.get(i) == null) owned = "0";
+                    else owned = Data.pownd.get(i);
+                    System.out.println(i + "," + owned);
                     save.append(i + "," + owned + "\n");
                 }
-                save.append(515 + "," + name + "\n");
-                save.append(516 + "," + Data.pownd.get(516) + "\n");
+                save.append(522 + "," + name + "\n");
                 save.append(517 + "," + Data.pownd.get(517) + "\n");
                 save.append(518 + "," + Data.pownd.get(518) + "\n");
                 save.append(519 + "," + Data.pownd.get(519) + "\n");
                 save.append(520 + "," + Data.pownd.get(520) + "\n");
                 save.append(521 + "," + Data.pownd.get(521) + "\n");
-                save.append(522 + "," + Data.pownd.get(522) + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
                 break;

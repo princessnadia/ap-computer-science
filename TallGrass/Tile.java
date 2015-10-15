@@ -15,7 +15,7 @@ public class Tile
     public static Hashtable mdrp = new Hashtable(); // monster drop (item id)
     public Tile()
     {
-        Random gen = new Random((int)Data.pownd.get(521) + (int)Data.pownd.get(521));
+        Random gen = new Random(Run.tlX + Run.tlY);
         // 0 is an example
         // mnam.put(0,"");  mdes.put(0,"");  mmhp.put(0,0);     mmap.put(0,0);  moff.put(0,0);  mdef.put(0,0);  mdrp.put(0,0);
         mnam.put(1,"Frenzy Boar");              mdes.put(1,"A simple, angry pig.");                                 mmhp.put(1,50);     mmap.put(1,10);     moff.put(1,15);     mdef.put(1,10);  mdrp.put(1,0);
