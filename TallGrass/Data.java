@@ -102,7 +102,7 @@ public class Data
         }
     }
 
-    public int getEnc() {
+    public static int getEnc() {
         twght = 0;
         int[] itwgt = new int[513];
         for (int emi = 1; emi < 513; emi++) {

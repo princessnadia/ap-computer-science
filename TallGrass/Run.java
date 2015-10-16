@@ -22,32 +22,37 @@ public class Run
         Data dat = new Data();
         System.out.print("Load save data? (WARNING: Answering no will wipe your save!) (y/n): ");
         saveon = inp.next();
-        do {
-            switch (saveon) {
-                case "y": 
-                savefi = true;
-                try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
-                    String line;
-                    while ((line = br.readLine()) != null) {
-                        String[] linecm = line.split(",");
-                        System.out.println(linecm[0] + "," + linecm[1]);
+        switch (saveon) {
+            case "y": 
+            savefi = true;
+            try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] linecm = line.split(",");
+                    // System.out.println(linecm[0] + "," + linecm[1]);
+                    if (Integer.parseInt(linecm[0]) <= 521) {
+                        dat.pownd.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
+                    }
+                    else {
                         dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
                     }
-                    if(dat.pownd.get(522) == null) {
-                        System.out.print("Name not found!\nEnter character name: ");
-                        name = inp.next();
-                    }
                 }
-                name = (String)Data.pownd.get(522);
-                break;
-                case "n":
-                savefi = true;
-                System.out.print("Enter character name: ");
-                name = inp.next();
-                break;
-                default:
-                System.out.print("\n(y/n): ");
             }
+            if(dat.pownd.get(522) == null) {
+                System.out.print("Name not found!\nEnter character name: ");
+                name = inp.next();
+            }
+            else {
+                name = (String)Data.pownd.get(522);
+            }
+            break;
+            case "n":
+            savefi = true;
+            System.out.print("Enter character name: ");
+            name = inp.next();
+            break;
+            default:
+            System.out.print("\n(y/n): ");
         } while (!savefi);
         FileWriter save = new FileWriter("save.txt");
         do {
@@ -66,10 +71,10 @@ public class Run
                 case "go":
                 if(ipcm.length > 1) {
                     switch (ipcm[1]) {
-                        case "n": tlX++; break;
-                        case "s": tlX--; break;
-                        case "e": tlY++; break;
-                        case "w": tlY--; break;
+                        case "n": tlY++; break;
+                        case "s": tlY--; break;
+                        case "e": tlX++; break;
+                        case "w": tlX--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
                     til.tile();
@@ -107,17 +112,30 @@ public class Run
                 dat.getMoney();
                 break;         
                 case "stats":
-                System.out.println("Name: " + name + "\nPennies: " + Data.pownd.get(514) + "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + "\nWeight: " + dat.getEnc() + "/" + Data.pownd.get(521));
+                System.out.println("Name: " + name + 
+                    "\nPennies: " + Data.pownd.get(514) + 
+                    "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + 
+                    "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + 
+                    "\nWeight: " + dat.getEnc() + "/" + Data.pownd.get(521) + 
+                    "\nTile: (" + tlX + ", " + tlY + ")");
+                break;
+                case "battle":
+                if(ipcm.length > 1) 
+                {
+                    til.battle(Integer.parseInt(ipcm[1]));
+                } else {
+                    System.out.println("start a battle against?");
+                }
                 break;
                 case "quit":
                 fi = true;
                 save.write("");
                 for(int i = 1; i < 515; i++) {
                     Object owned;
-                    if(Data.pownd.get(i) == null) owned = "0";
+                    if(Data.pownd.get(i) == null) owned = 0;
                     else owned = Data.pownd.get(i);
-                    System.out.println(i + "," + owned);
-                    save.append(i + "," + owned + "\n");
+                    // System.out.println(i + "," + owned);
+                    save.append(i + "," + (int)owned + "\n");
                 }
                 save.append(522 + "," + name + "\n");
                 save.append(517 + "," + Data.pownd.get(517) + "\n");

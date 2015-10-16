@@ -5,6 +5,7 @@ public class Tile
     private static Scanner inp = new Scanner(System.in); 
     private static Random gen = new Random();
     private static int rng;
+    private static boolean cfi = false;
     private static int rni;
     public static Hashtable mnam = new Hashtable(); // monster name
     public static Hashtable mdes = new Hashtable(); // monster description
@@ -30,13 +31,13 @@ public class Tile
 
     public void tile()
     {
-        rng = gen.nextInt(100);
+        rng = gen.nextInt(50);
         System.out.println(rng);
-        if (rng >= 90) {
+        if (rng >= 40) {
             do {
                 rni = gen.nextInt(513);
             } while (mnam.get(rni) == null);
-            System.out.println("You would have encountered a " + mnam.get(rni) + ".");
+            battle(rni);
         }
         if (rng <= 5) {
             do {
@@ -45,5 +46,41 @@ public class Tile
             Data.pownd.put(rni,((int)Data.pownd.get(rni)+1));
             System.out.println("You found a " + Data.pname.get(rni) + "!");
         }
+    }
+
+    public void battle(int mid)
+    {
+        System.out.println("You encounter " + mnam.get(mid) + "!");
+        String[] ipcm;
+        String ip;
+        do {
+            System.out.print("> ");
+            ip = inp.next();
+            ip = ip.toLowerCase();
+            ipcm = ip.split("\\s+");
+            switch(ipcm[0]) {
+                case "help":
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
+                break;
+                case "test":
+                System.out.println("Success!");
+                break;
+                case "stats":
+                System.out.println("Name: " +Run.name + 
+                    "\nPennies: " + Data.pownd.get(514) + 
+                    "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + 
+                    "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + 
+                    "\nWeight: " + Data.getEnc() + "/" + Data.pownd.get(521) + 
+                    "\nCombat against: " + mnam.get(mid));
+                break;
+                case "break":
+                cfi = true;
+                System.out.println("broke from battle");
+                break;
+                default:
+                System.out.println("Command not found!");
+                break;
+            }
+        } while (!cfi);
     }
 }
