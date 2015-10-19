@@ -12,48 +12,52 @@ public class Run
     public static int tlX = 0, tlY = 0, emi = 0;
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
-        boolean fi = false;
+        boolean fi = false, ipcp = false, savefi = false, shortcut = true;
         String[] ipcm;
-        String ip;
-        boolean ipcp = false;
-        String saveon = "";
-        boolean savefi = false;
+        String ip, saveon = "";
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         Data dat = new Data();
-        System.out.print("Load save data? (WARNING: Answering no will wipe your save!) (y/n): ");
-        saveon = inp.next();
-        switch (saveon) {
-            case "y": 
-            savefi = true;
-            try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
-                String line;
-                while ((line = br.readLine()) != null) {
-                    String[] linecm = line.split(",");
-                    // System.out.println(linecm[0] + "," + linecm[1]);
-                    if (Integer.parseInt(linecm[0]) <= 521) {
-                        dat.pownd.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
-                    }
-                    else {
-                        dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
+        if (!shortcut) {
+            System.out.print("Load save data? (WARNING: Answering no will wipe your save!) (y/n): ");
+            saveon = inp.next();
+            switch (saveon) {
+                case "y": 
+                savefi = true;
+                try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
+                    String line;
+                    while ((line = br.readLine()) != null) {
+                        String[] linecm = line.split(",");
+                        // System.out.println(linecm[0] + "," + linecm[1]);
+                        if (Integer.parseInt(linecm[0]) <= 521) {
+                            dat.pownd.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
+                        }
+                        else {
+                            dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
+                        }
                     }
                 }
-            }
-            if(dat.pownd.get(522) == null) {
-                System.out.print("Name not found!\nEnter character name: ");
+                if(dat.pownd.get(522) == null) {
+                    System.out.print("Name not found!\nEnter character name: ");
+                    name = inp.next();
+                }
+                else {
+                    name = (String)Data.pownd.get(522);
+                }
+                break;
+                case "n":
+                savefi = true;
+                System.out.print("Enter character name: ");
                 name = inp.next();
-            }
-            else {
-                name = (String)Data.pownd.get(522);
-            }
-            break;
-            case "n":
-            savefi = true;
-            System.out.print("Enter character name: ");
-            name = inp.next();
-            break;
-            default:
-            System.out.print("\n(y/n): ");
-        } while (!savefi);
+                break;
+                default:
+                System.out.print("\n(y/n): ");
+            } while (!savefi);
+            FileWriter save = new FileWriter("save.txt");
+        }
+        else {
+            name = "Marlene";
+            System.out.println("skipping load process");
+        }
         FileWriter save = new FileWriter("save.txt");
         do {
             Tile til = new Tile();

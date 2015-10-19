@@ -60,9 +60,10 @@ public class Tile
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
+                System.out.println("Commands are:\nattack\nuse <item>\n");
                 break;
-                case "test":
+                case "attack":
+                
                 System.out.println("Success!");
                 break;
                 case "stats":
