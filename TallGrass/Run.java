@@ -28,20 +28,20 @@ public class Run
                     while ((line = br.readLine()) != null) {
                         String[] linecm = line.split(",");
                         // System.out.println(linecm[0] + "," + linecm[1]);
-                        if (Integer.parseInt(linecm[0]) <= 521) {
-                            dat.pownd.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
+                        if (Integer.parseInt(linecm[0]) != 10001) {
+                            dat.pamnt.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
                         }
                         else {
-                            dat.pownd.put(Integer.parseInt(linecm[0]),linecm[1]);
+                            dat.pamnt.put(Integer.parseInt(linecm[0]),linecm[1]);
                         }
                     }
                 }
-                if(dat.pownd.get(522) == null) {
+                if(dat.pamnt.get(522) == null) {
                     System.out.print("Name not found!\nEnter character name: ");
                     name = inp.next();
                 }
                 else {
-                    name = (String)Data.pownd.get(522);
+                    name = (String)Data.pamnt.get(522);
                 }
                 break;
                 case "n":
@@ -67,7 +67,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\ndesc <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -85,13 +85,6 @@ public class Run
                     System.out.println("(" + tlX + ", " + tlY + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
-                }
-                break;
-                case "desc":
-                if(ipcm.length > 1) {
-                    System.out.println(dat.getDesc(ipcm[1]));
-                } else {
-                    System.out.println("Describe which item?");
                 }
                 break;
                 case "lookup":
@@ -117,10 +110,10 @@ public class Run
                 break;         
                 case "stats":
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data.pownd.get(514) + 
-                    "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + 
-                    "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + 
-                    "\nWeight: " + dat.getEnc() + "/" + Data.pownd.get(521) + 
+                    "\nPennies: " + Data.pamnt.get(1001) + 
+                    "\nHP: " + Data.pamnt.get(1002) + "/" + Data.pamnt.get(1003) + 
+                    "\nAP: " + Data.pamnt.get(1004) + "/" + Data.pamnt.get(1005) + 
+                    "\nWeight: " + dat.getEnc() + "/" + Data.pamnt.get(1006) + 
                     "\nTile: (" + tlX + ", " + tlY + ")");
                 break;
                 case "battle":
@@ -134,19 +127,14 @@ public class Run
                 case "quit":
                 fi = true;
                 save.write("");
-                for(int i = 1; i < 515; i++) {
+                for(int i = 1; i < 10000; i++) {
                     Object owned;
-                    if(Data.pownd.get(i) == null) owned = 0;
-                    else owned = Data.pownd.get(i);
+                    if(Data.pamnt.get(i) == null) owned = 0;
+                    else owned = Data.pamnt.get(i);
                     // System.out.println(i + "," + owned);
                     save.append(i + "," + (int)owned + "\n");
                 }
-                save.append(522 + "," + name + "\n");
-                save.append(517 + "," + Data.pownd.get(517) + "\n");
-                save.append(518 + "," + Data.pownd.get(518) + "\n");
-                save.append(519 + "," + Data.pownd.get(519) + "\n");
-                save.append(520 + "," + Data.pownd.get(520) + "\n");
-                save.append(521 + "," + Data.pownd.get(521) + "\n");
+                save.append(10001 + "," + name + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
                 break;

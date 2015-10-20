@@ -41,9 +41,9 @@ public class Tile
         }
         if (rng <= 5) {
             do {
-                rni = gen.nextInt(513);
+                rni = gen.nextInt(1000);
             } while (Data.pname.get(rni) == null);
-            Data.pownd.put(rni,((int)Data.pownd.get(rni)+1));
+            Data.pamnt.put(rni,((int)Data.pamnt.get(rni)+1));
             System.out.println("You found a " + Data.pname.get(rni) + "!");
         }
     }
@@ -67,11 +67,11 @@ public class Tile
                 System.out.println("Success!");
                 break;
                 case "stats":
-                System.out.println("Name: " +Run.name + 
-                    "\nPennies: " + Data.pownd.get(514) + 
-                    "\nHP: " + Data.pownd.get(517) + "/" + Data.pownd.get(518) + 
-                    "\nAP: " + Data.pownd.get(519) + "/" + Data.pownd.get(520) + 
-                    "\nWeight: " + Data.getEnc() + "/" + Data.pownd.get(521) + 
+                System.out.println("Name: " + Run.name + 
+                    "\nPennies: " + Data.pamnt.get(1001) + 
+                    "\nHP: " + Data.pamnt.get(1002) + "/" + Data.pamnt.get(1003) + 
+                    "\nAP: " + Data.pamnt.get(1004) + "/" + Data.pamnt.get(1005) + 
+                    "\nWeight: " + Data.getEnc() + "/" + Data.pamnt.get(1006) + 
                     "\nCombat against: " + mnam.get(mid));
                 break;
                 case "break":
