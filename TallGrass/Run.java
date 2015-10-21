@@ -67,7 +67,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");

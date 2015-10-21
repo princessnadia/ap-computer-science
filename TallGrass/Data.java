@@ -19,10 +19,15 @@ public class Data
         // 1xx = weapons
         pname.put(101,"wood_sword"); pvalu.put(101,50); pwght.put(101,3); peffc.put(101,"OFF +5"); pamnt.put(101,1);
         // 2xx = head
+        pname.put(201,"hide_cowl"); pvalu.put(101,20); pwght.put(201,2); peffc.put(201,"DEF +3"); pamnt.put(201,1);
         // 3xx = body
+        pname.put(301,"hide_shirt"); pvalu.put(101,20); pwght.put(301,2); peffc.put(301,"DEF +3"); pamnt.put(301,1);
         // 4xx = arms
+        pname.put(401,"hide_sleeves"); pvalu.put(101,20); pwght.put(401,2); peffc.put(401,"DEF +3"); pamnt.put(401,1);
         // 5xx = legs
+        pname.put(501,"hide_pants"); pvalu.put(101,20); pwght.put(501,2); peffc.put(501,"DEF +3"); pamnt.put(501,1);
         // 6xx = feet
+        pname.put(601,"hide_shoes"); pvalu.put(101,20); pwght.put(601,2); peffc.put(601,"DEF +3"); pamnt.put(601,1);
         // 10xx = other data
         pname.put(1001,"money"); pamnt.put(1001,100);
         pname.put(1002,"hp"); pamnt.put(1002,100);
@@ -30,7 +35,12 @@ public class Data
         pname.put(1004,"ap"); pamnt.put(1004,25);
         pname.put(1005,"maxap"); pamnt.put(1005,40);
         pname.put(1006,"enc"); pamnt.put(1006,150);
-        pname.put(1007,"equip"); pamnt.put(1007,0);
+        pname.put(1007,"weap_equip"); pamnt.put(1007,0);
+        pname.put(1008,"head_equip"); pamnt.put(1008,0);
+        pname.put(1009,"body_equip"); pamnt.put(1009,0);
+        pname.put(1010,"arms_equip"); pamnt.put(1010,0);
+        pname.put(1011,"legs_equip"); pamnt.put(1011,0);
+        pname.put(1012,"feet_equip"); pamnt.put(1012,0);
     }
 
     public String getDetail(String it)
@@ -129,9 +139,9 @@ public class Data
     public void getInv()
     {
         boolean done = false;
-        System.out.println("ITEM / VAL / EFF / AMT");
+        System.out.println("ITEM / VAL  / WGT / EFF / AMT");
         for (int emi = 1; emi < 513; emi++) {
-            if (pname.get(emi) != null && (int)pamnt.get(emi) != 0) System.out.println((String) pname.get(emi) + " / " + pvalu.get(emi) + " / " + peffc.get(emi) + " / " + pamnt.get(emi));
+            if (pname.get(emi) != null && (int)pamnt.get(emi) != 0) System.out.println((String) pname.get(emi) + " / " + pvalu.get(emi) + " / " + pwght.get(emi) + " / " + peffc.get(emi) + " / " + pamnt.get(emi));
         }
     }
 
