@@ -41,7 +41,7 @@ public class Run
                     name = inp.next();
                 }
                 else {
-                    name = (String)Data.pamnt.get(522);
+                    name = (String)Data.pamnt.get(10001);
                 }
                 break;
                 case "n":
@@ -67,7 +67,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nIf it's your first time, use the catalog!");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <category>");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -105,15 +105,18 @@ public class Run
                 case "inv":
                 dat.getInv();
                 break;
+                case "ctl":
+                Data.getCatalog();
+                break;
                 case "money":
                 dat.getMoney();
                 break;         
                 case "stats":
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data.pamnt.get(1001) + 
-                    "\nHP: " + Data.pamnt.get(1002) + "/" + Data.pamnt.get(1003) + 
-                    "\nAP: " + Data.pamnt.get(1004) + "/" + Data.pamnt.get(1005) + 
-                    "\nWeight: " + dat.getEnc() + "/" + Data.pamnt.get(1006) + 
+                    "\nPennies: " + Data.pamnt.get(9901) + 
+                    "\nHP: " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + 
+                    "\nAP: " + Data.pamnt.get(9904) + "/" + Data.pamnt.get(9905) + 
+                    "\nWeight: " + dat.getEnc() + "/" + Data.pamnt.get(9906) + 
                     "\nTile: (" + tlX + ", " + tlY + ")");
                 break;
                 case "battle":

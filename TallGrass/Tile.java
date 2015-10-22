@@ -68,10 +68,10 @@ public class Tile
                 break;
                 case "stats":
                 System.out.println("Name: " + Run.name + 
-                    "\nPennies: " + Data.pamnt.get(1001) + 
-                    "\nHP: " + Data.pamnt.get(1002) + "/" + Data.pamnt.get(1003) + 
-                    "\nAP: " + Data.pamnt.get(1004) + "/" + Data.pamnt.get(1005) + 
-                    "\nWeight: " + Data.getEnc() + "/" + Data.pamnt.get(1006) + 
+                    "\nPennies: " + Data.pamnt.get(9901) + 
+                    "\nHP: " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + 
+                    "\nAP: " + Data.pamnt.get(9904) + "/" + Data.pamnt.get(9905) + 
+                    "\nWeight: " + Data.getEnc() + "/" + Data.pamnt.get(9906) + 
                     "\nCombat against: " + mnam.get(mid));
                 break;
                 case "break":

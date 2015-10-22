@@ -17,4 +17,6 @@ comment7.params=
 comment7.target=void\ getInv()
 comment8.params=
 comment8.target=int\ getEnc()
-numComments=9
+comment9.params=
+comment9.target=void\ getCatalog()
+numComments=10
