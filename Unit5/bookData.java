@@ -12,6 +12,10 @@ public class bookData
     {
         return title;
     }
+    public String getColor()
+    {
+        return color;
+    }
     public int getPages()
     {
         return pages;

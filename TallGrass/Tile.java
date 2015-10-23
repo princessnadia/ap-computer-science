@@ -27,6 +27,8 @@ public class Tile
         mnam.put(6,"The Gleam Eyes");           mdes.put(6,"74th floor boss. Barely beatable.");                    mmhp.put(6,500);    mmap.put(6,150);    moff.put(6,120);    mdef.put(6,150);  mdrp.put(6,0);
         mnam.put(7,"Illfang the Kobold Lord");  mdes.put(7,"1st floor boss. How'd he get out here?");               mmhp.put(7,125);    mmap.put(7,60);     moff.put(7,80);     mdef.put(7,70);  mdrp.put(7,0);
         mnam.put(8,"Ragout Rabbit");            mdes.put(8,"A fast rabbit with VERY delicious meat.");              mmhp.put(8,10);     mmap.put(8,5);      moff.put(8,20);     mdef.put(8,5);  mdrp.put(8,0);
+        mnam.put(9,"Oberon");            mdes.put(9,"The self proclaimed king of the fairies.");                    mmhp.put(9,1000);     mmap.put(9,10);      moff.put(9,150);     mdef.put(9,200);  mdrp.put(9,0);
+        mnam.put(10,"Minotaur");            mdes.put(10,"A minotaur, no need to explain.");                         mmhp.put(10,75);     mmap.put(10,15);      moff.put(10,50);     mdef.put(10,100);  mdrp.put(10,0);
     }
 
     public void tile()
@@ -51,6 +53,8 @@ public class Tile
     public void battle(int mid)
     {
         System.out.println("You encounter " + mnam.get(mid) + "!");
+        int mchp = (int)mmhp.get(mid);
+        int mcap = (int)mmap.get(mid);
         String[] ipcm;
         String ip;
         do {
@@ -60,11 +64,17 @@ public class Tile
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\nattack\nuse <item>\n");
+                System.out.println("Commands are:\nattack\nuse <item>\nstats\ninspect");
                 break;
                 case "attack":
-                
-                System.out.println("Success!");
+                if(ipcm.length >= 1) {
+                    int offset = Data.;
+                    mchp -= offset;
+                    System.out.println("hurt " + mnam.get(mid) + " by " + offset + " points");
+                } 
+                else {
+                    // nothing
+                }
                 break;
                 case "stats":
                 System.out.println("Name: " + Run.name + 
@@ -74,6 +84,13 @@ public class Tile
                     "\nWeight: " + Data.getEnc() + "/" + Data.pamnt.get(9906) + 
                     "\nCombat against: " + mnam.get(mid));
                 break;
+                case "inspect":
+                System.out.println("Monster name: " + mnam.get(mid) + 
+                    "\nDescription: " + mdes.get(mid) + 
+                    "\nHP: " + mchp + "/" + mmhp.get(mid) + 
+                    "\nAP: " + mcap + "/" + mmap.get(mid) + 
+                    "\nOFF/DEF: " + moff.get(mid) + "/" + mdef.get(mid));
+                break;
                 case "break":
                 cfi = true;
                 System.out.println("broke from battle");
@@ -81,6 +98,10 @@ public class Tile
                 default:
                 System.out.println("Command not found!");
                 break;
+            }
+            if(mchp <= 0) {
+                cfi = true;
+                System.out.println("killed " + mnam.get(mid));
             }
         } while (!cfi);
     }
