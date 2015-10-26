@@ -61,9 +61,11 @@ public class Data
         switch (itemd) {
             case 1:
             setHp(100,true);
+			pamnt.put(1,(int)pamnt.get(1)-1);
             break;
             case 2:
             setAp(10,true);
+			pamnt.put(2,(int)pamnt.get(2)-1);
             break;
             case 3:
             // empty space
@@ -72,15 +74,36 @@ public class Data
             Run.tlX = 0;
             Run.tlY = 0;
             System.out.println("Teleported!");
+			pamnt.put(4,(int)pamnt.get(4)-1);
             break;
             case 101:
-            pamnt.put(9907,101);
+            pamnt.put(9907,1);
+			System.out.println("Equipped!");
             break;
+			case 201:
+			pamnt.put(9908,1);
+			System.out.println("Equipped!");
+			break;
+			case 301:
+			pamnt.put(9909,1);
+			System.out.println("Equipped!");
+			break;
+			case 401:
+			pamnt.put(9910,1);
+			System.out.println("Equipped!");
+			break;
+			case 501:
+			pamnt.put(9911,1);
+			System.out.println("Equipped!");
+			break;
+			case 601:
+			pamnt.put(9912,1);
+			System.out.println("Equipped!");
+			break;
             default:
             System.out.println("Use what item?");
             break;
         }
-        pamnt.put(itemd,(int)pamnt.get(itemd) - 1);
     }
 
     public void setHp(int offset, boolean verbose)
@@ -120,19 +143,19 @@ public class Data
     {
         boolean done = false;
         System.out.println("ITEM / VAL  / WGT / EFF / AMT");
-        for (int emi = 1; emi < 3000; emi++) {
+        for (int emi = 1; emi <= 9900; emi++) {
             if (pname.get(emi) != null && (int)pamnt.get(emi) != 0) System.out.println((String) pname.get(emi) + " / " + pvalu.get(emi) + " / " + pwght.get(emi) + " / " + peffc.get(emi) + " / " + pamnt.get(emi));
         }
     }
 
     public static int getEnc() {
         twght = 0;
-        int[] itwgt = new int[3000];
-        for (int emi = 1; emi < 3000; emi++) {
+        int[] itwgt = new int[9900];
+        for (int emi = 1; emi <= 9900; emi++) {
             if (pname.get(emi) != null) itwgt[emi] = (int)pwght.get(emi) * (int)pamnt.get(emi);
 
         }
-        for (int i = 1; i < 3000; i++) {
+        for (int i = 1; i <= 9900; i++) {
             if (pname.get(i) != null) twght += itwgt[i];
         }
         return twght;

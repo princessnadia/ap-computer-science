@@ -68,7 +68,7 @@ public class Tile
                 break;
                 case "attack":
                 if(ipcm.length >= 1) {
-                    int offset = Data.;
+                    int offset = 100;
                     mchp -= offset;
                     System.out.println("hurt " + mnam.get(mid) + " by " + offset + " points");
                 } 
