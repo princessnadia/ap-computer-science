@@ -52,7 +52,7 @@ public class Data
         return itemt;
     }
 
-    public void useItem(String it)
+    public static void useItem(String it)
     {
         int itemd = 0;
         for (int emi = 0; emi < 513; emi++) {
@@ -106,7 +106,7 @@ public class Data
         }
     }
 
-    public void setHp(int offset, boolean verbose)
+    public static void setHp(int offset, boolean verbose)
     {
         if (((int)pamnt.get(9902) + offset) > (int)pamnt.get(9903)) pamnt.put(9902,(int)pamnt.get(9903));
         else pamnt.put(9902, (int)pamnt.get(9902) + offset);
@@ -117,7 +117,7 @@ public class Data
         System.out.println("");
     }
 
-    public void setAp(int offset, boolean verbose)
+    public static void setAp(int offset, boolean verbose)
     {
         if (((int)pamnt.get(9904) + offset) > (int)pamnt.get(9905)) pamnt.put(9904,(int)pamnt.get(9905));
         else pamnt.put(9904, (int)pamnt.get(9904) + offset);
@@ -128,18 +128,18 @@ public class Data
         System.out.println("");
     }
 
-    public void getMoney() {
+    public static void getMoney() {
         System.out.println("You have " + pamnt.get(9901) + " pennies!");
     }
 
-    public void setMoney(int offset)
+    public static void setMoney(int offset)
     {
         int money;
         money = (int)pamnt.get(9901);
         pamnt.put(9901,money + offset);
     }
 
-    public void getInv()
+    public static void getInv()
     {
         boolean done = false;
         System.out.println("ITEM / VAL  / WGT / EFF / AMT");

@@ -27,8 +27,8 @@ public class Tile
         mnam.put(6,"The Gleam Eyes");           mdes.put(6,"74th floor boss. Barely beatable.");                    mmhp.put(6,500);    mmap.put(6,150);    moff.put(6,120);    mdef.put(6,150);  mdrp.put(6,0);
         mnam.put(7,"Illfang the Kobold Lord");  mdes.put(7,"1st floor boss. How'd he get out here?");               mmhp.put(7,125);    mmap.put(7,60);     moff.put(7,80);     mdef.put(7,70);  mdrp.put(7,0);
         mnam.put(8,"Ragout Rabbit");            mdes.put(8,"A fast rabbit with VERY delicious meat.");              mmhp.put(8,10);     mmap.put(8,5);      moff.put(8,20);     mdef.put(8,5);  mdrp.put(8,0);
-        mnam.put(9,"Oberon");            mdes.put(9,"The self proclaimed king of the fairies.");                    mmhp.put(9,1000);     mmap.put(9,10);      moff.put(9,150);     mdef.put(9,200);  mdrp.put(9,0);
-        mnam.put(10,"Minotaur");            mdes.put(10,"A minotaur, no need to explain.");                         mmhp.put(10,75);     mmap.put(10,15);      moff.put(10,50);     mdef.put(10,100);  mdrp.put(10,0);
+        mnam.put(9,"Oberon");        			mdes.put(9,"The self proclaimed king of the fairies.");             mmhp.put(9,1000);     mmap.put(9,10);      moff.put(9,150);     mdef.put(9,200);  mdrp.put(9,0);
+        mnam.put(10,"Minotaur");          		mdes.put(10,"A minotaur, no need to explain.");                     mmhp.put(10,75);     mmap.put(10,15);      moff.put(10,50);     mdef.put(10,100);  mdrp.put(10,0);
     }
 
     public void tile()
@@ -58,7 +58,7 @@ public class Tile
         String[] ipcm;
         String ip;
         do {
-            System.out.print("> ");
+            System.out.print("- ");
             ip = inp.next();
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
@@ -67,13 +67,16 @@ public class Tile
                 System.out.println("Commands are:\nattack\nuse <item>\nstats\ninspect");
                 break;
                 case "attack":
-                if(ipcm.length >= 1) {
-                    int offset = 100;
-                    mchp -= offset;
-                    System.out.println("hurt " + mnam.get(mid) + " by " + offset + " points");
-                } 
-                else {
-                    // nothing
+					RNG rand = new RNG((int)Data.pamnt.get(9907));
+                    mchp -= rand.damage;
+                    System.out.println("hurt " + mnam.get(mid) + " by " + rand.damage + " points");
+                break;
+                case "use":
+                if(ipcm.length >= 1) 
+                {
+                    Data.useItem(ipcm[1]);
+                } else {
+                    System.out.println("Use what item?");
                 }
                 break;
                 case "stats":
