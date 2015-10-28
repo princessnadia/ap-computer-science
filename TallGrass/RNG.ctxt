@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.params=equip
 comment0.target=RNG(int)
-numComments=1
+comment1.params=
+comment1.target=int\ attackMonster()
+comment2.params=off
+comment2.target=int\ attackPlayer(int)
+numComments=3

@@ -62,7 +62,7 @@ public class Run
         do {
             Tile til = new Tile();
             System.out.print("> ");
-            ip = inp.next();
+            ip = inp.nextLine();
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
