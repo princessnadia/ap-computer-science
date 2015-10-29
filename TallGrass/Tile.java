@@ -55,6 +55,9 @@ public class Tile
         System.out.println("You encounter " + mnam.get(mid) + "!");
         int mchp = (int)mmhp.get(mid);
         int mcap = (int)mmap.get(mid);
+        int att;
+        RNG rand = new RNG((int)Data.pamnt.get(9907),(int)Data.pamnt.get(9908),(int)Data.pamnt.get(9909),(int)Data.pamnt.get(9910),(int)Data.pamnt.get(9911),(int)Data.pamnt.get(9912));
+        boolean enemy = false;
         String[] ipcm;
         String ip;
         do {
@@ -67,12 +70,12 @@ public class Tile
                 System.out.println("Commands are:\nattack\nuse <item>\nstats\ninspect");
                 break;
                 case "attack":
-					RNG rand = new RNG((int)Data.pamnt.get(9907));
-                    int att = rand.attackMonster();
-                    mchp -= att;
-                    System.out.println("hurt " + mnam.get(mid) + " by " + att + " points\n" 
+                att = rand.attackMonster();
+                mchp -= att;
+                System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n" 
                     + Run.name + " " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + "\n" 
                     + mnam.get(mid) + " " + mchp + "/" + mmhp.get(mid));
+                enemy = true;
                 break;
                 case "use":
                 if(ipcm.length >= 1) 
@@ -81,6 +84,7 @@ public class Tile
                 } else {
                     System.out.println("Use what item?");
                 }
+                enemy = true;
                 break;
                 case "stats":
                 System.out.println("Name: " + Run.name + 
@@ -104,6 +108,15 @@ public class Tile
                 default:
                 System.out.println("Command not found!");
                 break;
+            }
+            if(enemy) {
+                try {
+                    Thread.sleep(1500);
+                }
+                catch (Exception e) {}
+                att = rand.attackPlayer((int)moff.get(mid));
+                System.out.println(att);
+                enemy = false;
             }
             if(mchp <= 0) {
                 cfi = true;

@@ -16,17 +16,23 @@ public class Data
         pname.put(3,"dontusethis"); pvalu.put(3,30); pwght.put(3,5); peffc.put(3,"Testing item"); pamnt.put(3,0);
         pname.put(4,"teleporter"); pvalu.put(4,1000); pwght.put(4,5); peffc.put(4,"Return to (0, 0)"); pamnt.put(4,10);
         // 1xx = weapons
+        pname.put(100,"fists"); pvalu.put(100,0); pwght.put(100,0); peffc.put(100,"OFF +3"); pamnt.put(100,1);
         pname.put(101,"wood_sword"); pvalu.put(101,50); pwght.put(101,3); peffc.put(101,"OFF +5"); pamnt.put(101,1);
         // 2xx = head
+        pname.put(200,"bonnet"); pvalu.put(200,0); pwght.put(200,0); peffc.put(200,"DEF +0"); pamnt.put(200,1);
         pname.put(201,"hide_cowl"); pvalu.put(201,20); pwght.put(201,2); peffc.put(201,"DEF +3"); pamnt.put(201,1);
         // 3xx = body
-        pname.put(301,"hide_shirt"); pvalu.put(301,20); pwght.put(301,2); peffc.put(301,"DEF +6"); pamnt.put(301,1);
+        pname.put(300,"shirt"); pvalu.put(300,0); pwght.put(300,0); peffc.put(300,"DEF +0"); pamnt.put(300,1);
+        pname.put(301,"hide_tunic"); pvalu.put(301,20); pwght.put(301,2); peffc.put(301,"DEF +6"); pamnt.put(301,1);
         // 4xx = arms
-        pname.put(401,"hide_sleeves"); pvalu.put(401,20); pwght.put(401,2); peffc.put(401,"DEF +2"); pamnt.put(401,1);
+        pname.put(400,"hands"); pvalu.put(400,0); pwght.put(400,0); peffc.put(400,"DEF +0"); pamnt.put(400,1);
+        pname.put(401,"hide_gloves"); pvalu.put(401,20); pwght.put(401,2); peffc.put(401,"DEF +2"); pamnt.put(401,1);
         // 5xx = legs
+        pname.put(500,"shorts"); pvalu.put(500,0); pwght.put(500,0); peffc.put(500,"DEF +0"); pamnt.put(500,1);
         pname.put(501,"hide_pants"); pvalu.put(501,20); pwght.put(501,2); peffc.put(501,"DEF +2"); pamnt.put(501,1);
         // 6xx = feet
-        pname.put(601,"hide_shoes"); pvalu.put(601,20); pwght.put(601,2); peffc.put(601,"DEF +5"); pamnt.put(601,1);
+        pname.put(600,"shoes"); pvalu.put(600,0); pwght.put(600,0); peffc.put(600,"DEF +0"); pamnt.put(600,1);
+        pname.put(601,"hide_boots"); pvalu.put(601,20); pwght.put(601,2); peffc.put(601,"DEF +5"); pamnt.put(601,1);
         // 99xx = other data
         pname.put(9901,"money"); pamnt.put(9901,100);
         pname.put(9902,"hp"); pamnt.put(9902,100);
@@ -76,24 +82,48 @@ public class Data
             System.out.println("Teleported!");
 			pamnt.put(4,(int)pamnt.get(4)-1);
             break;
+            case 100:
+            pamnt.put(9907,0);
+			System.out.println("Equipped!");
+            break;
             case 101:
             pamnt.put(9907,1);
 			System.out.println("Equipped!");
             break;
+            case 200:
+			pamnt.put(9908,0);
+			System.out.println("Equipped!");
+			break;
 			case 201:
 			pamnt.put(9908,1);
+			System.out.println("Equipped!");
+			break;
+			case 300:
+			pamnt.put(9908,0);
 			System.out.println("Equipped!");
 			break;
 			case 301:
 			pamnt.put(9909,1);
 			System.out.println("Equipped!");
 			break;
+			case 400:
+			pamnt.put(9910,0);
+			System.out.println("Equipped!");
+			break;
 			case 401:
 			pamnt.put(9910,1);
 			System.out.println("Equipped!");
 			break;
+			case 500:
+			pamnt.put(9911,0);
+			System.out.println("Equipped!");
+			break;
 			case 501:
 			pamnt.put(9911,1);
+			System.out.println("Equipped!");
+			break;
+			case 600:
+			pamnt.put(9912,0);
 			System.out.println("Equipped!");
 			break;
 			case 601:
