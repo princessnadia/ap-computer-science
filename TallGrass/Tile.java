@@ -50,19 +50,26 @@ public class Tile
         }
     }
 
-    public void battle(int mid)
+    public static void battle(int mid)
     {
         System.out.println("You encounter " + mnam.get(mid) + "!");
         int mchp = (int)mmhp.get(mid);
         int mcap = (int)mmap.get(mid);
         int att;
-        RNG rand = new RNG((int)Data.pamnt.get(9907),(int)Data.pamnt.get(9908),(int)Data.pamnt.get(9909),(int)Data.pamnt.get(9910),(int)Data.pamnt.get(9911),(int)Data.pamnt.get(9912));
         boolean enemy = false;
         String[] ipcm;
         String ip;
         do {
+            ip = "";
+            RNG rand = new RNG((int)Data.pamnt.get(9907),(int)Data.pamnt.get(9908),(int)Data.pamnt.get(9909),(int)Data.pamnt.get(9910),(int)Data.pamnt.get(9911),(int)Data.pamnt.get(9912));
             System.out.print("- ");
-            ip = inp.nextLine();
+            try {
+                ip = inp.nextLine();
+            }
+            catch (NoSuchElementException n)
+            {
+                cfi = true;
+            }
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
@@ -84,7 +91,15 @@ public class Tile
                 } else {
                     System.out.println("Use what item?");
                 }
-                enemy = true;
+                // enemy = true;
+                break;
+                case "equip":
+                if(ipcm.length > 1) 
+                {
+                    Data.equipItem(ipcm[1]);
+                } else {
+                    System.out.println("Equip what item?");
+                }
                 break;
                 case "stats":
                 System.out.println("Name: " + Run.name + 
