@@ -1,3 +1,4 @@
 # ap-computer-science
 a little tracker/work saver for AP computer science.
-(nothing preventing you from copying) marlene yuuki, 2015
+(and for learning c++ since november!)
+marlene yuuki, 2015
