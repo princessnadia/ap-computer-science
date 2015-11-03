@@ -13,8 +13,81 @@ public class RNG
             case 1: 
             poff = 5;
             break;
+            case 2: 
+            poff = 10;
+            break;
+            case 3: 
+            poff = 50;
+            break;
             default:
             poff = 3;
+            break;
+        }
+		switch (head) {
+            case 0:
+            pdef = 1;
+            break;
+            case 1: 
+            pdef = 3;
+            break;
+            case 2: 
+            pdef = 5;
+            break;
+            case 3: 
+            pdef = 50;
+            break;
+            default:
+            pdef = 1;
+            break;
+        }
+		switch (body) {
+            case 0:
+            pdef = 1;
+            break;
+            case 1: 
+            pdef = 6;
+            break;
+            case 2: 
+            pdef = 12;
+            break;
+            case 3: 
+            pdef = 50;
+            break;
+            default:
+            pdef = 1;
+            break;
+        }
+		switch (arms) {
+            case 0:
+            pdef = 1;
+            break;
+            case 1: 
+            pdef = 2;
+            break;
+            default:
+            pdef = 1;
+            break;
+        }
+		switch (legs) {
+            case 0:
+            pdef = 1;
+            break;
+            case 1: 
+            pdef = 2;
+            break;
+            default:
+            pdef = 1;
+            break;
+        }
+		switch (feet) {
+            case 0:
+            pdef = 1;
+            break;
+            case 1: 
+            pdef = 5;
+            break;
+            default:
+            pdef = 1;
             break;
         }
     }
@@ -26,7 +99,7 @@ public class RNG
         Random gen = new Random(Integer.parseInt(df.format(date)));
         Random gen2 = new Random(Integer.parseInt(df.format(date)) + 1);
         int damage;
-        damage = (gen.nextInt(poff) + 1) * (gen2.nextInt(poff) + 1) + poff;
+        damage = (gen.nextInt(poff) + 1) + (gen2.nextInt(poff) + 1) + poff;
 		if (damage < poff) damage = poff;
         return damage;
     }
@@ -37,8 +110,9 @@ public class RNG
         Date date = new Date();
         Random gen = new Random(Integer.parseInt(df.format(date)));
         Random gen2 = new Random(Integer.parseInt(df.format(date)) + 1);
+        Random gen3 = new Random(Integer.parseInt(df.format(date)) + 2);
         int damage = 0;
-        damage = (gen.nextInt(off) + 1) * (gen2.nextInt(off) + 1);
+        damage = ((gen.nextInt(off) + 1) / (gen2.nextInt(pdef) + (pdef)));
         return damage;
     }
 }

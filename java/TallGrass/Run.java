@@ -60,9 +60,17 @@ public class Run
         }
         FileWriter save = new FileWriter("save.txt");
         do {
+            ip = "";
             Tile til = new Tile();
             System.out.print("> ");
-            ip = inp.nextLine();
+            try {
+                ip = inp.nextLine();
+            }
+            catch (NoSuchElementException n)
+            {
+                System.out.println("--break--");
+                fi = true;
+            }
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
@@ -102,12 +110,22 @@ public class Run
                     System.out.println("Use what item?");
                 }
                 break;
+                case "equip":
+                if(ipcm.length > 1) 
+                {
+                    dat.equipItem(ipcm[1]);
+                } else {
+                    System.out.println("Equip what item?");
+                }
+                break;
                 case "inv":
                 dat.getInv();
                 break;
                 case "ctl":
                 Data.getCatalog();
                 break;
+                case "drop":
+                
                 case "money":
                 dat.getMoney();
                 break;         
@@ -140,6 +158,10 @@ public class Run
                 save.append(10001 + "," + name + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
+                break;
+                case "break":
+                fi = true;
+                System.out.println("force quit");
                 break;
                 default:
                 System.out.println("Command not found!");

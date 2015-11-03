@@ -2,6 +2,8 @@ import java.util.*;
 public class Data
 {
     private static Scanner inp = new Scanner(System.in); 
+    private static int rni;
+    private static Random gen = new Random();
     public static Hashtable pname = new Hashtable(); // item name
     public static Hashtable pvalu = new Hashtable(); // item price
     public static Hashtable pwght = new Hashtable(); // item weight
@@ -18,20 +20,26 @@ public class Data
         // 1xx = weapons
         pname.put(100,"fists"); pvalu.put(100,0); pwght.put(100,0); peffc.put(100,"OFF +3"); pamnt.put(100,1);
         pname.put(101,"wood_sword"); pvalu.put(101,50); pwght.put(101,3); peffc.put(101,"OFF +5"); pamnt.put(101,1);
+        pname.put(102,"iron_sword"); pvalu.put(102,100); pwght.put(102,3); peffc.put(102,"OFF +10"); pamnt.put(102,0);
+        pname.put(103,"lambent_light"); pvalu.put(103,1000); pwght.put(103,0); peffc.put(103,"(DBG) OFF +50"); pamnt.put(103,1);
         // 2xx = head
-        pname.put(200,"bonnet"); pvalu.put(200,0); pwght.put(200,0); peffc.put(200,"DEF +0"); pamnt.put(200,1);
-        pname.put(201,"hide_cowl"); pvalu.put(201,20); pwght.put(201,2); peffc.put(201,"DEF +3"); pamnt.put(201,1);
+        pname.put(200,"bonnet"); pvalu.put(200,0); pwght.put(200,0); peffc.put(200,"DEF +1"); pamnt.put(200,1);
+        pname.put(201,"hide_cowl"); pvalu.put(201,20); pwght.put(201,1); peffc.put(201,"DEF +3"); pamnt.put(201,1);
+        pname.put(202,"iron_helmet"); pvalu.put(202,40); pwght.put(202,2); peffc.put(202,"DEF +5"); pamnt.put(202,0);
+        pname.put(203,"pikachu_ears"); pvalu.put(203,20); pwght.put(203,0); peffc.put(203,"(DBG) DEF +50"); pamnt.put(203,1);
         // 3xx = body
-        pname.put(300,"shirt"); pvalu.put(300,0); pwght.put(300,0); peffc.put(300,"DEF +0"); pamnt.put(300,1);
+        pname.put(300,"shirt"); pvalu.put(300,0); pwght.put(300,0); peffc.put(300,"DEF +1"); pamnt.put(300,1);
         pname.put(301,"hide_tunic"); pvalu.put(301,20); pwght.put(301,2); peffc.put(301,"DEF +6"); pamnt.put(301,1);
+        pname.put(302,"iron_plate"); pvalu.put(302,50); pwght.put(302,4); peffc.put(302,"DEF +12"); pamnt.put(302,0);
+        pname.put(303,"kob_clan_dress"); pvalu.put(303,20); pwght.put(303,0); peffc.put(303,"(DBG) DEF +50"); pamnt.put(303,1);
         // 4xx = arms
-        pname.put(400,"hands"); pvalu.put(400,0); pwght.put(400,0); peffc.put(400,"DEF +0"); pamnt.put(400,1);
+        pname.put(400,"hands"); pvalu.put(400,0); pwght.put(400,0); peffc.put(400,"DEF +1"); pamnt.put(400,1);
         pname.put(401,"hide_gloves"); pvalu.put(401,20); pwght.put(401,2); peffc.put(401,"DEF +2"); pamnt.put(401,1);
         // 5xx = legs
-        pname.put(500,"shorts"); pvalu.put(500,0); pwght.put(500,0); peffc.put(500,"DEF +0"); pamnt.put(500,1);
+        pname.put(500,"shorts"); pvalu.put(500,0); pwght.put(500,0); peffc.put(500,"DEF +1"); pamnt.put(500,1);
         pname.put(501,"hide_pants"); pvalu.put(501,20); pwght.put(501,2); peffc.put(501,"DEF +2"); pamnt.put(501,1);
         // 6xx = feet
-        pname.put(600,"shoes"); pvalu.put(600,0); pwght.put(600,0); peffc.put(600,"DEF +0"); pamnt.put(600,1);
+        pname.put(600,"shoes"); pvalu.put(600,0); pwght.put(600,0); peffc.put(600,"DEF +1"); pamnt.put(600,1);
         pname.put(601,"hide_boots"); pvalu.put(601,20); pwght.put(601,2); peffc.put(601,"DEF +5"); pamnt.put(601,1);
         // 99xx = other data
         pname.put(9901,"money"); pamnt.put(9901,100);
@@ -61,17 +69,17 @@ public class Data
     public static void useItem(String it)
     {
         int itemd = 0;
-        for (int emi = 0; emi < 513; emi++) {
+        for (int emi = 0; emi < 100; emi++) {
             if (it.equals(pname.get(emi))) itemd = emi;
         }
         switch (itemd) {
             case 1:
             setHp(100,true);
-			pamnt.put(1,(int)pamnt.get(1)-1);
+            pamnt.put(1,(int)pamnt.get(1)-1);
             break;
             case 2:
             setAp(10,true);
-			pamnt.put(2,(int)pamnt.get(2)-1);
+            pamnt.put(2,(int)pamnt.get(2)-1);
             break;
             case 3:
             // empty space
@@ -80,59 +88,98 @@ public class Data
             Run.tlX = 0;
             Run.tlY = 0;
             System.out.println("Teleported!");
-			pamnt.put(4,(int)pamnt.get(4)-1);
+            pamnt.put(4,(int)pamnt.get(4)-1);
             break;
-            case 100:
-            pamnt.put(9907,0);
-			System.out.println("Equipped!");
-            break;
-            case 101:
-            pamnt.put(9907,1);
-			System.out.println("Equipped!");
-            break;
-            case 200:
-			pamnt.put(9908,0);
-			System.out.println("Equipped!");
-			break;
-			case 201:
-			pamnt.put(9908,1);
-			System.out.println("Equipped!");
-			break;
-			case 300:
-			pamnt.put(9908,0);
-			System.out.println("Equipped!");
-			break;
-			case 301:
-			pamnt.put(9909,1);
-			System.out.println("Equipped!");
-			break;
-			case 400:
-			pamnt.put(9910,0);
-			System.out.println("Equipped!");
-			break;
-			case 401:
-			pamnt.put(9910,1);
-			System.out.println("Equipped!");
-			break;
-			case 500:
-			pamnt.put(9911,0);
-			System.out.println("Equipped!");
-			break;
-			case 501:
-			pamnt.put(9911,1);
-			System.out.println("Equipped!");
-			break;
-			case 600:
-			pamnt.put(9912,0);
-			System.out.println("Equipped!");
-			break;
-			case 601:
-			pamnt.put(9912,1);
-			System.out.println("Equipped!");
-			break;
             default:
             System.out.println("Use what item?");
             break;
+        }
+    }
+
+    public static void equipItem(String it)
+    {
+        int itemd = 0;
+        for (int emi = 100; emi < 1000; emi++) {
+            if (it.equals(pname.get(emi))) itemd = emi;
+        }
+        if ((int)pamnt.get(itemd) != 0) {
+            switch (itemd) {
+                case 100:
+                pamnt.put(9907,0);
+                break;
+                case 101:
+                pamnt.put(9907,1);
+                break;
+                case 102:
+                pamnt.put(9907,2);
+                break;
+                case 103:
+                pamnt.put(9907,3);
+                break;
+                case 200:
+                pamnt.put(9908,0);
+                break;
+                case 201:
+                pamnt.put(9908,1);
+                break;
+                case 202:
+                pamnt.put(9908,2);
+                break;
+                case 203:
+                pamnt.put(9908,3);
+                break;
+                case 300:
+                pamnt.put(9908,0);
+                break;
+                case 301:
+                pamnt.put(9909,1);
+                break;
+                case 302:
+                pamnt.put(9909,2);
+                break;
+                case 303:
+                pamnt.put(9909,3);
+                break;
+                case 400:
+                pamnt.put(9910,0);
+                break;
+                case 401:
+                pamnt.put(9910,1);
+                break;
+                case 402:
+                pamnt.put(9910,2);
+                break;
+                case 403:
+                pamnt.put(9910,3);
+                break;
+                case 500:
+                pamnt.put(9911,0);
+                break;
+                case 501:
+                pamnt.put(9911,1);
+                break;
+                case 502:
+                pamnt.put(9911,2);
+                break;
+                case 503:
+                pamnt.put(9911,3);
+                break;
+                case 600:
+                pamnt.put(9912,0);
+                break;
+                case 601:
+                pamnt.put(9912,1);
+                break;
+                case 602:
+                pamnt.put(9912,2);
+                break;
+                case 603:
+                pamnt.put(9912,3);
+                break;
+                default:
+                System.out.println("Equip what item?");
+                break;
+            }
         }
     }
 
@@ -178,7 +225,8 @@ public class Data
         }
     }
 
-    public static int getEnc() {
+    public static int getEnc() 
+    {
         twght = 0;
         int[] itwgt = new int[9900];
         for (int emi = 1; emi <= 9900; emi++) {
@@ -191,7 +239,8 @@ public class Data
         return twght;
     }
 
-    public static void getCatalog() {
+    public static void getCatalog() 
+    {
         boolean done = false, catfi =  false;
         int idc = 1;
         do {
@@ -206,5 +255,14 @@ public class Data
             idc++;
         } while (!done);
         System.out.println("\f");
+    }
+
+    public static void setItem(boolean verbose)
+    {
+        do {
+            rni = gen.nextInt(100);
+        } while (Data.pname.get(rni) == null && rni % 100 != 0);
+        Data.pamnt.put(rni,((int)Data.pamnt.get(rni)+1));
+        if (verbose) System.out.println("You found a " + Data.pname.get(rni) + "!");
     }
 }
