@@ -42,7 +42,7 @@ public class Tile
             battle(rni);
         }
         if (rng <= 5) {
-            Data.setItem(true);
+            Data.findItem(true);
         }
     }
 
@@ -131,7 +131,7 @@ public class Tile
                  *  catch (Exception e) {}
                  */
                 att = rand.attackPlayer((int)moff.get(mid));
-                System.out.println(att);
+                Data.pamnt.put(9902, ((int)Data.pamnt.get(9902) - att));
                 enemy = false;
             }
             if(mchp <= 0) {

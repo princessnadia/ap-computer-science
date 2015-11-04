@@ -15,8 +15,9 @@ public class Data
         // 0xx = single-use items
         pname.put(1,"bandage"); pvalu.put(1,100); pwght.put(1,1); peffc.put(1,"HP +100"); pamnt.put(1,3);
         pname.put(2,"energy_drink"); pvalu.put(2,250); pwght.put(2,1); peffc.put(2,"AP +10"); pamnt.put(2,2);
-        pname.put(3,"dontusethis"); pvalu.put(3,30); pwght.put(3,5); peffc.put(3,"Testing item"); pamnt.put(3,0);
-        pname.put(4,"teleporter"); pvalu.put(4,1000); pwght.put(4,5); peffc.put(4,"Return to (0, 0)"); pamnt.put(4,10);
+        pname.put(3,"teleporter"); pvalu.put(3,1000); pwght.put(3,5); peffc.put(3,"Return to (0, 0)"); pamnt.put(3,10);
+        pname.put(4,"tonic"); pvalu.put(4,500); pwght.put(4,1); peffc.put(4,"Max HP +50"); pamnt.put(4,2);
+        pname.put(5,"ether"); pvalu.put(5,750); pwght.put(5,1); peffc.put(5,"Max AP +10"); pamnt.put(5,2);
         // 1xx = weapons
         pname.put(100,"fists"); pvalu.put(100,0); pwght.put(100,0); peffc.put(100,"OFF +3"); pamnt.put(100,1);
         pname.put(101,"wood_sword"); pvalu.put(101,50); pwght.put(101,3); peffc.put(101,"OFF +5"); pamnt.put(101,1);
@@ -59,7 +60,8 @@ public class Data
     public String getDetail(String it)
     {
         int itemd = 0;
-        for (int emi = 0; emi < 513; emi++) {
+        for (int emi = 0; emi < 513; emi++)
+        {
             if (it.equals(pname.get(emi))) itemd = emi;
         }
         String itemt = "Item name: " + (String) pname.get(itemd) + "\nItem price: " + pvalu.get(itemd) + "\nItem effect: " + peffc.get(itemd);
@@ -69,30 +71,48 @@ public class Data
     public static void useItem(String it)
     {
         int itemd = 0;
-        for (int emi = 0; emi < 100; emi++) {
+        for (int emi = 0; emi < 100; emi++) 
+        {
             if (it.equals(pname.get(emi))) itemd = emi;
         }
-        switch (itemd) {
-            case 1:
-            setHp(100,true);
-            pamnt.put(1,(int)pamnt.get(1)-1);
-            break;
-            case 2:
-            setAp(10,true);
-            pamnt.put(2,(int)pamnt.get(2)-1);
-            break;
-            case 3:
-            // empty space
-            break;
-            case 4:
-            Run.tlX = 0;
-            Run.tlY = 0;
-            System.out.println("Teleported!");
-            pamnt.put(4,(int)pamnt.get(4)-1);
-            break;
-            default:
-            System.out.println("Use what item?");
-            break;
+        if ((int)pamnt.get(itemd) != 0)
+        {
+            switch (itemd) 
+            {
+                case 1:
+                setHp(100,true);
+                pamnt.put(1,(int)pamnt.get(1)-1);
+                break;
+                case 2:
+                setAp(10,true);
+                pamnt.put(2,(int)pamnt.get(2)-1);
+                break;
+                case 3:
+                Run.tlX = 0;
+                Run.tlY = 0;
+                System.out.println("Teleported!");
+                pamnt.put(3,(int)pamnt.get(3)-1);
+                break;
+                case 4:
+                pamnt.put(9903,((int)pamnt.get(9903) + 50));
+                pamnt.put(9902,(int)pamnt.get(9903));
+                System.out.println("You now have " + pamnt.get(9903) + " HP.");
+                pamnt.put(4,(int)pamnt.get(4)-1);
+                break;
+                case 5:
+                pamnt.put(9905,((int)pamnt.get(9905) + 10));
+                pamnt.put(9904,(int)pamnt.get(9905));
+                System.out.println("You now have " + pamnt.get(9905) + " AP.");
+                pamnt.put(5,(int)pamnt.get(5)-1);
+                break;
+                default:
+                System.out.println("Use what item?");
+                break;
+            }
+        }
+        else
+        {
+            System.out.println("You don't have any of that item!");
         }
     }
 
@@ -183,6 +203,17 @@ public class Data
         }
     }
 
+    public static void dropItem(String it)
+    {
+        int itemd = 0;
+        for (int emi = 0; emi < 9900; emi++) 
+        {
+            if (it.equals(pname.get(emi))) itemd = emi;
+        }
+        pamnt.put(itemd,(int)pamnt.get(itemd)-1);
+        System.out.println("Dropped " + it);
+    }
+
     public static void setHp(int offset, boolean verbose)
     {
         if (((int)pamnt.get(9902) + offset) > (int)pamnt.get(9903)) pamnt.put(9902,(int)pamnt.get(9903));
@@ -257,12 +288,40 @@ public class Data
         System.out.println("\f");
     }
 
-    public static void setItem(boolean verbose)
+    public static void findItem(boolean verbose)
     {
         do {
             rni = gen.nextInt(100);
-        } while (Data.pname.get(rni) == null && rni % 100 != 0);
-        Data.pamnt.put(rni,((int)Data.pamnt.get(rni)+1));
+        } while (pname.get(rni) == null && rni % 100 != 0);
+        pamnt.put(rni,((int)pamnt.get(rni)+1));
         if (verbose) System.out.println("You found a " + Data.pname.get(rni) + "!");
+    }
+
+    public static void unused(String planned_80_by_24_output_thingy_please_dont_touch)
+    {
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
+        System.out.println("                                                                                ");
     }
 }

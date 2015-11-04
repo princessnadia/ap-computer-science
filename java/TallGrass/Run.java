@@ -125,7 +125,13 @@ public class Run
                 Data.getCatalog();
                 break;
                 case "drop":
-                
+                if(ipcm.length > 1) 
+                {
+                    dat.dropItem(ipcm[1]);
+                } else {
+                    System.out.println("Drop what item?");
+                }
+                break;
                 case "money":
                 dat.getMoney();
                 break;         
