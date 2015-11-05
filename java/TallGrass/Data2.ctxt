@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=it
+comment0.target=void\ equipItem(java.lang.String)
+comment1.params=it
+comment1.target=void\ useItem(java.lang.String)
+numComments=2

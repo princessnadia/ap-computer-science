@@ -42,7 +42,7 @@ public class Tile
             battle(rni);
         }
         if (rng <= 5) {
-            Data.findItem(true);
+            Data1.findItem(true);
         }
     }
 
@@ -57,7 +57,7 @@ public class Tile
         String ip;
         do {
             ip = "";
-            RNG rand = new RNG((int)Data.pamnt.get(9907),(int)Data.pamnt.get(9908),(int)Data.pamnt.get(9909),(int)Data.pamnt.get(9910),(int)Data.pamnt.get(9911),(int)Data.pamnt.get(9912));
+            RNG rand = new RNG((int)Data1.pamnt.get(9907),(int)Data1.pamnt.get(9908),(int)Data1.pamnt.get(9909),(int)Data1.pamnt.get(9910),(int)Data1.pamnt.get(9911),(int)Data1.pamnt.get(9912));
             System.out.print("- ");
             try {
                 ip = inp.nextLine();
@@ -77,14 +77,14 @@ public class Tile
                 att = rand.attackMonster();
                 mchp -= att;
                 System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n" 
-                    + Run.name + " " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + "\n" 
+                    + Run.name + " " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + "\n" 
                     + mnam.get(mid) + " " + mchp + "/" + mmhp.get(mid));
                 enemy = true;
                 break;
                 case "use":
                 if(ipcm.length >= 1) 
                 {
-                    Data.useItem(ipcm[1]);
+                    Data2.useItem(ipcm[1]);
                 } else {
                     System.out.println("Use what item?");
                 }
@@ -93,17 +93,17 @@ public class Tile
                 case "equip":
                 if(ipcm.length > 1) 
                 {
-                    Data.equipItem(ipcm[1]);
+                    Data2.equipItem(ipcm[1]);
                 } else {
                     System.out.println("Equip what item?");
                 }
                 break;
                 case "stats":
                 System.out.println("Name: " + Run.name + 
-                    "\nPennies: " + Data.pamnt.get(9901) + 
-                    "\nHP: " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + 
-                    "\nAP: " + Data.pamnt.get(9904) + "/" + Data.pamnt.get(9905) + 
-                    "\nWeight: " + Data.getEnc() + "/" + Data.pamnt.get(9906) + 
+                    "\nPennies: " + Data1.pamnt.get(9901) + 
+                    "\nHP: " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + 
+                    "\nAP: " + Data1.pamnt.get(9904) + "/" + Data1.pamnt.get(9905) + 
+                    "\nWeight: " + Data1.getEnc() + "/" + Data1.pamnt.get(9906) + 
                     "\nCombat against: " + mnam.get(mid));
                 break;
                 case "inspect":
@@ -114,7 +114,7 @@ public class Tile
                     "\nOFF/DEF: " + moff.get(mid) + "/" + mdef.get(mid));
                 break;
                 case "inv":
-                Data.getInv();
+                Data1.getInv();
                 break;
                 case "break":
                 cfi = true;
@@ -131,7 +131,7 @@ public class Tile
                  *  catch (Exception e) {}
                  */
                 att = rand.attackPlayer((int)moff.get(mid));
-                Data.pamnt.put(9902, ((int)Data.pamnt.get(9902) - att));
+                Data1.pamnt.put(9902, ((int)Data1.pamnt.get(9902) - att));
                 enemy = false;
             }
             if(mchp <= 0) {

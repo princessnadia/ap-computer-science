@@ -16,7 +16,8 @@ public class Run
         String[] ipcm;
         String ip, saveon = "";
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
-        Data dat = new Data();
+        Data1 dat = new Data1();
+        Data2 dat2 = new Data2();
         if (!shortcut) {
             System.out.print("Load save data? (WARNING: Answering no will wipe your save!) (y/n): ");
             saveon = inp.next();
@@ -41,7 +42,7 @@ public class Run
                     name = inp.next();
                 }
                 else {
-                    name = (String)Data.pamnt.get(10001);
+                    name = (String)dat.pamnt.get(10001);
                 }
                 break;
                 case "n":
@@ -56,7 +57,7 @@ public class Run
         }
         else {
             name = "Marlene";
-            System.out.println("skipping load process");
+            System.out.println("--skipping load process--");
         }
         FileWriter save = new FileWriter("save.txt");
         do {
@@ -75,7 +76,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <category>");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <disp/weap/head/body/arms/legs/feet>");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -105,7 +106,7 @@ public class Run
                 case "use":
                 if(ipcm.length > 1) 
                 {
-                    dat.useItem(ipcm[1]);
+                    dat2.useItem(ipcm[1]);
                 } else {
                     System.out.println("Use what item?");
                 }
@@ -113,7 +114,7 @@ public class Run
                 case "equip":
                 if(ipcm.length > 1) 
                 {
-                    dat.equipItem(ipcm[1]);
+                    dat2.equipItem(ipcm[1]);
                 } else {
                     System.out.println("Equip what item?");
                 }
@@ -122,7 +123,12 @@ public class Run
                 dat.getInv();
                 break;
                 case "ctl":
-                Data.getCatalog();
+                if(ipcm.length > 1) 
+                {
+                    dat.getCatalog(ipcm[1]);
+                } else {
+                    System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
+                }
                 break;
                 case "drop":
                 if(ipcm.length > 1) 
@@ -137,10 +143,10 @@ public class Run
                 break;         
                 case "stats":
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data.pamnt.get(9901) + 
-                    "\nHP: " + Data.pamnt.get(9902) + "/" + Data.pamnt.get(9903) + 
-                    "\nAP: " + Data.pamnt.get(9904) + "/" + Data.pamnt.get(9905) + 
-                    "\nWeight: " + dat.getEnc() + "/" + Data.pamnt.get(9906) + 
+                    "\nPennies: " + Data1.pamnt.get(9901) + 
+                    "\nHP: " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + 
+                    "\nAP: " + Data1.pamnt.get(9904) + "/" + Data1.pamnt.get(9905) + 
+                    "\nWeight: " + Data1.getEnc() + "/" + Data1.pamnt.get(9906) + 
                     "\nTile: (" + tlX + ", " + tlY + ")");
                 break;
                 case "battle":
@@ -156,8 +162,8 @@ public class Run
                 save.write("");
                 for(int i = 1; i < 10000; i++) {
                     Object owned;
-                    if(Data.pamnt.get(i) == null) owned = 0;
-                    else owned = Data.pamnt.get(i);
+                    if(Data1.pamnt.get(i) == null) owned = 0;
+                    else owned = Data1.pamnt.get(i);
                     // System.out.println(i + "," + owned);
                     save.append(i + "," + (int)owned + "\n");
                 }
