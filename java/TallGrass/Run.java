@@ -125,7 +125,7 @@ public class Run
                 case "ctl":
                 if(ipcm.length > 1) 
                 {
-                    dat.getCatalog(ipcm[1]);
+                    dat2.getCatalog(ipcm[1]);
                 } else {
                     System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
                 }

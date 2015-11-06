@@ -1,3 +1,5 @@
+import java.util.*;
+import java.lang.Math;
 public class Data2
 {
     public static void equipItem(String it)
@@ -133,6 +135,53 @@ public class Data2
         else
         {
             System.out.println("You don't have any of that item!");
+        }
+    }
+    
+        public static void getCatalog(String catg) 
+    {
+        Scanner inp = new Scanner(System.in); 
+        int idc;
+        boolean done = false, catfi =  false;
+        switch (catg)
+        {
+            case "disp":
+            idc = 1;
+            break;
+            case "weap":
+            idc = 101;
+            break;
+            case "head":
+            idc = 201;
+            break;
+            case "body":
+            idc = 301;
+            break;
+            case "arms":
+            idc = 401;
+            break;
+            case "legs":
+            idc = 501;
+            break;
+            case "feet":
+            idc = 601;
+            break;
+            default:
+            idc = 0;
+            done = true;
+            break;
+        }
+        if (done) System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
+        while (!done) {
+            if (!Data1.pname.containsKey(idc + 10)) done = true;
+            System.out.print("\fITEM / VAL / WGT / EFF\n");
+            for(int i = 0; i < 10; i++) {
+                System.out.println((String) Data1.pname.get(idc + i) + " / " + Data1.pvalu.get(idc + i) + " / " + Data1.pwght.get(idc + i) + " / " + Data1.peffc.get(idc + i));
+            }
+            if(!done) System.out.println("-- Press Enter/Return to scroll --");
+            else System.out.println("-- Press Enter/Return to return --");
+            inp.nextLine();
+            idc++;
         }
     }
 }

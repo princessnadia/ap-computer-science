@@ -14,11 +14,17 @@ public class Data1
     public Data1()
     {
         // 0xx = single-use items
-        pname.put(1,"bandage"); pvalu.put(1,100); pwght.put(1,1); peffc.put(1,"HP +100"); pamnt.put(1,3);
-        pname.put(2,"energy_drink"); pvalu.put(2,250); pwght.put(2,1); peffc.put(2,"AP +10"); pamnt.put(2,2);
-        pname.put(3,"teleporter"); pvalu.put(3,1000); pwght.put(3,5); peffc.put(3,"Return to (0, 0)"); pamnt.put(3,10);
-        pname.put(4,"tonic"); pvalu.put(4,500); pwght.put(4,1); peffc.put(4,"Max HP +50"); pamnt.put(4,2);
-        pname.put(5,"ether"); pvalu.put(5,750); pwght.put(5,1); peffc.put(5,"Max AP +10"); pamnt.put(5,2);
+        pname.put(1,"teleporter"); pvalu.put(1,1000); pwght.put(1,5); peffc.put(1,"Return to (0, 0)"); pamnt.put(1,10);
+        pname.put(2,"tonic"); pvalu.put(2,500); pwght.put(2,1); peffc.put(2,"Max HP +50"); pamnt.put(2,2);
+        pname.put(3,"ether"); pvalu.put(3,750); pwght.put(3,1); peffc.put(3,"Max AP +10"); pamnt.put(3,2);
+		pname.put(4,"pain_medicine"); pvalu.put(4,100); pwght.put(4,1); peffc.put(4,"HP +100"); pamnt.put(4,3);
+        pname.put(5,"granola_bar"); pvalu.put(5,200); pwght.put(5,1); peffc.put(5,"AP +10"); pamnt.put(5,2);
+		pname.put(6,"bandage"); pvalu.put(6,250); pwght.put(6,1); peffc.put(4,"HP +250"); pamnt.put(6,0);
+        pname.put(7,"water_bottle"); pvalu.put(7,500); pwght.put(7,1); peffc.put(5,"AP +25"); pamnt.put(7,0);
+		pname.put(8,"wrap"); pvalu.put(8,500); pwght.put(8,1); peffc.put(4,"HP +500"); pamnt.put(8,0);
+        pname.put(9,"energy_drink"); pvalu.put(9,1000); pwght.put(9,1); peffc.put(5,"AP +50"); pamnt.put(9,0);
+		pname.put(10,"heal_flower"); pvalu.put(10,1000); pwght.put(10,1); peffc.put(4,"HP +1000"); pamnt.put(10,0);
+        pname.put(11,"coffee_jelly"); pvalu.put(11,2000); pwght.put(11,1); peffc.put(5,"AP +100"); pamnt.put(11,0);
         // 1xx = weapons
         pname.put(100,"fists"); pvalu.put(100,0); pwght.put(100,0); peffc.put(100,"OFF +3"); pamnt.put(100,1);
         pname.put(101,"wood_sword"); pvalu.put(101,50); pwght.put(101,3); peffc.put(101,"OFF +5"); pamnt.put(101,1);
@@ -134,52 +140,6 @@ public class Data1
             if (pname.get(i) != null) twght += itwgt[i];
         }
         return twght;
-    }
-
-    public static void getCatalog(String catg) 
-    {
-        int idc;
-        boolean done = false, catfi =  false;
-        switch (catg)
-        {
-            case "disp":
-            idc = 1;
-            break;
-            case "weap":
-            idc = 101;
-            break;
-            case "head":
-            idc = 201;
-            break;
-            case "body":
-            idc = 301;
-            break;
-            case "arms":
-            idc = 401;
-            break;
-            case "legs":
-            idc = 501;
-            break;
-            case "feet":
-            idc = 601;
-            break;
-            default:
-            idc = 0;
-            done = true;
-            break;
-        }
-        if (done) System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
-        while (!done) {
-            if (!pname.containsKey(idc + 5)) done = true;
-            System.out.print("\fITEM / VAL / WGT / EFF\n");
-            for(int i = 0; i < 5; i++) {
-                System.out.println((String) pname.get(idc + i) + " / " + pvalu.get(idc + i) + " / " + pwght.get(idc + i) + " / " + peffc.get(idc + i));
-            }
-            if(!done) System.out.println("-- Press Enter/Return to scroll --");
-            else System.out.println("-- Press Enter/Return to return --");
-            inp.nextLine();
-            idc++;
-        }
     }
 
     public static void findItem(boolean verbose)
