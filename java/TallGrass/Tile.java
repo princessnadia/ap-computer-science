@@ -76,9 +76,10 @@ public class Tile
                 case "attack":
                 att = rand.attackMonster();
                 mchp -= att;
-                System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n" 
-                    + Run.name + " " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + "\n" 
-                    + mnam.get(mid) + " " + mchp + "/" + mmhp.get(mid));
+                if (mchp > 0) System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n" 
+                        + Run.name + " " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + "\n" 
+                        + mnam.get(mid) + " " + mchp + "/" + mmhp.get(mid));
+                else System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n");
                 enemy = true;
                 break;
                 case "use":
