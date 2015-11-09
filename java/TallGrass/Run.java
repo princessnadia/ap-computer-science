@@ -62,7 +62,7 @@ public class Run
         FileWriter save = new FileWriter("save.txt");
         do {
             ip = "";
-            Tile til = new Tile();
+			Tile til = new Tile();
             System.out.print("> ");
             try {
                 ip = inp.nextLine();
@@ -115,6 +115,8 @@ public class Run
                 if(ipcm.length > 1) 
                 {
                     dat2.equipItem(ipcm[1]);
+                    RNG rand = new RNG((int)Data1.pamnt.get(9907),(int)Data1.pamnt.get(9908),(int)Data1.pamnt.get(9909),(int)Data1.pamnt.get(9910),(int)Data1.pamnt.get(9911),(int)Data1.pamnt.get(9912));
+                    System.out.println("OFF/DEF: " + RNG.getOff() + "/" + RNG.getDef());
                 } else {
                     System.out.println("Equip what item?");
                 }
@@ -142,11 +144,14 @@ public class Run
                 dat.getMoney();
                 break;         
                 case "stats":
+                RNG rand = new RNG((int)Data1.pamnt.get(9907),(int)Data1.pamnt.get(9908),(int)Data1.pamnt.get(9909),(int)Data1.pamnt.get(9910),(int)Data1.pamnt.get(9911),(int)Data1.pamnt.get(9912));
                 System.out.println("Name: " + name + 
                     "\nPennies: " + Data1.pamnt.get(9901) + 
                     "\nHP: " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + 
                     "\nAP: " + Data1.pamnt.get(9904) + "/" + Data1.pamnt.get(9905) + 
                     "\nWeight: " + Data1.getEnc() + "/" + Data1.pamnt.get(9906) + 
+					"\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
+					"\nlvl: " + RNG.calcLevel() +
                     "\nTile: (" + tlX + ", " + tlY + ")");
                 break;
                 case "battle":
@@ -170,10 +175,6 @@ public class Run
                 save.append(10001 + "," + name + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
-                break;
-                case "break":
-                fi = true;
-                System.out.println("force quit");
                 break;
                 default:
                 System.out.println("Command not found!");

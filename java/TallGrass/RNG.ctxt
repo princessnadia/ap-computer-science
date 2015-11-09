@@ -2,7 +2,13 @@
 comment0.params=weap\ head\ body\ arms\ legs\ feet
 comment0.target=RNG(int,\ int,\ int,\ int,\ int,\ int)
 comment1.params=
-comment1.target=int\ attackMonster()
-comment2.params=off
-comment2.target=int\ attackPlayer(int)
-numComments=3
+comment1.target=int\ calcLevel()
+comment2.params=
+comment2.target=int\ getOff()
+comment3.params=
+comment3.target=int\ getDef()
+comment4.params=
+comment4.target=int\ attackMonster()
+comment5.params=off
+comment5.target=int\ attackPlayer(int)
+numComments=6
