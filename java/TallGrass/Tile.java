@@ -76,8 +76,7 @@ public class Tile
                 case "attack":
                 att = rand.attackMonster();
                 mchp -= att;
-                if (mchp > 0) System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n" 
-                        + Run.name + " " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + "\n" 
+                if (mchp > 0) System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n"
                         + mnam.get(mid) + " " + mchp + "/" + mmhp.get(mid));
                 else System.out.println("You hit " + mnam.get(mid) + " for " + att + " HP!\n");
                 enemy = true;
@@ -105,7 +104,7 @@ public class Tile
                     "\nHP: " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + 
                     "\nAP: " + Data1.pamnt.get(9904) + "/" + Data1.pamnt.get(9905) + 
                     "\nWeight: " + Data1.getEnc() + "/" + Data1.pamnt.get(9906) +
-					"\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
+                    "\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
                     "\nCombat against: " + mnam.get(mid));
                 break;
                 case "inspect":
@@ -117,6 +116,16 @@ public class Tile
                 break;
                 case "inv":
                 Data1.getInv();
+                break;
+                case "dump":
+                for(int i = 1; i < 10000; i++) {
+                    Object owned;
+                    if(Data1.pamnt.get(i) != null) 
+                    {
+                        owned = Data1.pamnt.get(i);
+                        System.out.println(i + "," + owned);
+                    }
+                }
                 break;
                 default:
                 System.out.println("Command not found!");
@@ -130,6 +139,7 @@ public class Tile
                  */
                 att = rand.attackPlayer((int)moff.get(mid));
                 Data1.pamnt.put(9902, ((int)Data1.pamnt.get(9902) - att));
+                System.out.println(Run.name + " " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + "\n" + att);
                 enemy = false;
             }
             if(mchp <= 0) {

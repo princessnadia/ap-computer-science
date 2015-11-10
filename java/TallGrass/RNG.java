@@ -139,8 +139,8 @@ public class RNG
         Random gen = new Random(Integer.parseInt(df.format(date)));
         Random gen2 = new Random(Integer.parseInt(df.format(date)) + 1);
         Random gen3 = new Random(Integer.parseInt(df.format(date)) + 2);
-        int damage = 0;
-        damage = ((gen.nextInt(off) + 1) / (gen2.nextInt(pdef) + (pdef)));
-        return damage;
+        double damage = 0.0;
+        damage = (double)((gen.nextInt(off) + 1) - ((gen.nextInt(off) + 1) * (pdef / 100)));
+        return (int)damage;
     }
 }

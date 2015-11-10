@@ -76,7 +76,7 @@ public class Run
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
                 case "help":
-                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <disp/weap/head/body/arms/legs/feet>");
+                System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <disp/weap/head/body/arms/legs/feet>\nmanual (first time playing?)");
                 break;
                 case "tile":
                 System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
@@ -175,6 +175,19 @@ public class Run
                 save.append(10001 + "," + name + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
+                break;
+                case "manual":
+                help.menu();
+                break;
+                case "dump":
+                for(int i = 1; i < 10000; i++) {
+                    Object owned;
+                    if(Data1.pamnt.get(i) != null) 
+                    {
+                        owned = Data1.pamnt.get(i);
+                        System.out.println(i + "," + owned);
+                    }
+                }
                 break;
                 default:
                 System.out.println("Command not found!");
