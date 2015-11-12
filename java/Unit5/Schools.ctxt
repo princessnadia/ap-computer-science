@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=inp_name\ inp_scad\ inp_ofad
+comment0.target=Schools(java.lang.String,\ java.lang.Object,\ java.lang.Object)
+comment1.params=
+comment1.target=java.lang.String\ toString()
+numComments=2
