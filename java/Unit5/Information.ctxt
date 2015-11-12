@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=inp_name\ inp_addr\ inp_city\ inp_zipc\ inp_head\ inp_popu
+comment0.target=Information(java.lang.String,\ java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ int)
+comment1.params=inp_addr\ inp_city\ inp_zipc\ inp_head\ inp_popu
+comment1.target=Information(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ int)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+numComments=3

@@ -17,7 +17,7 @@ public class help
 		System.out.println("-- TALLGRASS MANUAL --" +
 		"\n(Enter a number to go to the chapter.)"		+ 
 		"\n1) Introduction" +
-		"\n2) ");
-		
+		"\n2) Battle" +
+		"\n3) Status Screen");
 	}
 }
