@@ -6,13 +6,13 @@
 import java.util.*;
 import java.io.*;
 
-public class MainMenu
+public class TheStudy
 {
     public static String name;
     public static int tlX = 0, tlY = 0, emi = 0;
     public static void P() throws FileNotFoundException, IOException
     {
-        boolean fi = false, sw = false;
+        boolean fi = false;
         NotFound cnf = new NotFound();
         String[] ipcm;
         String ip, chapter;
@@ -21,13 +21,7 @@ public class MainMenu
         }
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         FileWriter save = new FileWriter("save.txt");
-        System.out.println("-- Llama Adventure --" +
-            "\n\nA Text Adventure to Greener Pastures" +
-            "\n\nType a word to start:" +
-            "\n\nstart\nBegin the game!" +
-            "\n\ncontinue\nBegin where you left off." +
-            "\n\ncredits\nSee who made the game!" +
-            "\n\nquit\nChanged your mind?");
+        System.out.println("-- The Study --");
         do {
             ip = "";
             System.out.print("> ");
@@ -42,17 +36,6 @@ public class MainMenu
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
-                case "continue":
-                if (chapter.equals("M"))
-                {
-                    System.out.println("You haven't started the game yet.");
-                }
-                else
-                {
-                    fi = true;
-                    sw = true;
-                }
-                break;
                 case "credits":
                 System.out.println("This game was originally developed by Armor Games" + 
                     "\n\nOriginally programmed and written by jmtb02" +
@@ -62,7 +45,7 @@ public class MainMenu
                 break;
                 case "quit":
                 fi = true;
-                save.write("M");
+                save.write("S");
                 save.close();
                 System.out.println("Bye!");
                 break;
@@ -71,16 +54,6 @@ public class MainMenu
                 break;
             }
         } while(!fi);
-        if (sw) 
-        {
-            switch (chapter)
-            {
-                case "S":
-                TheStudy.P();
-                break;
-                
-            }
-        }
     }
 
     public void I(String cmd1, String cmd2)

@@ -16,6 +16,6 @@ public class Run
         String[] ipcm;
         String ip;
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
-        MainMenu.start();
+        MainMenu.P();
     }
 }
