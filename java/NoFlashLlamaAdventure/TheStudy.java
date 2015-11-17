@@ -16,12 +16,57 @@ public class TheStudy
         NotFound cnf = new NotFound();
         String[] ipcm;
         String ip, chapter;
+        String regex = "(at|with|on|the)";
         try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
             chapter = br.readLine();
         }
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         FileWriter save = new FileWriter("save.txt");
-        System.out.println("-- The Study --");
+        System.out.println("\f-- The Study --");
+        try {
+            Thread.sleep(750);
+        }
+        catch (Exception e) {}
+        System.out.println("Hello you! I am so glad they finally shipped you here. " +
+            "\nA spot of bother with the street address, but that was fixed I assure you!" +
+            "\n\nAside from that, what is your name?");
+        System.out.print("> ");
+        ip = inp.nextLine();
+        try {
+            Thread.sleep(750);
+        }
+        catch (Exception e) {}
+        do 
+        {
+            System.out.println("Oh ho! " + ip + "! Such a ghastly thing to call yourself!" +
+                "\nI will call you Llama. You are a Llama right? (yes/no)");
+            System.out.print("> ");
+            ip = inp.nextLine();
+            ip = ip.toLowerCase();
+            switch (ip)
+            {
+                case "yes":
+                System.out.println("Of course you are, I am always right! You will learn" +
+                "\nthat soon enough.");
+                fi = true;
+                break;
+                case "no":
+                System.out.println("Cheeky Llama! You know what you are and I do too!" +
+                "\nGot some humour we do!"); 
+                fi = true;
+                break;
+                default:
+                System.out.println("Come again? I'll take a yes or no as an answer!");
+                break;
+            }
+            
+        } while (!fi);
+        System.out.println("Well then Llama, we're going to start right away. If" +
+        "\nyou would open the door we can start. You can do" +
+        "\nthat by typing that into your magical button board!" +
+        "\nOr you can look around first! Always look around in" +
+        "\nevery room!");
+        fi = false;
         do {
             ip = "";
             System.out.print("> ");
@@ -34,14 +79,18 @@ public class TheStudy
                 fi = true;
             }
             ip = ip.toLowerCase();
+            ip = ip.replaceAll(regex, "");
             ipcm = ip.split("\\s+");
             switch(ipcm[0]) {
-                case "credits":
-                System.out.println("This game was originally developed by Armor Games" + 
-                    "\n\nOriginally programmed and written by jmtb02" +
-                    "\n\nOriginally tested by Joey and Dan" +
-                    "\n\nOriginal game copyright ArmorGames, 2009. Play it here! http://armorgames.com/play/3785/llama-adventure" +
-                    "\n\nPorted to Java by Marlene Yuuki");
+                case "help":
+                System.out.println("A bit lost are we llama?" + 
+                    "\n\nHere are some keywords you can think about using:" +
+                    "\n(open), (use), (go), (look/see/gaze), (take/grab/pickup), (drop)" +
+                    "\n\nIf you want to get a sense of what's in the room, use" +
+                    "\nthe phrase (look around). Build short sentences!" +
+                    "\n\nAlso remember that new words will crop up as you" +
+                    "\nexplore more." +
+                    "\n\nYou can always find (help) by mashing that term here!");
                 break;
                 case "quit":
                 fi = true;
@@ -55,9 +104,14 @@ public class TheStudy
             }
         } while(!fi);
     }
-
-    public void I(String cmd1, String cmd2)
-    {
-        // not used in main menu
-    }
+    
+    /* lookables:
+     * books
+     * - computering
+     * door
+     * room (around)
+     */
+    
+    
+    
 }

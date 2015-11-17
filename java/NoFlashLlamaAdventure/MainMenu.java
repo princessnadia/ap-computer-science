@@ -41,16 +41,37 @@ public class MainMenu
             }
             ip = ip.toLowerCase();
             ipcm = ip.split("\\s+");
+            try {
+                Thread.sleep(750);
+            }
+            catch (Exception e) {}
             switch(ipcm[0]) {
+                case "start":
+                System.out.println("Good call, let's start!");
+                fi = true;
+                sw = true;
+                chapter = "S";
+                try {
+                    Thread.sleep(1500);
+                }
+                catch (Exception e) {}
+                break;
                 case "continue":
-                if (chapter.equals("M"))
+                try
+                {
+                    if (chapter.equals("M"))
+                    {
+                        System.out.println("You haven't started the game yet.");
+                    }
+                    else
+                    {
+                        fi = true;
+                        sw = true;
+                    }
+                }
+                catch (NullPointerException e)
                 {
                     System.out.println("You haven't started the game yet.");
-                }
-                else
-                {
-                    fi = true;
-                    sw = true;
                 }
                 break;
                 case "credits":
@@ -78,7 +99,7 @@ public class MainMenu
                 case "S":
                 TheStudy.P();
                 break;
-                
+
             }
         }
     }
