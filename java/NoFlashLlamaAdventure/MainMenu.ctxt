@@ -2,5 +2,5 @@
 comment0.params=
 comment0.target=void\ P()
 comment1.params=cmd1\ cmd2
-comment1.target=void\ I(java.lang.String,\ java.lang.String)
+comment1.target=void\ U(java.lang.String,\ java.lang.String)
 numComments=2

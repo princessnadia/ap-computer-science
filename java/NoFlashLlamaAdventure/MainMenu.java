@@ -21,7 +21,7 @@ public class MainMenu
         }
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         FileWriter save = new FileWriter("save.txt");
-        System.out.println("-- Llama Adventure --" +
+        System.out.println("\f-- Llama Adventure --" +
             "\n\nA Text Adventure to Greener Pastures" +
             "\n\nType a word to start:" +
             "\n\nstart\nBegin the game!" +
@@ -51,10 +51,6 @@ public class MainMenu
                 fi = true;
                 sw = true;
                 chapter = "S";
-                try {
-                    Thread.sleep(1500);
-                }
-                catch (Exception e) {}
                 break;
                 case "continue":
                 try
@@ -67,6 +63,7 @@ public class MainMenu
                     {
                         fi = true;
                         sw = true;
+                        System.out.println("I'm loading your game, standby!");
                     }
                 }
                 catch (NullPointerException e)
@@ -82,16 +79,20 @@ public class MainMenu
                     "\n\nPorted to Java by Marlene Yuuki");
                 break;
                 case "quit":
-                fi = true;
                 save.write("M");
                 save.close();
                 System.out.println("Bye!");
+                System.exit(0);
                 break;
                 default:
                 System.out.println(cnf);
                 break;
             }
         } while(!fi);
+        try {
+                    Thread.sleep(1500);
+                }
+                catch (Exception e) {}
         if (sw) 
         {
             switch (chapter)
@@ -104,7 +105,7 @@ public class MainMenu
         }
     }
 
-    public void I(String cmd1, String cmd2)
+    public void U(String cmd1, String cmd2)
     {
         // not used in main menu
     }
