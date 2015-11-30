@@ -39,7 +39,7 @@ public class TheStudy
             catch (Exception e) {}
             if (ip.equals("Llama"))
             {
-                System.out.println("Of course you are a Llama! I will call you that.");
+                System.out.println("Of course you are a Llama! I shall call you that.");
             }
             else
             if (ip.equals("Marlene"))
@@ -211,7 +211,7 @@ public class TheStudy
             }
         }
         while(room);
-        // Chapter1.P();
+        Chapter1.P();
     }
 
     // commands

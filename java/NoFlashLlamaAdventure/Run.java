@@ -8,9 +8,6 @@ import java.io.*;
 
 public class Run
 {
-    public static String name;
-    public static Items it = new Items();
-    public static int tlX = 0, tlY = 0, emi = 0;
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
         String[] ipcm;

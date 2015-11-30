@@ -21,50 +21,41 @@ public class Chapter1
         }
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         FileWriter save = new FileWriter("save.txt");
-        System.out.println("\f-- Chapter 1: Reading is Fundamental --"); // change to chapter name
-        try {
-            Thread.sleep(750);
-        }
-        catch (Exception e) {}
-        // start non-looping intro
         do {
-            System.out.println("Here is where we start our experiment, Llama. I have" +
-                "\nmade you several rooms fit for llama exploration and" +
-                "\ntriumph. Do you understand?");
-            do 
-            {
-                System.out.print("> ");
-                ip = inp.nextLine();
-                ip = ip.toLowerCase();
-                try {
-                    Thread.sleep(750);
-                }
-                catch (Exception e) {}
-                switch (ip)
-                {
-                    case "yes":
-                    System.out.println("Good Llama! Obeying is key to survival!");
-                    fi = true;
-                    break;
-                    case "no":
-                    System.out.println("Ah, the rebellious teenage llama. Too good for their" +
-                    "\nhouse and home. Wants their individualism! Mom" +
-                    "\nand dad always keeping you down! Well we won't" +
-                    "\nkeep you long."); 
-                    fi = true;
-                    break;
-                    default:
-                    System.out.println("That's not an answer that I like, answer me correctly" +
-                    "\nllama, (yes) or (no) answers please.");
-                    break;
-                }
-
-            } while (!fi);
+            System.out.println("\f-- Chapter 1: Reading is Fundamental --"); // change to chapter name
             try {
                 Thread.sleep(750);
             }
             catch (Exception e) {}
-            System.out.println("\nNow as the 44th creature to enter this facility your" +
+            // start non-looping intro
+            System.out.println("Here is where we start our experiment, Llama. I have " +
+                "\nmade you seven rooms fit for llama exploration and " +
+                "\n\ntriumph. Do you understand?");
+            System.out.print("> ");
+            ip = inp.nextLine();
+            try {
+                Thread.sleep(750);
+            }
+            catch (Exception e) {}
+            switch (ip)
+            {
+                case "yes":
+                System.out.println("Good Llama! Obeying is key to survival!");
+                fi = true;
+                break;
+                case "no":
+                System.out.println("Ah, the rebellious teenage llama. Too good for their" +
+                    "\nhouse and home. Wants their individualism! Mom" +
+                    "\nand dad always keeping you down! Well we won't" +
+                    "\nkeep you long."); 
+                fi = true;
+                break;
+                default:
+                System.out.println("That's not an answer I like, answer me correctly " +
+                    "\nllama, (yes) or (no) answers please.");
+                break;
+            }
+                        System.out.println("\nNow as the 44th creature to enter this facility your" +
             "\njob is to get past room 7. Each room has a simple" +
             "\npuzzle to be solved. If you solve the puzzle the next" +
             "\nroom will open. If you fail the puzzle then you will" +
@@ -102,7 +93,6 @@ public class Chapter1
             "\nroom will open. If you fail the puzzle then you will" +
             "\nmost certainly die a terrible death! But that is all" +
             "\nsemantics and nothing to worry about!\n\nIs that clear?");
-            fi = false;
             // end non-looping intros
             do {
                 ip = "";
@@ -224,9 +214,10 @@ public class Chapter1
                     }
                 } while (!fi);
             }
-        } while(room);
+        }
+        while(room);
         // Chapter1.P();
-    } 
+    }
 
     // commands
     /* 
