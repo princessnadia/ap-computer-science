@@ -125,6 +125,15 @@ public class Chapter1
                         System.out.println(cnf);
                     }
                     break;
+                    case "eat":
+                    if(ipcm.length > 1) 
+                    {
+                        G(ipcm[1],false,true);
+                    } 
+                    else
+                    {
+                        System.out.println("What do you want to eat llama?");
+                    }
                     case "go":
                     if (door)
                     {
@@ -155,12 +164,15 @@ public class Chapter1
                     case "pickup":
                     if(ipcm.length > 1) 
                     {
-                        G(ipcm[1],false);
+                        G(ipcm[1],false,false);
                     } 
                     else
                     {
                         System.out.println("What are you going on about llama? There's nothing to take of that nature around here!");
                     }
+                    break;
+                    case "drop":
+                    G(ipcm[1],true,false);
                     break;
                     case "help":
                     System.out.println("A bit lost are we llama?" + 
@@ -221,29 +233,48 @@ public class Chapter1
     /* 
      * items:
      * table, not usable, has a cannot grab
-     * computering - 11
-     * door - 2
-     * room (around) - 99
+     * badkey - 1
+     * tastykey - 2 - eatable
+     * goodkey - 3
+     * lock - 4
+     * door - 5
+     * note - 6
+     * room, not usable, has a cannot grab
      */
     private static String L(String it)
     {
         switch(it)
         {
-            case "books":
-            return "My books are arranged haphazardly across the" +
-            "\nshelves for my pleasure. Some books even face" +
-            "\nbackwards so that the spine rests agains the back of" +
-            "\nthe bookshelf, got to protect the spine! My favourite" +
-            "\nbook is a title called (computering) over there.";
+            case "table":
+            return "On my table is a white cloth with three keys... a" +
+            "\n(badkey) - a (tastykey) - a (goodkey) - I named those" +
+            "\nmyself! Next to ";
+            case "badkey":
+
+            case "tastykey":
+            case "goodkey":
             case "lock":
             return "This lock looks like it could take a key. Imagine that.";
             case "door":
             return "What a fine door. It has a (lock) on it.";
+            case "note":
+            return "I'll read you the note llama. You can't read! You can" +
+            "\nmash that button board, but a llama reading!" +
+            "\nImpossible." +
+            "\n\n'The (badkey) is good and the (goodkey) is bad. The" +
+            "\n(badkey) can get you through the door. That (tastykey)..." +
+            "\nyou can (eat) that. It's made of alfalfa.";
+            case "room":
             case "around":
             return "This room is nothing like the room you were just in." +
-            "\nThe floors to walls are a blinding";
-            case "room":
-            return "This room is nothing ";
+            "\nThe floors to walls are a blinding white, with" +
+            "\nfluorescent lights behind metal grates filling the room" +
+            "\nwith an immense amount of illumination. Feel like a" +
+            "\ntest subject yet llama?" +
+            "\n\nRight here is a (table) I bought from the neighbors" +
+            "\nduring a garage sale. Across the room is a similar" +
+            "\n(door) to the one you just passed through, this time" +
+            "\nwith a (lock).";
             default:
             return "I'm not quite sure what you are looking at.";
         }
@@ -303,9 +334,21 @@ public class Chapter1
      * -- none --
      * (remember "cannot grab" responses)
      */
-    private static void G(String it, boolean drop)
+    private static void G(String it, boolean drop, boolean eat)
     {
-        if (!drop)
+        if (eat)
+        {
+            switch(grabbed)
+            {
+                case 0:
+                System.out.println("Your mouth is empty, you don't have anything to" +
+                "\ndrop!");
+                default:
+                System.out.println("You can't eat that llama. That's not a llama chew" +
+                "\nthing.");
+            }
+        }
+        else if (!drop)
         {
             switch(it)
             {
@@ -335,15 +378,19 @@ public class Chapter1
         else
         {
             String itn = "";
+            boolean empty = false;
             switch (grabbed)
             {
                 case 11:
                 itn = "computering";
                 break;
                 default:
-                itn = "";
+                empty = true;
+                break;
             }
-            System.out.println("You put back the " + itn + " where you found it.");
+            if (!empty) System.out.println("You put back the " + itn + " where you found it.");
+            else System.out.println("Your mouth is empty, you don't have anything to" +
+            "\ndrop!");
             grabbed = 0;
         }
     }
