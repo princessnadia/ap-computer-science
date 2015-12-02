@@ -8,11 +8,11 @@ import java.io.*;
 
 public class TheStudy
 {
+    private static NotFound cnf = new NotFound();
     private static boolean door = false, fi = false, debug = false, room = true, killed = false;
     private static int grabbed = 0;
     public static void P() throws FileNotFoundException, IOException
     {
-        NotFound cnf = new NotFound();
         String[] ipcm;
         String ip, chapter, name = "";
         String regex = "(at|with|on|the)";

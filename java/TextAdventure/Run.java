@@ -10,7 +10,7 @@ public class Run
     public static int em, ps; // employee id, password
     public static void main(String[] args)
     {
-        int rmX = 0, rmY=0, emi=0;    // 
+        int rmX = 0, rmY=0, emi=0;
         boolean fi = false;
         String[] ipcm;
         String ip;

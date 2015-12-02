@@ -8,11 +8,11 @@ import java.io.*;
 
 public class Chapter1
 {
-    private static boolean door = false, fi = false, debug = false, room = true, killed = false;
+    private static NotFound cnf = new NotFound();
+    private static boolean unlocked = false, door = false, fi = false, debug = false, room = true, killed = false;
     private static int grabbed = 0;
     public static void P() throws FileNotFoundException, IOException
     {
-        NotFound cnf = new NotFound();
         String[] ipcm;
         String ip, chapter, name = "";
         String regex = "(at|with|on|the)";
@@ -55,12 +55,12 @@ public class Chapter1
                     "\nllama, (yes) or (no) answers please.");
                 break;
             }
-                        System.out.println("\nNow as the 44th creature to enter this facility your" +
-            "\njob is to get past room 7. Each room has a simple" +
-            "\npuzzle to be solved. If you solve the puzzle the next" +
-            "\nroom will open. If you fail the puzzle then you will" +
-            "\nmost certainly die a terrible death! But that is all" +
-            "\nsemantics and nothing to worry about!\n\nIs that clear?");
+            System.out.println("\nNow as the 44th creature to enter this facility your" +
+                "\njob is to get past room 7. Each room has a simple" +
+                "\npuzzle to be solved. If you solve the puzzle the next" +
+                "\nroom will open. If you fail the puzzle then you will" +
+                "\nmost certainly die a terrible death! But that is all" +
+                "\nsemantics and nothing to worry about!\n\nIs that clear?");
             do 
             {
                 System.out.print("> ");
@@ -82,17 +82,17 @@ public class Chapter1
                     break;
                     default:
                     System.out.println("That's not an answer that I like, answer me correctly" +
-                    "\nllama, (yes) or (no) answers please.");
+                        "\nllama, (yes) or (no) answers please.");
                     break;
                 }
 
             } while (!fi);
-            System.out.println("\nNow as the 44th creature to enter this facility your" +
-            "\njob is to get past room 7. Each room has a simple" +
-            "\npuzzle to be solved. If you solve the puzzle the next" +
-            "\nroom will open. If you fail the puzzle then you will" +
-            "\nmost certainly die a terrible death! But that is all" +
-            "\nsemantics and nothing to worry about!\n\nIs that clear?");
+            System.out.println("\nIf you need (help) at anytime feel free to say so." +
+                "\nI'll be looking at you funny behind that" +
+                "\nmirrored one-way glass that all test facilities of this" +
+                "\nnature have! Feel free to (look around) you! Always" +
+                "\n(look) at everything! It will help you last longer than" +
+                "\nthe others!");
             // end non-looping intros
             do {
                 ip = "";
@@ -122,10 +122,7 @@ public class Chapter1
                     } 
                     else
                     {
-                        System.out.println("What are you trying to do, Llama? When you utilize" +
-                            "\nthe word (use) make sure you follow up with a noun" +
-                            "\nsuch as (door) or (books)... if you need help finding" +
-                            "\nwords (look around) or something!");
+                        System.out.println(cnf);
                     }
                     break;
                     case "go":
@@ -137,7 +134,7 @@ public class Chapter1
                     }
                     else
                     {
-                        System.out.println("Sorry, I don't know where you are trying to go! Did you open the door?");
+                        System.out.println("Sorry, I don't know where you are trying to go!");
                     }
                     break;
                     case "see":
@@ -153,6 +150,7 @@ public class Chapter1
                     }
                     break;
                     case "take":
+                    case "get":
                     case "grab":
                     case "pickup":
                     if(ipcm.length > 1) 
@@ -175,7 +173,7 @@ public class Chapter1
                         "\n\nYou can always find (help) by mashing that term here!");
                     break;
                     case "quit":
-                    save.write("S");
+                    save.write("One");
                     save.close();
                     System.out.println("Bye!");
                     System.exit(0);
@@ -222,7 +220,7 @@ public class Chapter1
     // commands
     /* 
      * items:
-     * books - 1
+     * table, not usable, has a cannot grab
      * computering - 11
      * door - 2
      * room (around) - 99
@@ -237,45 +235,20 @@ public class Chapter1
             "\nbackwards so that the spine rests agains the back of" +
             "\nthe bookshelf, got to protect the spine! My favourite" +
             "\nbook is a title called (computering) over there.";
-            case "computering":
-            return "Here Llama, I'll read you the intro. 'Hello computer" +
-            "\nuser. The first step to setup your account is to set" +
-            "\nseveral five digit passwords on your documents. This" +
-            "\nway you can protect yourself in case of computer" +
-            "\nattack or snooping onlookers...' tisk tisk Llama, we" +
-            "\nhave work to do. Let's get going through that (door)" +
-            "\nover there!";
+            case "lock":
+            return "This lock looks like it could take a key. Imagine that.";
             case "door":
-            return "The wooden door has a small bolt on it, easy enough" +
-            "\nto slide (open) with little effort. The hinge pushes" +
-            "\noutward away from the door.";
+            return "What a fine door. It has a (lock) on it.";
             case "around":
-            return "I see you looking at my study! It has that stuffy" +
-            "\nfragrance of old man and olive oil, not from me mind" +
-            "\nyou! My bookshelf reaches the ceiling from the floor" +
-            "\nand are stacked with several old (books) I have" +
-            "\nacquired through the many years I have seen come" +
-            "\nand go. That (door) behind you leads to the first room" +
-            "\nof your adventure, so stop dawdling and go through" +
-            "\nit!";
+            return "This room is nothing like the room you were just in." +
+            "\nThe floors to walls are a blinding";
             case "room":
-            return "I see you looking at my study! It has that stuffy" +
-            "\nfragrance of old man and olive oil, not from me mind" +
-            "\nyou! My bookshelf reaches the ceiling from the floor" +
-            "\nand are stacked with several old (books) I have" +
-            "\nacquired through the many years I have seen come" +
-            "\nand go. That (door) behind you leads to the first room" +
-            "\nof your adventure, so stop dawdling and go through" +
-            "\nit!";
+            return "This room is nothing ";
             default:
             return "I'm not quite sure what you are looking at.";
         }
     }
 
-    /*
-     * usables 1a:
-     * door - 2
-     */
     private static void U(String it)
     {
         switch(it)
@@ -283,9 +256,16 @@ public class Chapter1
             case "door":
             if (!door)
             {
-                door = true;
-                System.out.println("You opened the door, and you're off to the next" +
-                    "\nroom! Just go through now and you're on your way.");
+                if (unlocked)
+                {
+                    door = true;
+                    System.out.println("You opened the door, and you're off to the next" +
+                        "\nroom! Just go through now and you're on your way.");
+                }
+                else
+                {
+                    System.out.println("The door won't budge when it's got a (lock) on it.");
+                }
             }
             else
             {
@@ -293,17 +273,10 @@ public class Chapter1
             }
             break;
             default:
-            System.out.println("What are you trying to do, Llama? When you utilize" +
-                "\nthe word (use) make sure you follow up with a noun" +
-                "\nsuch as (door) or (books)... if you need help finding" +
-                "\nwords (look around) or something!");
+            System.out.println(cnf);
         }
     }
 
-    /*
-     * usables 2a:
-     * -- none --
-     */
     private static void U(String it, String it2)
     {
         switch(it)
@@ -321,10 +294,7 @@ public class Chapter1
             }
             break;
             default:
-            System.out.println("What are you trying to do, Llama? When you utilize" +
-                "\nthe word (use) make sure you follow up with a noun" +
-                "\nsuch as (door) or (books)... if you need help finding" +
-                "\nwords (look around) or something!");
+            System.out.println(cnf);
         }
     }
 

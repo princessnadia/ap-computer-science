@@ -8,12 +8,11 @@ import java.io.*;
 
 public class MainMenu
 {
-    public static String name;
-    public static int tlX = 0, tlY = 0, emi = 0;
+    private static NotFound cnf = new NotFound();
     public static void P() throws FileNotFoundException, IOException
     {
         boolean fi = false, sw = false;
-        NotFound cnf = new NotFound();
+        
         String[] ipcm;
         String ip, chapter;
         try (BufferedReader br = new BufferedReader(new FileReader("save.txt"))) {
@@ -97,10 +96,12 @@ public class MainMenu
         {
             switch (chapter)
             {
-                case "S":
+                case "Study":
                 TheStudy.P();
                 break;
-
+                case "One":
+                Chapter1.P();
+                break;
             }
         }
     }
