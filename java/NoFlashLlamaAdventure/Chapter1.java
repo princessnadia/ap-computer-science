@@ -21,16 +21,17 @@ public class Chapter1
         }
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         FileWriter save = new FileWriter("save.txt");
-        do {
-            System.out.println("\f-- Chapter 1: Reading is Fundamental --"); // change to chapter name
-            try {
-                Thread.sleep(750);
-            }
-            catch (Exception e) {}
-            // start non-looping intro
-            System.out.println("Here is where we start our experiment, Llama. I have " +
-                "\nmade you seven rooms fit for llama exploration and " +
-                "\n\ntriumph. Do you understand?");
+        System.out.println("\f-- Chapter 1: Reading is Fundamental --"); // change to chapter name
+        try {
+            Thread.sleep(750);
+        }
+        catch (Exception e) {}
+        // start non-looping intro
+        System.out.println("Here is where we start our experiment, Llama. I have " +
+            "\nmade you seven rooms fit for llama exploration and " +
+            "\n\ntriumph. Do you understand?");
+        do
+        {
             System.out.print("> ");
             ip = inp.nextLine();
             try {
@@ -55,44 +56,47 @@ public class Chapter1
                     "\nllama, (yes) or (no) answers please.");
                 break;
             }
-            System.out.println("\nNow as the 44th creature to enter this facility your" +
-                "\njob is to get past room 7. Each room has a simple" +
-                "\npuzzle to be solved. If you solve the puzzle the next" +
-                "\nroom will open. If you fail the puzzle then you will" +
-                "\nmost certainly die a terrible death! But that is all" +
-                "\nsemantics and nothing to worry about!\n\nIs that clear?");
-            do 
+        } while (!fi);
+        System.out.println("\nNow as the 44th creature to enter this facility your" +
+            "\njob is to get past room 7. Each room has a simple" +
+            "\npuzzle to be solved. If you solve the puzzle the next" +
+            "\nroom will open. If you fail the puzzle then you will" +
+            "\nmost certainly die a terrible death! But that is all" +
+            "\nsemantics and nothing to worry about!\n\nIs that clear?");
+        do 
+        {
+            System.out.print("> ");
+            ip = inp.nextLine();
+            ip = ip.toLowerCase();
+            try {
+                Thread.sleep(750);
+            }
+            catch (Exception e) {}
+            switch (ip)
             {
-                System.out.print("> ");
-                ip = inp.nextLine();
-                ip = ip.toLowerCase();
-                try {
-                    Thread.sleep(750);
-                }
-                catch (Exception e) {}
-                switch (ip)
-                {
-                    case "yes":
-                    System.out.println("Fantastic.");
-                    fi = true;
-                    break;
-                    case "no":
-                    System.out.println("I know you know what I meant. Stop acting dumb."); 
-                    fi = true;
-                    break;
-                    default:
-                    System.out.println("That's not an answer that I like, answer me correctly" +
-                        "\nllama, (yes) or (no) answers please.");
-                    break;
-                }
+                case "yes":
+                System.out.println("Fantastic.");
+                fi = true;
+                break;
+                case "no":
+                System.out.println("I know you know what I meant. Stop acting dumb."); 
+                fi = true;
+                break;
+                default:
+                System.out.println("That's not an answer that I like, answer me correctly" +
+                    "\nllama, (yes) or (no) answers please.");
+                break;
+            }
 
-            } while (!fi);
-            System.out.println("\nIf you need (help) at anytime feel free to say so." +
-                "\nI'll be looking at you funny behind that" +
-                "\nmirrored one-way glass that all test facilities of this" +
-                "\nnature have! Feel free to (look around) you! Always" +
-                "\n(look) at everything! It will help you last longer than" +
-                "\nthe others!");
+        } while (!fi);
+        System.out.println("\nIf you need (help) at anytime feel free to say so." +
+            "\nI'll be looking at you funny behind that" +
+            "\nmirrored one-way glass that all test facilities of this" +
+            "\nnature have! Feel free to (look around) you! Always" +
+            "\n(look) at everything! It will help you last longer than" +
+            "\nthe others!");
+        do {
+
             // end non-looping intros
             do {
                 ip = "";
@@ -117,8 +121,8 @@ public class Chapter1
                     case "use":
                     if(ipcm.length > 1) 
                     {
-                        if(ipcm.length > 2) U(ipcm[1],ipcm[2]);
-                        else U(ipcm[1]);
+                        if(ipcm.length < 2) U(ipcm[1],"");
+                        else U(ipcm[1],ipcm[2]);
                     } 
                     else
                     {
@@ -248,11 +252,23 @@ public class Chapter1
             case "table":
             return "On my table is a white cloth with three keys... a" +
             "\n(badkey) - a (tastykey) - a (goodkey) - I named those" +
-            "\nmyself! Next to ";
+            "\nmyself! Next to the cloth is an unfolded (note) with" +
+            "\nwriting on it and just so you know I don't have" +
+            "\nhandwriting like my fellow doctors.";
             case "badkey":
-
+            return "This key is my heaviest key, given the extra metal" +
+            "\nkeychain attached to it. The metal keychain has a" +
+            "\nlarge smiley face on it, so smile llama!";
             case "tastykey":
+            return "This beautiful green key shows intricate" +
+            "\ncraftsmanship with delicate swoops and curves" +
+            "\naround the handle and key blade. Wow, I couldn't" +
+            "\nhave said it any better!";
             case "goodkey":
+            return "This key is a pale blue with cracked paint all over it." +
+            "\nSplatters of fresh red material give the eerie" +
+            "\nimpression that the last user of this key is no longer" +
+            "\naround. Disregard that unpleasantness, llama!";
             case "lock":
             return "This lock looks like it could take a key. Imagine that.";
             case "door":
@@ -280,7 +296,7 @@ public class Chapter1
         }
     }
 
-    private static void U(String it)
+    private static void U(String it, String it2)
     {
         switch(it)
         {
@@ -303,25 +319,36 @@ public class Chapter1
                 System.out.println("The door is already open!");
             }
             break;
-            default:
-            System.out.println(cnf);
-        }
-    }
+            // grabbables
+            case "badkey":
+            if(it2.equals("door") && grabbed == 1) 
+            {
 
-    private static void U(String it, String it2)
-    {
-        switch(it)
-        {
-            case "door":
-            if (!door)
-            {
-                door = true;
-                System.out.println("You opened the door, and you're off to the next" +
-                    "\nroom! Just go through now and you're on your way.");
             }
-            else
+            else 
             {
-                System.out.println("The door is already open!");
+                System.out.println(cnf);
+            }
+            break;
+            case "goodkey":
+            if(it2.equals("door") && grabbed == 2) 
+            {
+
+                killed = true;
+            }
+            else 
+            {
+                System.out.println(cnf);
+            }
+            break;
+            case "tastykey":
+            if(it2.equals("door") && grabbed == 3) 
+            {
+
+            }
+            else 
+            {
+                System.out.println(cnf);
             }
             break;
             default:
@@ -342,10 +369,10 @@ public class Chapter1
             {
                 case 0:
                 System.out.println("Your mouth is empty, you don't have anything to" +
-                "\ndrop!");
+                    "\ndrop!");
                 default:
                 System.out.println("You can't eat that llama. That's not a llama chew" +
-                "\nthing.");
+                    "\nthing.");
             }
         }
         else if (!drop)
@@ -357,18 +384,18 @@ public class Chapter1
                     "\nand haven't been able to do any maintenance for" +
                     "\nsome time.");
                 break;
-                case "books":
+                case "badkey":
+                grabbed = 1;
                 System.out.println("You can't have ALL my books llama.");
                 break;
-                case "computering":
-                grabbed = 11;
+                case "tastykey":
+                grabbed = 3;
                 System.out.println("You have picked up the computering book! Don't lick" +
                     "\nthe pages unless you are turning them.");
                 break;
-                case "room":
-                System.out.println("That makes no sense llama! You are full of silly. In" +
-                    "\nfact I would almost say you're distilled down to a" +
-                    "\n pure sense of silly, like a fine coffee or tea!");
+                case "goodkey":
+                System.out.println("got goodkey");
+                grabbed = 2;
                 break;
                 default: 
                 System.out.println("What are you going on about llama? There's nothing to take of that nature around here!");
@@ -390,7 +417,7 @@ public class Chapter1
             }
             if (!empty) System.out.println("You put back the " + itn + " where you found it.");
             else System.out.println("Your mouth is empty, you don't have anything to" +
-            "\ndrop!");
+                    "\ndrop!");
             grabbed = 0;
         }
     }
