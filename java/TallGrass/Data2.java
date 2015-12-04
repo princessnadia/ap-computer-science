@@ -5,84 +5,13 @@ public class Data2
     public static void equipItem(String it)
     {
         int itemd = 0;
-        for (int emi = 100; emi < 1000; emi++) {
+        for (int emi = 100; emi < 2000; emi++) {
             if (it.equals(Data1.pname.get(emi))) itemd = emi;
         }
         if ((int)Data1.pamnt.get(itemd) != 0) 
         {
             switch (itemd) {
-                case 100:
-                Data1.pamnt.put(9907,0);
-                break;
-                case 101:
-                Data1.pamnt.put(9907,1);
-                break;
-                case 102:
-                Data1.pamnt.put(9907,2);
-                break;
-                case 103:
-                Data1.pamnt.put(9907,3);
-                break;
-                case 200:
-                Data1.pamnt.put(9908,0);
-                break;
-                case 201:
-                Data1.pamnt.put(9908,1);
-                break;
-                case 202:
-                Data1.pamnt.put(9908,2);
-                break;
-                case 203:
-                Data1.pamnt.put(9908,3);
-                break;
-                case 300:
-                Data1.pamnt.put(9908,0);
-                break;
-                case 301:
-                Data1.pamnt.put(9909,1);
-                break;
-                case 302:
-                Data1.pamnt.put(9909,2);
-                break;
-                case 303:
-                Data1.pamnt.put(9909,3);
-                break;
-                case 400:
-                Data1.pamnt.put(9910,0);
-                break;
-                case 401:
-                Data1.pamnt.put(9910,1);
-                break;
-                case 402:
-                Data1.pamnt.put(9910,2);
-                break;
-                case 403:
-                Data1.pamnt.put(9910,3);
-                break;
-                case 500:
-                Data1.pamnt.put(9911,0);
-                break;
-                case 501:
-                Data1.pamnt.put(9911,1);
-                break;
-                case 502:
-                Data1.pamnt.put(9911,2);
-                break;
-                case 503:
-                Data1.pamnt.put(9911,3);
-                break;
-                case 600:
-                Data1.pamnt.put(9912,0);
-                break;
-                case 601:
-                Data1.pamnt.put(9912,1);
-                break;
-                case 602:
-                Data1.pamnt.put(9912,2);
-                break;
-                case 603:
-                Data1.pamnt.put(9912,3);
-                break;
+                
                 default:
                 System.out.println("Equip what item?");
                 break;
@@ -148,23 +77,41 @@ public class Data2
             case "disp":
             idc = 1;
             break;
-            case "weap":
+            case "neck":
             idc = 101;
             break;
             case "head":
             idc = 201;
             break;
-            case "body":
+            case "ring":
             idc = 301;
             break;
-            case "arms":
+            case "back":
             idc = 401;
             break;
-            case "legs":
+            case "body":
             idc = 501;
             break;
-            case "feet":
+            case "arms":
             idc = 601;
+            break;
+            case "feet":
+            idc = 701;
+            break;
+            case "legs":
+            idc = 801;
+            break;
+            case "hand":
+            idc = 901;
+            break;
+            case "weap":
+            idc = 1001;
+            break;
+            case "curi":
+            idc = 1101;
+            break;
+            case "secn":
+            idc = 1201;
             break;
             default:
             idc = 0;
