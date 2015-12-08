@@ -1,0 +1,15 @@
+nt,0xx = single use
+1,test,123
+2,post,456
+nt,1xx = neck
+nt,2xx = head
+nt,3xx = ring
+nt,4xx = back
+nt,5xx = chest
+nt,6xx = arms
+nt,7xx = waist
+nt,8xx = feet
+nt,9xx = gloves
+nt,10xx = primary
+nt,11xx = curio
+nt,12xx = secondary

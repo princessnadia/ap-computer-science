@@ -4,22 +4,36 @@ import java.io.FileReader;
 import java.io.IOException;
 public class Data
 {
-    public static int[] id, valu, wght, amnt;
-    public static String[] name, desc;
+    public static int[] valu = new int[2000]; 
+    public static int[] wght = new int[2000];
+    public static int[] amnt = new int[2000];
+    public static String[] name = new String[2000];
+    public static String[] desc = new String[2000];
+    // order: ID, NAME, DESC, VALUE, WEIGHT, AMOUNT
     public Data()
     {
         String csvFile = "StaticItems.csv";
         BufferedReader br = null;
         String line = "";
         String csvSplitBy = ",";
-
         try 
         {
             String[] lines = line.split(csvSplitBy);
             br = new BufferedReader(new FileReader(csvFile));
+            int id;
             while ((line = br.readLine()) != null) 
             {
-                id = Integer.parseInt(lines[0]);
+                if(lines[0].equals("nt"))
+                {
+                    // do nothing
+                }
+                else
+                {
+                    lines = line.split(csvSplitBy);
+                    id = Integer.parseInt(lines[0]);
+                    name[id] = lines[1];
+                    desc[id] = lines[2];
+                }
             }
 
         } 
@@ -35,21 +49,49 @@ public class Data
         {
             System.out.println("--LINE SKIPPED--");
         }
+        System.out.println("Done");
+    }
 
-        finally {
-            if (br != null) 
+    public static void printItemGrid()
+    {
+        System.out.println("\fITEM LIST\nID\tNAME\tDESC\n---------------------");
+        String csvFile = "StaticItems.csv";
+        BufferedReader br = null;
+        String line = "";
+        String csvSplitBy = ",";
+        try 
+        {
+            String[] lines = line.split(csvSplitBy);
+            br = new BufferedReader(new FileReader(csvFile));
+            int id;
+            while ((line = br.readLine()) != null) 
             {
-                try 
+                lines = line.split(csvSplitBy);
+                if(lines[0].equals("nt"))
                 {
-                    br.close();
-                } 
-                catch (IOException e) 
+                    System.out.println("// " + lines[1]); 
+                }
+                else
                 {
-                    e.printStackTrace();
+                    id = Integer.parseInt(lines[0]);
+                    name[id] = lines[1];
+                    desc[id] = lines[2];
+                    System.out.println(lines[0] + "\t" + lines[1] + "\t" + lines[2]); 
                 }
             }
-        }
 
-        System.out.println("Done");
+        } 
+        catch (FileNotFoundException e) 
+        {
+            e.printStackTrace();
+        } 
+        catch (IOException e) 
+        {
+            e.printStackTrace();
+        } 
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("--LINE SKIPPED--");
+        }
     }
 }
