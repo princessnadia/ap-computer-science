@@ -1,4 +1,4 @@
-nt,0xx = single use
+0,0xx = single use
 1,teleporter,Teleports back home,
 2,tonic,Restores 100 HP,
 3,ether,Restores 10 AP,
@@ -10,28 +10,28 @@ nt,0xx = single use
 9,energy_drink,Restores 250 AP,
 10,heal_flower,Restores all HP,
 11,coffee_jelly,Restores all MP,
-nt,1xx = neck
+0,1xx = neck
 100,neck,Starting item (No effect),
-nt,2xx = head
+0,2xx = head
 200,hair,Starting item (No effect),
-nt,3xx = ring
+0,3xx = ring
 300,finger,Starting item (No effect),
-nt,4xx = back
+0,4xx = back
 400,back,Starting item (No effect),
 401,backpack,Encumberance +100 / Defense +10,
-nt,5xx = chest
+0,5xx = chest
 500,shirt,Starting item (Defense +5),
-nt,6xx = arms
+0,6xx = arms
 600,arms,Starting item (No effect),
-nt,7xx = legs
+0,7xx = legs
 700,pants,Starting item (Defense +3),
-nt,8xx = feet
+0,8xx = feet
 800,shoes,Starting item (Defense +2),
-nt,9xx = gloves
+0,9xx = gloves
 900,hands,Starting item (No effect),
-nt,10xx = curio
+0,10xx = curio
 1000,tin_can,Starting item (No effect),
-nt,11xx = primary
+0,11xx = primary
 1100,right_hand,Starting item (Offense +3),
-nt,12xx = secondary
+0,12xx = secondary
 1200,left_hand,Starting item (Offense +3),
