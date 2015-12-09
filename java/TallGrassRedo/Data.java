@@ -67,7 +67,7 @@ public class Data
             while ((line = br.readLine()) != null) 
             {
                 lines = line.split(csvSplitBy);
-                if(lines[0].equals("nt"))
+                if(Integer.parseInt(lines[0]) = 0)
                 {
                     System.out.println("// " + lines[1]); 
                 }
