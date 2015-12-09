@@ -19,17 +19,12 @@ public class Run
         Data dat = new Data();
         System.out.print("Enter character name: ");
         name = inp.next();
-        try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".csv"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] linecm = line.split(",");
                 // System.out.println(linecm[0] + "," + linecm[1]);
-                if (Integer.parseInt(linecm[0]) != 10001) {
-                    dat.pamnt.put(Integer.parseInt(linecm[0]),Integer.parseInt(linecm[1]));
-                }
-                else {
-                    dat.pamnt.put(Integer.parseInt(linecm[0]),linecm[1]);
-                }
+                Data.amnt[Integer.parseInt(linecm[0])] = Integer.parseInt(linecm[1]);
             }
         }
         catch (FileNotFoundException e)
@@ -144,8 +139,8 @@ public class Run
                 save.write("");
                 for(int i = 1; i < 10000; i++) {
                     Object owned;
-                    if(Data1.pamnt.get(i) == null) owned = 0;
-                    else owned = Data1.pamnt.get(i);
+                    if(Data.amnt[i] == null) owned = 0;
+                    else owned = Data.amnt[i];
                     // System.out.println(i + "," + owned);
                     save.append(i + "," + (int)owned + "\n");
                 }

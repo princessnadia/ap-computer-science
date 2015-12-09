@@ -54,7 +54,7 @@ public class Data
 
     public static void printItemGrid()
     {
-        System.out.println("\fITEM LIST\nID\tNAME\tDESC\n---------------------");
+        System.out.println("\f-----ITEM LIST-----\n-------------------");
         String csvFile = "StaticItems.csv";
         BufferedReader br = null;
         String line = "";
@@ -76,7 +76,7 @@ public class Data
                     id = Integer.parseInt(lines[0]);
                     name[id] = lines[1];
                     desc[id] = lines[2];
-                    System.out.println(lines[0] + "\t" + lines[1] + "\t" + lines[2]); 
+                    System.out.println(lines[0] + ": " + lines[1] + "\n" + lines[2] + "\n-------------------"); 
                 }
             }
 
