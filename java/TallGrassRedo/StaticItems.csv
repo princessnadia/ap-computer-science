@@ -1,37 +1,24 @@
-nt,0xx = single use
-1,teleporter,Teleports back home,
-2,tonic,Restores 100 HP,
-3,ether,Restores 10 AP,
-4,pain_medicine,Restores 500 HP,
-5,granola_bar,Restores 50 AP,
-6,bandage,Restores 1000 HP,
-7,water_bottle,Restores 100 AP,
-8,wrap,Restores 2500 HP,
-9,energy_drink,Restores 250 AP,
-10,heal_flower,Restores all HP,
-11,coffee_jelly,Restores all MP,
-nt,1xx = neck
-100,neck,Starting item (No effect),
-nt,2xx = head
-200,hair,Starting item (No effect),
-nt,3xx = ring
-300,finger,Starting item (No effect),
-nt,4xx = back
-400,back,Starting item (No effect),
-401,backpack,Encumberance +100 / Defense +10,
-nt,5xx = chest
-500,shirt,Starting item (Defense +5),
-nt,6xx = arms
-600,arms,Starting item (No effect),
-nt,7xx = legs
-700,pants,Starting item (Defense +3),
-nt,8xx = feet
-800,shoes,Starting item (Defense +2),
-nt,9xx = gloves
-900,hands,Starting item (No effect),
-nt,10xx = curio
-1000,tin_can,Starting item (No effect),
-nt,11xx = primary
-1100,right_hand,Starting item (Offense +3),
-nt,12xx = secondary
-1200,left_hand,Starting item (Offense +3),
+1,teleporter,Teleports back home,1000,5,1
+2,tonic,+100 HP,50,1,10
+3,ether,+10 AP,0,0,10
+4,pain_medicine,+500 HP,0,0,10
+5,granola_bar,+50 AP,0,0,10
+6,bandage,+1000 HP,0,0,10
+7,water_bottle,+100 AP,0,0,10
+8,wrap,+2500 HP,0,0,10
+9,energy_drink,+250 AP,0,0,10
+10,heal_flower,+all HP,0,0,10
+11,coffee_jelly,+all MP,0,0,10
+100,neck,Starting item (No effect),0,0,10
+200,hair,Starting item (No effect),0,0,10
+300,finger,Starting item (No effect),0,0,10
+400,back,Starting item (No effect),0,0,10
+401,backpack,Encumberance +100 / Defense +10,0,0,10
+500,shirt,Starting item (Defense +5),0,0,10
+600,arms,Starting item (No effect),0,0,10
+700,pants,Starting item (Defense +3),0,0,10
+800,shoes,Starting item (Defense +2),0,0,10
+900,hands,Starting item (No effect),0,0,10
+1000,tin_can,Starting item (No effect),0,0,10
+1100,right_hand,Starting item (Offense +3),0,0,10
+1200,left_hand,Starting item (Offense +3),0,0,10

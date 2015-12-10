@@ -29,12 +29,11 @@ public class Run
         }
         catch (FileNotFoundException e)
         {
-            System.out.println("Starting new game!");
+            // nothing
         }
-        FileWriter save = new FileWriter("save-" + name + ".txt");
+        FileWriter save = new FileWriter("save-" + name.toLowerCase() + ".txt");
         do {
             ip = "";
-            Tile til = new Tile();
             System.out.print("> ");
             try {
                 ip = inp.nextLine();
@@ -62,7 +61,6 @@ public class Run
                         case "w": tlX--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
-                    til.tile();
                     System.out.println("(" + tlX + ", " + tlY + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
@@ -70,7 +68,7 @@ public class Run
                 break;
                 case "lookup":
                 if(ipcm.length > 1) {
-                    System.out.println(dat.getDetail(ipcm[1]));
+                    System.out.println("to be reimplemented");
                 } else {
                     System.out.println("Look which item up?");
                 }
@@ -78,7 +76,16 @@ public class Run
                 case "use":
                 if(ipcm.length > 1) 
                 {
-                    dat2.useItem(ipcm[1]);
+                    for (int i = 1; i < Data.name.length; i++)
+                    {
+                        if (ipcm[1].equals(Data.name[i]))
+                        {
+                            System.out.println("used" + ipcm[1]);
+                            Data.amnt[i]--;
+                        }
+                    }
+
+                    // to be reimplemented
                 } else {
                     System.out.println("Use what item?");
                 }
@@ -86,20 +93,18 @@ public class Run
                 case "equip":
                 if(ipcm.length > 1) 
                 {
-                    dat2.equipItem(ipcm[1]);
-                    RNG rand = new RNG((int)Data1.pamnt.get(9907),(int)Data1.pamnt.get(9908),(int)Data1.pamnt.get(9909),(int)Data1.pamnt.get(9910),(int)Data1.pamnt.get(9911),(int)Data1.pamnt.get(9912));
-                    System.out.println("OFF/DEF: " + RNG.getOff() + "/" + RNG.getDef());
+                    // to be reimplemented
                 } else {
                     System.out.println("Equip what item?");
                 }
                 break;
                 case "inv":
-                dat.getInv();
+                // to be implemented
                 break;
                 case "ctl":
                 if(ipcm.length > 1) 
                 {
-                    dat2.getCatalog(ipcm[1]);
+                    // to be implemented
                 } else {
                     System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
                 }
@@ -107,29 +112,28 @@ public class Run
                 case "drop":
                 if(ipcm.length > 1) 
                 {
-                    dat.dropItem(ipcm[1]);
+                    // to be implemented
                 } else {
                     System.out.println("Drop what item?");
                 }
                 break;
                 case "money":
-                dat.getMoney();
+                // to be implemented
                 break;         
                 case "stats":
-                RNG rand = new RNG((int)Data1.pamnt.get(9907),(int)Data1.pamnt.get(9908),(int)Data1.pamnt.get(9909),(int)Data1.pamnt.get(9910),(int)Data1.pamnt.get(9911),(int)Data1.pamnt.get(9912));
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data1.pamnt.get(9901) + 
-                    "\nHP: " + Data1.pamnt.get(9902) + "/" + Data1.pamnt.get(9903) + 
-                    "\nAP: " + Data1.pamnt.get(9904) + "/" + Data1.pamnt.get(9905) + 
-                    "\nWeight: " + Data1.getEnc() + "/" + Data1.pamnt.get(9906) + 
-                    "\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
-                    "\nlvl: " + RNG.calcLevel() +
+                    "\nPennies: " + Data.amnt[9901] + 
+                    "\nHP: " + Data.amnt[9902] + "/" + Data.amnt[9903] + 
+                    "\nAP: " + Data.amnt[9904] + "/" + Data.amnt[9905] + 
+                        // "\nWeight: " + Data.getEnc() + "/" + Data.amnt[9906] + 
+                        // "\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
+                        // "\nlvl: " + RNG.calcLevel() +
                     "\nTile: (" + tlX + ", " + tlY + ")");
                 break;
                 case "battle":
                 if(ipcm.length > 1) 
                 {
-                    til.battle(Integer.parseInt(ipcm[1]));
+                    // to be implemented
                 } else {
                     System.out.println("start a battle against?");
                 }
@@ -137,28 +141,24 @@ public class Run
                 case "quit":
                 fi = true;
                 save.write("");
-                for(int i = 1; i < 10000; i++) {
+                for(int i = 1; i < Data.name.length; i++) {
                     Object owned;
-                    if(Data.amnt[i] == null) owned = 0;
+                    if(Data.amnt[i] == 0) owned = 0;
                     else owned = Data.amnt[i];
                     // System.out.println(i + "," + owned);
                     save.append(i + "," + (int)owned + "\n");
                 }
-                save.append(10001 + "," + name + "\n");
                 save.close();
                 System.out.println("Saved and quit!");
                 break;
                 case "manual":
-                help.menu();
+                // help.menu();
                 break;
                 case "dump":
-                for(int i = 1; i < 10000; i++) {
+                for(int i = 1; i < 2000; i++) {
                     Object owned;
-                    if(Data1.pamnt.get(i) != null) 
-                    {
-                        owned = Data1.pamnt.get(i);
-                        System.out.println(i + "," + owned);
-                    }
+                    owned = Data.amnt[i];
+                    System.out.println(i + "," + owned);
                 }
                 break;
                 default:

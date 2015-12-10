@@ -23,16 +23,15 @@ public class Data
             int id;
             while ((line = br.readLine()) != null) 
             {
-                if(lines[0].equals("nt"))
-                {
-                    // do nothing
-                }
-                else
+                if(lines[0].equals("nt") != true)
                 {
                     lines = line.split(csvSplitBy);
                     id = Integer.parseInt(lines[0]);
                     name[id] = lines[1];
                     desc[id] = lines[2];
+                    valu[id] = Integer.parseInt(lines[3]);
+                    wght[id] = Integer.parseInt(lines[4]);
+                    amnt[id] = Integer.parseInt(lines[5]);
                 }
             }
 
