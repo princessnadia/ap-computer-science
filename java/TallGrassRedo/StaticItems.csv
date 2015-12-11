@@ -22,3 +22,11 @@
 1000,tin_can,Starting item (No effect),0,0,10
 1100,right_hand,Starting item (Offense +3),0,0,10
 1200,left_hand,Starting item (Offense +3),0,0,10
+1992,tlX,Tile E/W,0,0,0
+1993,tlY,Tile N/S,0,0,0
+1994,money,Money,1,0,500
+1995,hp,HP,0,0,100
+1996,maxhp,Max HP,0,0,150
+1997,ap,AP,0,0,25
+1998,maxap,Max AP,0,0,40
+1999,enc,Encumberance,0,0,200

@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.tools.*;
 public class Data
 {
     public static int[] valu = new int[2000]; 
@@ -66,7 +67,7 @@ public class Data
             while ((line = br.readLine()) != null) 
             {
                 lines = line.split(csvSplitBy);
-                if(Integer.parseInt(lines[0]) = 0)
+                if(Integer.parseInt(lines[0]) == 0)
                 {
                     System.out.println("// " + lines[1]); 
                 }
@@ -92,5 +93,10 @@ public class Data
         {
             System.out.println("--LINE SKIPPED--");
         }
+    }
+    
+    public static void useItem(String itemname)
+    {
+        Use.usethis(itemname);
     }
 }

@@ -9,7 +9,6 @@ import java.io.*;
 public class Run
 {
     public static String name;
-    public static int tlX = 0, tlY = 0, emi = 0;
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
         boolean fi = false, ipcp = false;
@@ -18,20 +17,23 @@ public class Run
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         Data dat = new Data();
         System.out.print("Enter character name: ");
-        name = inp.next();
-        try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".csv"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] linecm = line.split(",");
-                // System.out.println(linecm[0] + "," + linecm[1]);
-                Data.amnt[Integer.parseInt(linecm[0])] = Integer.parseInt(linecm[1]);
+        {
+            name = inp.next();
+            try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".csv"))) {
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] linecm = line.split(",");
+                    // System.out.println(linecm[0] + "," + linecm[1]);
+                    Data.amnt[Integer.parseInt(linecm[0])] = Integer.parseInt(linecm[1]);
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                // nothing
             }
         }
-        catch (FileNotFoundException e)
-        {
-            // nothing
-        }
-        FileWriter save = new FileWriter("save-" + name.toLowerCase() + ".txt");
+        ip = "";
+        FileWriter save = new FileWriter("save-" + name.toLowerCase() + ".csv");
         do {
             ip = "";
             System.out.print("> ");
@@ -50,18 +52,18 @@ public class Run
                 System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <disp/weap/head/body/arms/legs/feet>\nmanual (first time playing?)");
                 break;
                 case "tile":
-                System.out.println("You are standing in (" + tlX + ", " + tlY + ")");
+                System.out.println("You are standing in (" + Data.amnt[1992] + ", " + Data.amnt[1993] + ")");
                 break;
                 case "go":
                 if(ipcm.length > 1) {
                     switch (ipcm[1]) {
-                        case "n": tlY++; break;
-                        case "s": tlY--; break;
-                        case "e": tlX++; break;
-                        case "w": tlX--; break;
+                        case "n": Data.amnt[1993]++; break;
+                        case "s": Data.amnt[1993]--; break;
+                        case "e": Data.amnt[1992]++; break;
+                        case "w": Data.amnt[1992]--; break;
                         default: System.out.println("Go which way? <north, south, east, west>"); break;
                     }
-                    System.out.println("(" + tlX + ", " + tlY + ")");
+                    System.out.println("(" + Data.amnt[1992] + ", " + Data.amnt[1993] + ")");
                 } else {
                     System.out.println("Go which way? <north, south, east, west>");
                 }
@@ -76,16 +78,7 @@ public class Run
                 case "use":
                 if(ipcm.length > 1) 
                 {
-                    for (int i = 1; i < Data.name.length; i++)
-                    {
-                        if (ipcm[1].equals(Data.name[i]))
-                        {
-                            System.out.println("used" + ipcm[1]);
-                            Data.amnt[i]--;
-                        }
-                    }
-
-                    // to be reimplemented
+                    Data.useItem(ipcm[1]);
                 } else {
                     System.out.println("Use what item?");
                 }
@@ -122,13 +115,13 @@ public class Run
                 break;         
                 case "stats":
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data.amnt[9901] + 
-                    "\nHP: " + Data.amnt[9902] + "/" + Data.amnt[9903] + 
-                    "\nAP: " + Data.amnt[9904] + "/" + Data.amnt[9905] + 
-                        // "\nWeight: " + Data.getEnc() + "/" + Data.amnt[9906] + 
+                    "\nPennies: " + Data.amnt[1994] + 
+                    "\nHP: " + Data.amnt[1995] + "/" + Data.amnt[1996] + 
+                    "\nAP: " + Data.amnt[1997] + "/" + Data.amnt[1998] + 
+                    "\nWeight: " + "TBR" + "/" + Data.amnt[1999] + 
                         // "\nOFF/DEF: " + RNG.getOff() + "/" + RNG.getDef() +
                         // "\nlvl: " + RNG.calcLevel() +
-                    "\nTile: (" + tlX + ", " + tlY + ")");
+                    "\nTile: (" + Data.amnt[1992] + ", " + Data.amnt[1993] + ")");
                 break;
                 case "battle":
                 if(ipcm.length > 1) 
