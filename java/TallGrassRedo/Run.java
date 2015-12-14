@@ -70,7 +70,7 @@ public class Run
                 break;
                 case "lookup":
                 if(ipcm.length > 1) {
-                    System.out.println("to be reimplemented");
+                    System.out.println(Data.searchItem(ipcm[1]));
                 } else {
                     System.out.println("Look which item up?");
                 }

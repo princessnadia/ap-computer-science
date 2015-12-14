@@ -13,10 +13,10 @@ public class Data
     // order: ID, NAME, DESC, VALUE, WEIGHT, AMOUNT
     public Data()
     {
-        String csvFile = "StaticItems.csv";
+        String csvFile = "StaticItems.psv";
         BufferedReader br = null;
         String line = "";
-        String csvSplitBy = ",";
+        String csvSplitBy = "%";
         try 
         {
             String[] lines = line.split(csvSplitBy);
@@ -55,10 +55,10 @@ public class Data
     public static void printItemGrid()
     {
         System.out.println("\f-----ITEM LIST-----\n-------------------");
-        String csvFile = "StaticItems.csv";
+        String csvFile = "StaticItems.psv";
         BufferedReader br = null;
         String line = "";
-        String csvSplitBy = ",";
+        String csvSplitBy = "%";
         try 
         {
             String[] lines = line.split(csvSplitBy);
@@ -94,9 +94,22 @@ public class Data
             System.out.println("--LINE SKIPPED--");
         }
     }
-    
+
     public static void useItem(String itemname)
     {
         Use.usethis(itemname);
+    }
+
+    public static String searchItem(String itn)
+    {
+        int n = 0;
+        for (int i = 1; i < Data.name.length; i++)
+        {
+            if (itn.equals(Data.name[i]))
+            {
+                n = i;
+            }
+        }
+        return "\n-------------------\n" + Data.name[n] + " x" + Data.amnt[n] + "\n" + Data.desc[n] + "\n-------------------";
     }
 }

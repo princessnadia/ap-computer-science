@@ -5,4 +5,6 @@ comment1.params=
 comment1.target=void\ printItemGrid()
 comment2.params=itemname
 comment2.target=void\ useItem(java.lang.String)
-numComments=3
+comment3.params=itn
+comment3.target=java.lang.String\ searchItem(java.lang.String)
+numComments=4
