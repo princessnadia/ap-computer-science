@@ -7,8 +7,9 @@
 7%water_bottle%Restores 100 AP%0%0%3
 8%wrap%Restores 2500 HP%0%0%1
 9%energy_drink%Restores 250 AP%0%0%1
-10%heal_flower%Restores all HP%0%0%0
-11%coffee_jelly%Restores all MP%0%0%0
+10%heal_flower%Summons Panacea to restore you (Restores all HP)%0%0%0
+11%coffee_jelly%An exotic Japanese dessert (Restores all AP)%0%0%0
+99%grimoire%A magical book (Raises max HP by 1000, max AP by 100, and OFF / DEF by 25)%10000%1%1
 100%neck%Starting item (No effect)%0%0%1
 200%hair%Starting item (No effect)%0%0%1
 300%finger%Starting item (No effect)%0%0%1
@@ -21,7 +22,9 @@
 900%hands%Starting item (No effect)%0%0%1
 1000%tin_can%Starting item (No effect)%0%0%1
 1100%right_hand%Starting item (Offense +3)%0%0%1
+1199%hestia_knife%The blade of best girl (Offense +100)%50000%4%0
 1200%left_hand%Starting item (Offense +3)%0%0%1
+1299%excalibur%Yup, an offhand sword (Offense +75)%45000%27%0
 1992%tlX%Tile E/W%0%0%0
 1993%tlY%Tile N/S%0%0%0
 1994%money%Money%1%0%500

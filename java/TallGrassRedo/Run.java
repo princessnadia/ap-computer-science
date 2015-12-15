@@ -18,7 +18,7 @@ public class Run
         Data dat = new Data();
         System.out.print("Enter character name: ");
         {
-            name = inp.next();
+            name = inp.nextLine();
             try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".csv"))) {
                 String line;
                 while ((line = br.readLine()) != null) {

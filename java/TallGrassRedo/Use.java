@@ -8,7 +8,7 @@ public class Use
             {
                 if (Data.amnt[i] == 0)
                 {
-                   System.out.println("You don't have any of that item!"); 
+                   System.out.println("You have none of that item!"); 
                 }
                 else
                 {
@@ -40,7 +40,7 @@ public class Use
                         case 11:
                         break;
                         default:
-                        System.out.println("Use what item? (Equip equippables with \"equip\" ");
+                        System.out.println("Use which item? (Equip equippables with \"equip\" ");
                         break;
                     }
                 }
