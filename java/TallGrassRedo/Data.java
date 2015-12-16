@@ -52,7 +52,7 @@ public class Data
         System.out.println("Done");
     }
 
-    public static void printItemGrid()
+    public static void main(String[] args)
     {
         System.out.println("\f-----ITEM LIST-----\n-------------------");
         String csvFile = "StaticItems.psv";

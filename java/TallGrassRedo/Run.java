@@ -12,7 +12,7 @@ public class Run
     public static void main(String[] args) throws FileNotFoundException, IOException
     {
         boolean fi = false, ipcp = false;
-        String[] ipcm;
+        String[] ips;
         String ip, saveon = "";
         Scanner inp = new Scanner(System.in).useDelimiter("\\r*\\n+");
         Data dat = new Data();
@@ -22,9 +22,9 @@ public class Run
             try (BufferedReader br = new BufferedReader(new FileReader("save-" + name.toLowerCase() + ".csv"))) {
                 String line;
                 while ((line = br.readLine()) != null) {
-                    String[] linecm = line.split(",");
+                    String[] lines = line.split(",");
                     // System.out.println(linecm[0] + "," + linecm[1]);
-                    Data.amnt[Integer.parseInt(linecm[0])] = Integer.parseInt(linecm[1]);
+                    Data.amnt[Integer.parseInt(lines[0])] = Integer.parseInt(lines[1]);
                 }
             }
             catch (FileNotFoundException e)
@@ -46,8 +46,8 @@ public class Run
                 fi = true;
             }
             ip = ip.toLowerCase();
-            ipcm = ip.split("\\s+");
-            switch(ipcm[0]) {
+            ips = ip.split("\\s+");
+            switch(ips[0]) {
                 case "help":
                 System.out.println("Commands are:\ntile\ngo <n, e, w, s>\nuse <item>\nlookup <item>\ndrop <item>\nmoney\nstats\nctl <disp/weap/head/body/arms/legs/feet>\nmanual (first time playing?)");
                 break;
@@ -55,8 +55,8 @@ public class Run
                 System.out.println("You are standing in (" + Data.amnt[1992] + ", " + Data.amnt[1993] + ")");
                 break;
                 case "go":
-                if(ipcm.length > 1) {
-                    switch (ipcm[1]) {
+                if(ips.length > 1) {
+                    switch (ips[1]) {
                         case "n": Data.amnt[1993]++; break;
                         case "s": Data.amnt[1993]--; break;
                         case "e": Data.amnt[1992]++; break;
@@ -69,22 +69,22 @@ public class Run
                 }
                 break;
                 case "lookup":
-                if(ipcm.length > 1) {
-                    System.out.println(Data.searchItem(ipcm[1]));
+                if(ips.length > 1) {
+                    System.out.println(Data.searchItem(ips[1]));
                 } else {
                     System.out.println("Look which item up?");
                 }
                 break;
                 case "use":
-                if(ipcm.length > 1) 
+                if(ips.length > 1) 
                 {
-                    Data.useItem(ipcm[1]);
+                    Data.useItem(ips[1]);
                 } else {
                     System.out.println("Use what item?");
                 }
                 break;
                 case "equip":
-                if(ipcm.length > 1) 
+                if(ips.length > 1) 
                 {
                     // to be reimplemented
                 } else {
@@ -95,7 +95,7 @@ public class Run
                 // to be implemented
                 break;
                 case "ctl":
-                if(ipcm.length > 1) 
+                if(ips.length > 1) 
                 {
                     // to be implemented
                 } else {
@@ -103,7 +103,7 @@ public class Run
                 }
                 break;
                 case "drop":
-                if(ipcm.length > 1) 
+                if(ips.length > 1) 
                 {
                     // to be implemented
                 } else {
@@ -111,11 +111,11 @@ public class Run
                 }
                 break;
                 case "money":
-                // to be implemented
-                break;         
+                System.out.println("You have " + Data.amnt[1994] + " valis!");
+                break;
                 case "stats":
                 System.out.println("Name: " + name + 
-                    "\nPennies: " + Data.amnt[1994] + 
+                    "\nValis: " + Data.amnt[1994] + 
                     "\nHP: " + Data.amnt[1995] + "/" + Data.amnt[1996] + 
                     "\nAP: " + Data.amnt[1997] + "/" + Data.amnt[1998] + 
                     "\nWeight: " + "TBR" + "/" + Data.amnt[1999] + 
@@ -124,7 +124,7 @@ public class Run
                     "\nTile: (" + Data.amnt[1992] + ", " + Data.amnt[1993] + ")");
                 break;
                 case "battle":
-                if(ipcm.length > 1) 
+                if(ips.length > 1) 
                 {
                     // to be implemented
                 } else {

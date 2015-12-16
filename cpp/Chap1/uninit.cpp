@@ -4,10 +4,9 @@
 int main()
 {
     // define an integer variable named x
-    int x;
+    int x = 6;
     
     // print the value of x to the screen (dangerous, because x is uninitialized)
-    std::cout << x;
- 
+    std::cout << x << std::endl; 
     return 0;
 }
