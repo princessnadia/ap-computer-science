@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=d
+comment0.target=Rational(double)
+comment1.params=num\ denom
+comment1.target=Rational(int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
