@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class LakeLazyDays
+public class Main
 {
    public static void main (String[] args)
    {
@@ -15,7 +15,21 @@ public class LakeLazyDays
        //System.out.println("");
        //System.out.println("");
        //System.out.println("");
-       //System.out.print("> ");
+       System.out.print("> ");
        a = inp.nextInt();
-    }
+       switch(a)
+       {
+           case 1:
+               System.out.print("\nd = ");
+               double d = inp.nextDouble();
+               System.out.println("r = " + DegToRad.dtor(d));
+               break;
+           case 2:
+               System.out.print("\nr = ");
+               double r = inp.nextDouble();
+               System.out.println("d = " + RadToDeg.rtod(r));
+           default:
+               break;
+       }
+   }
 }

@@ -18,20 +18,4 @@ public class gcdmod
         count++;
         return gcd(q, p % q);
     }
-
-    public static void main(String[] args) {
-        count = 0;
-        gcd(4, 16);
-        count = 0;
-        gcd(4, 16);
-        count = 0;
-        gcd(16, 4);
-        count = 0;
-        gcd(15, 60);
-        count = 0;
-        gcd(15, 65);
-        count = 0;
-        gcd(1052, 52);
-    }
-
 }
