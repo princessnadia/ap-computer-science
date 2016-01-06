@@ -9,7 +9,7 @@ import java.io.*;
 public class Run
 {
     public static String name;
-    public static void main(String[] args) throws FileNotFoundException, IOException
+    public static void main(String[] args) throws ToBeImplementedException, FileNotFoundException, IOException
     {
         boolean fi = false, ipcp = false;
         String[] ips;
@@ -86,30 +86,33 @@ public class Run
                 case "equip":
                 if(ips.length > 1) 
                 {
-                    // to be reimplemented
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 } else {
                     System.out.println("Equip what item?");
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 }
-                break;
+                //break;
                 case "inv":
-                // to be implemented
-                break;
+                throw new ToBeImplementedException("I AM INCOMPLETE");
+                //break;
                 case "ctl":
                 if(ips.length > 1) 
                 {
-                    // to be implemented
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 } else {
                     System.out.println("Open which catalog? <disp/weap/head/body/arms/legs/feet>");
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 }
-                break;
+                //break;
                 case "drop":
                 if(ips.length > 1) 
                 {
-                    // to be implemented
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 } else {
                     System.out.println("Drop what item?");
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 }
-                break;
+                //break;
                 case "money":
                 System.out.println("You have " + Data.amnt[1994] + " valis!");
                 break;
@@ -126,11 +129,12 @@ public class Run
                 case "battle":
                 if(ips.length > 1) 
                 {
-                    // to be implemented
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 } else {
                     System.out.println("start a battle against?");
+                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 }
-                break;
+                //break;
                 case "quit":
                 fi = true;
                 save.write("");
@@ -145,8 +149,8 @@ public class Run
                 System.out.println("Saved and quit!");
                 break;
                 case "manual":
-                // help.menu();
-                break;
+                throw new ToBeImplementedException("I AM INCOMPLETE");
+                //break;
                 case "dump":
                 for(int i = 1; i < 2000; i++) {
                     Object owned;

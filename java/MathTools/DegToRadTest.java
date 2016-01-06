@@ -13,25 +13,25 @@ public class DegToRadTest
 {
     @Test(timeout=5000)
     public void test240() {
-        String result = DegToRad.dtor(240);
-        assertEquals("4.0(pi)", result);
+        double result = DegToRad.dtor(240);
+        assertEquals(1.33, result, 1e-8);
     }
     
     @Test(timeout=5000)
     public void test360() {
-        String result = DegToRad.dtor(240);
-        assertEquals("2.0(pi)", result);
+        double result = DegToRad.dtor(360);
+        assertEquals(2.00, result, 1e-8);
     }
     
     @Test(timeout=5000)
     public void test720() {
-        String result = DegToRad.dtor(720);
-        assertEquals("4.0(pi)", result);
+        double result = DegToRad.dtor(720);
+        assertEquals(4.00, result, 1e-8);
     }
     
     @Test(timeout=5000)
     public void test1000() {
-        String result = DegToRad.dtor(240);
-        assertEquals("50.0(pi)", result);
+        double result = DegToRad.dtor(1000);
+        assertEquals(5.56, result, 1e-8);
     }
 }
