@@ -1,4 +1,6 @@
 #BlueJ class context
 comment0.params=itn
 comment0.target=void\ usethis(java.lang.String)
-numComments=1
+comment1.params=itn
+comment1.target=void\ equipthis(java.lang.String)
+numComments=2

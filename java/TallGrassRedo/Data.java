@@ -95,9 +95,10 @@ public class Data
         }
     }
 
-    public static void useItem(String itemname)
+    public static void useItem(String itn,boolean eqp)
     {
-        Use.usethis(itemname);
+        if (eqp) Use.equipthis(itn);
+        else Use.usethis(itn);
     }
 
     public static String searchItem(String itn)

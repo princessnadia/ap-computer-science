@@ -1,6 +1,7 @@
 /*
  * Run.java
- * run this to start!
+ * @author marlene yuuki
+ * @version d71.01.07
  */
 
 import java.util.*;
@@ -78,7 +79,7 @@ public class Run
                 case "use":
                 if(ips.length > 1) 
                 {
-                    Data.useItem(ips[1]);
+                    Data.useItem(ips[1],false);
                 } else {
                     System.out.println("Use what item?");
                 }
@@ -86,10 +87,9 @@ public class Run
                 case "equip":
                 if(ips.length > 1) 
                 {
-                    throw new ToBeImplementedException("I AM INCOMPLETE");
+                    Data.useItem(ips[1],true);
                 } else {
                     System.out.println("Equip what item?");
-                    throw new ToBeImplementedException("I AM INCOMPLETE");
                 }
                 //break;
                 case "inv":
