@@ -1,0 +1,36 @@
+1,teleporter,Teleports back home,1000,5,1,1,0,0,0,0,0,0,0,0
+2,tonic,Restores 100 HP,50,1,10,0,100,0,0,0,0,0,0,0
+3,ether,Restores 10 AP,0,0,10,0,0,10,0,0,0,0,0,0
+4,pain_medicine,Restores 500 HP,0,0,5,0,500,0,0,0,0,0,0,0
+5,granola_bar,Restores 50 AP,0,0,5,0,0,50,0,0,0,0,0,0
+6,bandage,Restores 1000 HP,0,0,3,0,1000,0,0,0,0,0,0,0
+7,water_bottle,Restores 100 AP,0,0,3,0,0,100,0,0,0,0,0,0
+8,wrap,Restores 2500 HP,0,0,1,0,2500,0,0,0,0,0,0,0
+9,energy_drink,Restores 250 AP,0,0,1,0,0,250,0,0,0,0,0,0
+10,heal_flower,Summons Panacea to restore you (Restores all HP),0,0,0,0,2147483647,0,0,0,0,0,0,0
+11,coffee_jelly,An exotic Japanese dessert (Restores all AP),0,0,0,0,0,2147483647,0,0,0,0,0,0
+99,grimoire,A magical book (Raises max HP by 1000 | max AP by 100 | OFF / DEF by 25 | and ENC by 200),10000,1,1,0,1000,100,0,0,0,25,25,200
+100,neck,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+200,hair,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+300,finger,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+400,back,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+401,backpack,Encumberance +100 | Defense +10,0,0,1,0,0,0,0,10,100,0,0,0
+500,shirt,Starting item (Defense +5),0,0,1,0,0,0,0,0,0,0,0,0
+600,arms,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+700,pants,Starting item (Defense +3),0,0,1,0,0,0,0,3,0,0,0,0
+800,shoes,Starting item (Defense +2),0,0,1,0,0,0,0,2,0,0,0,0
+900,hands,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+1000,tin_can,Starting item (No effect),0,0,1,0,0,0,0,0,0,0,0,0
+1099,yuis_heart,A glimmering blue amulet (All stats +100),15000,1,1,0,100,100,100,100,100,0,0,0
+1100,right_hand,Starting item (Offense +3),0,0,1,0,0,0,2,0,0,0,0,0
+1199,hestia_knife,The blade of best girl (Offense +100),50000,4,0,0,0,0,100,0,0,0,0,0
+1200,left_hand,Starting item (Offense +3),0,0,1,0,0,0,3,0,0,0,0,0
+1299,excalibur,Yup |  an offhand sword (Offense +75),45000,27,0,0,0,0,75,0,0,0,0,0
+1992,tlX,Tile E/W,0,0,0,0,0,0,0,0,0,0,0,0
+1993,tlY,Tile N/S,0,0,0,0,0,0,0,0,0,0,0,0
+1994,money,Money,1,0,500,0,0,0,0,0,0,0,0,0
+1995,hp,HP,0,0,100,0,0,0,0,0,0,0,0,0
+1996,maxhp,Max HP,0,0,150,0,0,0,0,0,0,0,0,0
+1997,ap,AP,0,0,25,0,0,0,0,0,0,0,0,0
+1998,maxap,Max AP,0,0,40,0,0,0,0,0,0,0,0,0
+1999,enc,Encumberance,0,0,200,0,0,0,0,0,0,0,0,0
