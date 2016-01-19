@@ -9,25 +9,27 @@ public class TestScores7
     {
         int stn = 0, tsn = 0;
         Scanner inp = new Scanner(System.in);
-
         System.out.print("How many students? > ");
         stn = inp.nextInt();
+        Students[] st = new Students[stn];
         System.out.print("How many tests? > ");
         tsn = inp.nextInt();
-        String[] stnm = new String[stn];
-        int[][] tsnm = new int[stn][tsn];
+        inp.nextLine();
         for (int n = 0; n < stn; n++)
         {
             System.out.print("Name of student no." + n + "? > ");
-            stnm[n] = inp.next();
+            st[n] = new Students(inp.nextLine(), tsn);
         }
         for (int o = 0; o < stn; o++)
         {
             for (int p = 0; p < tsn; p++)
             {
-                System.out.print( stnm[o] + "'s score on test no. " + p + "? > ");
-                tsnm[o][p] = inp.nextInt();
+                // to be implemented
             }
+        }
+        for (int n = 0; n < stn; n++)
+        {
+            System.out.println(st[n]);
         }
     }
 }
