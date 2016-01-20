@@ -17,14 +17,15 @@ public class TestScores7
         inp.nextLine();
         for (int n = 0; n < stn; n++)
         {
-            System.out.print("Name of student no." + n + "? > ");
+            System.out.print("Name of student no." + (n + 1) + "? > ");
             st[n] = new Students(inp.nextLine(), tsn);
         }
         for (int o = 0; o < stn; o++)
         {
             for (int p = 0; p < tsn; p++)
             {
-                // to be implemented
+                System.out.print(st[o].getName() + "'s score on test no. " + (p + 1) + "? > ");
+                st[o].setScore(p, inp.nextInt());
             }
         }
         for (int n = 0; n < stn; n++)

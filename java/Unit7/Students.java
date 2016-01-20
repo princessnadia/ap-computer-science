@@ -9,15 +9,16 @@ public class Students
     {
         this.name = name;
         score = new int[tests];
-        for (int n = 0; n < score.length; n++)
-        {
-            this.setScore(n, rand.nextInt(101));
-        }
     }
     
     public void setScore(int test, int score)
     {
         this.score[test] = score;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
     
     public String toString()
