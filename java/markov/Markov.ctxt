@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment0.text=\r\n\ Main\ constructor\r\n
+comment1.params=phrase
+comment1.target=void\ addWords(java.lang.String)
+comment1.text=\r\n\ Add\ words\r\n
+comment2.params=
+comment2.target=void\ generateSentence()
+comment2.text=\r\n\ Generate\ a\ markov\ phrase\r\n
+numComments=3
