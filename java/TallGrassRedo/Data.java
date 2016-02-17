@@ -10,6 +10,15 @@ public class Data
     public static int[] amnt = new int[2000];
     public static String[] name = new String[2000];
     public static String[] desc = new String[2000];
+    public static boolean[] spec = new boolean[2000]; 
+    public static int[] hpup = new int[2000];
+    public static int[] apup = new int[2000];
+    public static int[] ofup = new int[2000];
+    public static int[] dfup = new int[2000];
+    public static int[] enup = new int[2000];
+    public static int[] ofrp = new int[2000];
+    public static int[] dfrp = new int[2000];
+    public static int[] enrp = new int[2000];
     // order: ID, NAME, DESC, VALUE, WEIGHT, AMOUNT
     public Data()
     {
@@ -33,6 +42,15 @@ public class Data
                     valu[id] = Integer.parseInt(lines[3]);
                     wght[id] = Integer.parseInt(lines[4]);
                     amnt[id] = Integer.parseInt(lines[5]);
+                    spec[id] = (Integer.parseInt(lines[6]) == 1) ? true : false;
+                    hpup[id] = Integer.parseInt(lines[7]);
+                    apup[id] = Integer.parseInt(lines[8]);
+                    ofup[id] = Integer.parseInt(lines[9]);
+                    dfup[id] = Integer.parseInt(lines[10]);
+                    enup[id] = Integer.parseInt(lines[11]);
+                    ofrp[id] = Integer.parseInt(lines[12]);
+                    dfrp[id] = Integer.parseInt(lines[13]);
+                    enrp[id] = Integer.parseInt(lines[14]);
                 }
             }
 

@@ -3,15 +3,17 @@ public class Use
     public static void usethis(String itn)
     {
         int dpl = 0;
-        for (int i = 1; i < Data.name.length; i++)
+        boolean used = false;
+        for (int i = 1; i < 100; i++)
         {
             if (itn.equals(Data.name[i]))
             {
+                used = true;
                 if (Data.amnt[i] == 0)
                 {
                    System.out.println("You have none of that item!"); 
                 }
-                else
+                else if (Data.spec[i])
                 {
                     switch(i)
                     {
@@ -21,35 +23,20 @@ public class Use
                         System.out.println("Teleported back home!");
                         dpl = 1;
                         break;
-                        case 2:
-                        break;
-                        case 3:
-                        break;
-                        case 4:
-                        break;
-                        case 5:
-                        break;
-                        case 6:
-                        break;
-                        case 7:
-                        break;
-                        case 8:
-                        break;
-                        case 9:
-                        break;
-                        case 10:
-                        break;
-                        case 11:
-                        break;
                         default:
-                        System.out.println("Use which item? (Equip equippables with \"equip\" ");
                         break;
                     }
+                }
+                else
+                {
+                    Data.amnt[1995] += Data.hpup[i];
+                    Data.amnt[1996] += Data.apup[i];
+                    Data.amnt[1997] += Data.enup[i];
                 }
             }
             if (dpl != 0) Data.amnt[i]-= dpl;
         }
-        
+        if (used) System.out.println("Use which item? (Equip equippables with \"equip\" ");
     }
     public static void equipthis(String itn)
     {
@@ -91,7 +78,7 @@ public class Use
                         case 11:
                         break;
                         default:
-                        System.out.println("Use which item? (Equip equippables with \"equip\" ");
+                        System.out.println("Use which item? (Use disposables with \"use\" ");
                         break;
                     }
                 }
