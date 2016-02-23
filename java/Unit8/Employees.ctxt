@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Employees()
+comment0.text=\r\n\ constructor\r\n
+comment1.params=name\ jobTitle\ salary
+comment1.target=void\ addEmployee(java.lang.String,\ java.lang.String,\ double)
+comment1.text=\r\n\ add\ employee\ to\ the\ mix\r\n
+comment2.params=name
+comment2.target=int\ findEmployee(java.lang.String)
+comment2.text=\r\n\ for\ name,\ \r\n
+numComments=3
