@@ -2,7 +2,7 @@
  * employee info
  * 
  * @author marlene yuuki
- * @version d71.02.23
+ * @version d71.02.25
  */
 public class SalaryInfo
 {
@@ -41,9 +41,8 @@ public class SalaryInfo
     /*
      * changes the constructed employee's job title
      */
-    public String updateJobTitle(String jobTitle)
+    public void updateJobTitle(String jobTitle)
     {
         this.jobTitle = jobTitle;
-        return jobTitle;
     }
 }
